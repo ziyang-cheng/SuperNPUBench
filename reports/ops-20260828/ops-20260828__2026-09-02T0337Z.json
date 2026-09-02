@@ -1,0 +1,2265 @@
+{
+  "tracked_release_branch": "ops-20260828",
+  "mode": "latest",
+  "generated_at": "2026-09-02T03:37Z",
+  "versions": [
+    {
+      "component": "SuperNPUBench",
+      "repo": "https://github.com/PTO-ISA/SuperNPUBench",
+      "branch": "ops-20260828",
+      "resolved_commit": "d1604cfdbd60835b751ffdc0b5b27494e3d57ce0",
+      "drift": "UNCHANGED",
+      "source": "tracked",
+      "note": ""
+    },
+    {
+      "component": "SuperScalarModel",
+      "repo": "https://github.com/LinxISA/SuperScalarModel",
+      "branch": "codex/pr-0.58.4-shared-model",
+      "resolved_commit": "762a72c34305f7f1df6964e7dfe202bd3e63a951",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "llvm-project",
+      "repo": "https://github.com/LinxISA/llvm-project",
+      "branch": "dev-llvm15_56",
+      "resolved_commit": "393c2af6286d9c801be773c0f0bed942f9f30591",
+      "drift": "FAST_FORWARD(+1)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "musl",
+      "repo": "https://github.com/LinxISA/linx-musl",
+      "branch": "linx",
+      "resolved_commit": "af0dfc2066272563fa5607cb6ae8cf974baaa415",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "jemalloc",
+      "repo": "https://github.com/LinxISA/jemalloc",
+      "branch": "linx",
+      "resolved_commit": "4495309cd11cae1a0a2d008c65acd9c410076f06",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "linux-linxisa",
+      "repo": "https://github.com/LinxISA/linux",
+      "branch": "main",
+      "resolved_commit": "1055a743f16eaebfc371e0aabec8c861ab44858f",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "Linx-TileOP-API",
+      "repo": "https://github.com/LinxISA/Linx-TileOP-API",
+      "branch": "linx",
+      "resolved_commit": "7281959cedeb93b625497166c937924938bde2b1",
+      "drift": "FAST_FORWARD(+7)",
+      "source": "state-tracked",
+      "note": ""
+    }
+  ],
+  "warnings": [],
+  "stats": {
+    "gfrun": {
+      "pass": 61,
+      "fail": 60,
+      "timeout": 0,
+      "compile_fail": 0
+    },
+    "gfsim": {
+      "pass": 21,
+      "fail": 99,
+      "timeout": 1,
+      "compile_fail": 0
+    }
+  },
+  "results": [
+    {
+      "idx": 1,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1042_1_OUT_SHAPE1042_129",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1042_1_OUT_SHAPE1042_129.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 2,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 5440,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 3,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1_1_1_65_128_OUT_SHAPE1_1_7_65_128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1_1_1_65_128_OUT_SHAPE1_1_7_65_128.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f9fb33071ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f9fb330728b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55734f1e30d5]"
+      }
+    },
+    {
+      "idx": 4,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast_vec_019__DType__half_tM8_kInner49_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast_vec_019__DType__half_tM8_kInner49_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 5,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast_vec_039__DType__half_tM8_kInner16_IN_SHAPE8192_1_16_OUT_SHAPE8192_8_16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast_vec_039__DType__half_tM8_kInner16_IN_SHAPE8192_1_16_OUT_SHAPE8192_8_16.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 19408,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 6,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast_vec_07__DType__half_tM16_IN_SHAPE1443_1_OUT_SHAPE1443_129",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast_vec_07__DType__half_tM16_IN_SHAPE1443_1_OUT_SHAPE1443_129.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:980",
+        "gfsim": "AccumulateBlockInfo.cpp:980"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 COPY expansion requires one broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:980 ｜ 条件: inst->dsts[0]->size >= validRow * physicalCol * elemBytes && broadcastShapeLegal",
+        "gfsim": "\"PTO v0.58 COPY expansion requires one broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:980 ｜ 条件: inst->dsts[0]->size >= validRow * physicalCol * elemBytes && broadcastShapeLegal"
+      }
+    },
+    {
+      "idx": 7,
+      "category": "concat",
+      "config": "kernel_concat_concat_gather_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_gather_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f64d517e1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f64d517e28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55b2661d10d5]"
+      }
+    },
+    {
+      "idx": 8,
+      "category": "concat",
+      "config": "kernel_concat_concat_gather_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_gather_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fdc1260f1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fdc1260f28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5618377eb0d5]"
+      }
+    },
+    {
+      "idx": 9,
+      "category": "concat",
+      "config": "kernel_concat_concat_scatter_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_scatter_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 10,
+      "category": "concat",
+      "config": "kernel_concat_concat_scatter_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_scatter_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f6be80a11ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f6be80a128b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55fa7569e0d5]"
+      }
+    },
+    {
+      "idx": 11,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 12,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 13,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 14,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 15,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "TMAEngine.cpp:165",
+        "gfsim": "TMAEngine.cpp:165"
+      },
+      "error": {
+        "gfrun": "\"raw tile spill source does not fit the carrier shape\" @ func RecordRawTileTransport, file SuperScalarModel/emulator/engine/TMAEngine.cpp:165 ｜ 条件: RawTileSourceFits(source, shape)",
+        "gfsim": "\"raw tile spill source does not fit the carrier shape\" @ func RecordRawTileTransport, file SuperScalarModel/emulator/engine/TMAEngine.cpp:165 ｜ 条件: RawTileSourceFits(source, shape)"
+      }
+    },
+    {
+      "idx": 16,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "TMAEngine.cpp:165",
+        "gfsim": "TMAEngine.cpp:165"
+      },
+      "error": {
+        "gfrun": "\"raw tile spill source does not fit the carrier shape\" @ func RecordRawTileTransport, file SuperScalarModel/emulator/engine/TMAEngine.cpp:165 ｜ 条件: RawTileSourceFits(source, shape)",
+        "gfsim": "\"raw tile spill source does not fit the carrier shape\" @ func RecordRawTileTransport, file SuperScalarModel/emulator/engine/TMAEngine.cpp:165 ｜ 条件: RawTileSourceFits(source, shape)"
+      }
+    },
+    {
+      "idx": 17,
+      "category": "deepseek",
+      "config": "aux_fi",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/aux_fi.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 18,
+      "category": "deepseek",
+      "config": "batched_transpose",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/batched_transpose.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 19,
+      "category": "deepseek",
+      "config": "cast_back_per_channel",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/cast_back_per_channel.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 20,
+      "category": "deepseek",
+      "config": "cast_back_per_token",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/cast_back_per_token.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:1011",
+        "gfsim": "AccumulateBlockInfo.cpp:1011"
+      },
+      "error": {
+        "gfrun": "\"PTO row expansion requires a one-column broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1011 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRow, validCol, physicalCol, validRow * physicalCol * elemBytes) && IsCompatibleDataTile(inst->srcs[2], block->dataType, validRow, 1, 1, validRo…",
+        "gfsim": "\"PTO row expansion requires a one-column broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1011 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRow, validCol, physicalCol, validRow * physicalCol * elemBytes) && IsCompatibleDataTile(inst->srcs[2], block->dataType, validRow, 1, 1, validRo…"
+      }
+    },
+    {
+      "idx": 21,
+      "category": "deepseek",
+      "config": "engram_hash_layer",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/engram_hash_layer.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fe5be1b01ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fe5be1b028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x56288cafb0d5]"
+      }
+    },
+    {
+      "idx": 22,
+      "category": "deepseek",
+      "config": "expand_to_mhc_bwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/expand_to_mhc_bwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 23,
+      "category": "deepseek",
+      "config": "expand_to_mhc_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/expand_to_mhc_fwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 24,
+      "category": "deepseek",
+      "config": "fn_normw_merge_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/fn_normw_merge_fwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 25,
+      "category": "deepseek",
+      "config": "fused_weight",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/fused_weight.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 26,
+      "category": "deepseek",
+      "config": "get_fused_mapping",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/get_fused_mapping.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f5d43b401ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f5d43b4028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55f03b3d00d5]"
+      }
+    },
+    {
+      "idx": 27,
+      "category": "deepseek",
+      "config": "group_count",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/group_count.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 28,
+      "category": "deepseek",
+      "config": "inplace_unique_group_indices",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/inplace_unique_group_indices.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:554",
+        "gfsim": "AccumulateBlockInfo.cpp:554"
+      },
+      "error": {
+        "gfrun": "\"TCMP requires two compatible Tile sources\" @ func ValidateCompareSelectTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:554 ｜ 条件: priorSources == 0 && inst->srcs.size() == 3 && inst->dsts.size() == 1 && inst->dsts[0]->size >= predicateBytes && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRow, validCol, physicalCol, dataBytes) && IsCompatibleDataTile(inst->srcs[2], block->dataType, validRow, val…",
+        "gfsim": "\"TCMP requires two compatible Tile sources\" @ func ValidateCompareSelectTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:554 ｜ 条件: priorSources == 0 && inst->srcs.size() == 3 && inst->dsts.size() == 1 && inst->dsts[0]->size >= predicateBytes && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRow, validCol, physicalCol, dataBytes) && IsCompatibleDataTile(inst->srcs[2], block->dataType, validRow, val…"
+      }
+    },
+    {
+      "idx": 29,
+      "category": "deepseek",
+      "config": "mask_indices_by_tp",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/mask_indices_by_tp.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 30,
+      "category": "deepseek",
+      "config": "multilayer_recompute",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/multilayer_recompute.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "TileLsuArg.cpp:224"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "ASSERTION FAILED: false && \"Unsupport layout\" B2 STID0 BPC 0x112dc [TMA FALL] rdy:0 TLOAD, lb0:16, lb1:16, lb2:1 FP32 DR, CUBE_M16.normal, INVALID, zero GMBase:0x16000 stride:64 -> U TileTag:0 addr:0xa0000 size:1024 ready:0 isZero: 0, func InitByMemReqBus, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/TimingSim/common/ModelCommon/TileLsuArg.cpp:224"
+      }
+    },
+    {
+      "idx": 31,
+      "category": "deepseek",
+      "config": "normalize_weight",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/normalize_weight.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:706",
+        "gfsim": "AccumulateBlockInfo.cpp:706"
+      },
+      "error": {
+        "gfrun": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…",
+        "gfsim": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…"
+      }
+    },
+    {
+      "idx": 32,
+      "category": "deepseek",
+      "config": "per_channel_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/per_channel_cast.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 33,
+      "category": "deepseek",
+      "config": "per_token_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/per_token_cast.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 34,
+      "category": "deepseek",
+      "config": "reduce_fused",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/reduce_fused.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 35,
+      "category": "deepseek",
+      "config": "rms_norm",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/rms_norm.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:706",
+        "gfsim": "AccumulateBlockInfo.cpp:706"
+      },
+      "error": {
+        "gfrun": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…",
+        "gfsim": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…"
+      }
+    },
+    {
+      "idx": 36,
+      "category": "deepseek",
+      "config": "sinkhorn_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/sinkhorn_fwd.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:706",
+        "gfsim": "AccumulateBlockInfo.cpp:706"
+      },
+      "error": {
+        "gfrun": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…",
+        "gfsim": "\"scalar numeric TEPL source dtype/shape/stride is incompatible\" @ func ValidateScalarNumericTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:706 ｜ 条件: elemBytes != 0 && validCol != 0 && validRow != 0 && physicalCol >= validCol && dstBytes != 0 && dstBytes % (physicalCol * elemBytes) == 0 && dstBytes >= validRow * physicalCol * elemBytes && IsCompatibleOperationDataTile(inst->srcs[1], block->dataType, validRow, validCol, physica…"
+      }
+    },
+    {
+      "idx": 37,
+      "category": "deepseek",
+      "config": "swiglu_forward_and_per_token_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/swiglu_forward_and_per_token_cast.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 38,
+      "category": "deepseek",
+      "config": "topk_gate",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/topk_gate.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal TCI operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal TCI operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 39,
+      "category": "element_wise",
+      "config": "kernel_element_wise_gelu_gelu_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/element_wise/gelu/elf/kernel_element_wise_gelu_gelu_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 40,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X1_Y2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X1_Y2.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 41,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X1_Y4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X1_Y4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 42,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X2_Y2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X2_Y2.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 43,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X2_Y4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq256_Skv512_Tm16_Tk32_X2_Y4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 44,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X1_Y2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X1_Y2.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 45,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X1_Y4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X1_Y4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 46,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X2_Y2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X2_Y2.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 47,
+      "category": "fa",
+      "config": "fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X2_Y4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_2d_unroll_Sq512_Skv512_Tm16_Tk32_X2_Y4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 48,
+      "category": "fa",
+      "config": "fa_HIF4_HIF4_BF16_NOGATHER_Sq256_Skv512_Tm8_Tk32_X1_Y1",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_HIF4_HIF4_BF16_NOGATHER_Sq256_Skv512_Tm8_Tk32_X1_Y1.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "TileReg.cpp:318",
+        "gfsim": "TileReg.cpp:318"
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0xc40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318",
+        "gfsim": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0xc40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318"
+      }
+    },
+    {
+      "idx": 49,
+      "category": "fa",
+      "config": "fa_softmax_pto_Sq256_Skv512_Tm16_Tk32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_softmax_pto_Sq256_Skv512_Tm16_Tk32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 50,
+      "category": "fa",
+      "config": "fa_softmax_pto_Sq512_Skv512_Tm16_Tk32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/fa_softmax_pto_Sq512_Skv512_Tm16_Tk32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 51,
+      "category": "fa",
+      "config": "sfa_Sq256_Skv512_Tm16_Tk32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/sfa_Sq256_Skv512_Tm16_Tk32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "TileReg.cpp:318",
+        "gfsim": "TileReg.cpp:318"
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0x40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318",
+        "gfsim": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0x40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318"
+      }
+    },
+    {
+      "idx": 52,
+      "category": "fa",
+      "config": "sfa_Sq512_Skv512_Tm16_Tk32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/elf/kernel_fa/sfa_Sq512_Skv512_Tm16_Tk32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "TileReg.cpp:318",
+        "gfsim": "TileReg.cpp:318"
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0x40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318",
+        "gfsim": "ASSERTION FAILED: pos + size <= maxSize_ baseAddr: 0x40000 size: 0x4 Store address is overflow!, func Store, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/TileReg.cpp:318"
+      }
+    },
+    {
+      "idx": 53,
+      "category": "flashMLA",
+      "config": "flashMLA_Sq32_QHeadPerHK1_NumBlocks1_Dk512_Dv512_DChunk128_VChunk128_Tm16_Tk16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/flashMLA/elf/kernel_flashMLA/flashMLA_Sq32_QHeadPerHK1_NumBlocks1_Dk512_Dv512_DChunk128_VChunk128_Tm16_Tk16.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 1,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 54,
+      "category": "flashMLA",
+      "config": "flashMLA_Sq64_QHeadPerHK1_NumBlocks2_Dk512_Dv512_DChunk128_VChunk128_Tm16_Tk16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/flashMLA/elf/kernel_flashMLA/flashMLA_Sq64_QHeadPerHK1_NumBlocks2_Dk512_Dv512_DChunk128_VChunk128_Tm16_Tk16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 55,
+      "category": "gather",
+      "config": "kernel_gather_gather_DType__fp32_OTypeuint32_t_gKs131072_gMs32_gNs256_tMs32_tNs64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/gather/elf/kernel_gather_gather_DType__fp32_OTypeuint32_t_gKs131072_gMs32_gNs256_tMs32_tNs64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 56,
+      "category": "matmul",
+      "config": "matmul_A16W4_B1_M256_N2048_K2048_tM16_tN16_tK128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_A16W4_B1_M256_N2048_K2048_tM16_tN16_tK128.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "CubeEngine.cpp:1124",
+        "gfsim": "CubeEngine.cpp:1124"
+      },
+      "error": {
+        "gfrun": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)",
+        "gfsim": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)"
+      }
+    },
+    {
+      "idx": 57,
+      "category": "matmul",
+      "config": "matmul_A16W4_B1_M512_N1280_K2048_tM16_tN16_tK128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_A16W4_B1_M512_N1280_K2048_tM16_tN16_tK128.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "CubeEngine.cpp:1124",
+        "gfsim": "CubeEngine.cpp:1124"
+      },
+      "error": {
+        "gfrun": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)",
+        "gfsim": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)"
+      }
+    },
+    {
+      "idx": 58,
+      "category": "matmul",
+      "config": "matmul_A16W4_B1_M512_N512_K4096_tM16_tN16_tK128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_A16W4_B1_M512_N512_K4096_tM16_tN16_tK128.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "CubeEngine.cpp:1124",
+        "gfsim": "CubeEngine.cpp:1124"
+      },
+      "error": {
+        "gfrun": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)",
+        "gfsim": "\"CUBE right descriptor must be K x N\" @ func ExecuteCUBE, file SuperScalarModel/emulator/engine/CubeEngine.cpp:1124 ｜ 条件: rightInfo->validRow == k && (!tmatmul || rightInfo->validCol == n)"
+      }
+    },
+    {
+      "idx": 59,
+      "category": "matmul",
+      "config": "matmul_GMMA_MASK_FP16_M256_N256_K256_tM16_tN16_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_GMMA_MASK_FP16_M256_N256_K256_tM16_tN16_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:306",
+        "gfsim": "Block.cpp:306"
+      },
+      "error": {
+        "gfrun": "\"CUBE local source stream does not match the current ASL contract\" @ func ValidateLocalCubeMatrixContract, file SuperScalarModel/isa/Block.cpp:306 ｜ 条件: block.srcTile.size() == expectedSources && block.dstTile.size() == expectedDestinations",
+        "gfsim": "\"CUBE local source stream does not match the current ASL contract\" @ func ValidateLocalCubeMatrixContract, file SuperScalarModel/isa/Block.cpp:306 ｜ 条件: block.srcTile.size() == expectedSources && block.dstTile.size() == expectedDestinations"
+      }
+    },
+    {
+      "idx": 60,
+      "category": "matmul",
+      "config": "matmul_HIF4_HIF4_MX_NOGATHER_B1_M256_N2048_K2048_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_HIF4_HIF4_MX_NOGATHER_B1_M256_N2048_K2048_tM32_tN32_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:178",
+        "gfsim": "AccumulateBlockInfo.cpp:178"
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: cubeStore || (block->dataType == source->tileInfo->dataType && \"typed Local TSTORE source dtype must match the block dtype\") , func ValidateLocalTlsu, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:178",
+        "gfsim": "ASSERTION FAILED: cubeStore || (block->dataType == source->tileInfo->dataType && \"typed Local TSTORE source dtype must match the block dtype\") , func ValidateLocalTlsu, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:178"
+      }
+    },
+    {
+      "idx": 61,
+      "category": "matmul",
+      "config": "matmul_HIF4_HIF4_MX_NOGATHER_B1_M512_N1280_K4096_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_HIF4_HIF4_MX_NOGATHER_B1_M512_N1280_K4096_tM32_tN32_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:178",
+        "gfsim": "AccumulateBlockInfo.cpp:178"
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: cubeStore || (block->dataType == source->tileInfo->dataType && \"typed Local TSTORE source dtype must match the block dtype\") , func ValidateLocalTlsu, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:178",
+        "gfsim": "ASSERTION FAILED: cubeStore || (block->dataType == source->tileInfo->dataType && \"typed Local TSTORE source dtype must match the block dtype\") , func ValidateLocalTlsu, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:178"
+      }
+    },
+    {
+      "idx": 62,
+      "category": "matmul",
+      "config": "matmul_HIF4_HIF4_MX_NOGATHER_REUSEA_B1_M256_N2048_K2048_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_HIF4_HIF4_MX_NOGATHER_REUSEA_B1_M256_N2048_K2048_tM32_tN32_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:1112",
+        "gfsim": "AccumulateBlockInfo.cpp:1112"
+      },
+      "error": {
+        "gfrun": "\"implicit-ACC CUBE operations must not encode an ordinary destination\" @ func AccumulateBlockInfo, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1112 ｜ 条件: inst->dsts.empty()",
+        "gfsim": "\"implicit-ACC CUBE operations must not encode an ordinary destination\" @ func AccumulateBlockInfo, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1112 ｜ 条件: inst->dsts.empty()"
+      }
+    },
+    {
+      "idx": 63,
+      "category": "matmul",
+      "config": "matmul_HIF4_HIF4_MX_NOGATHER_REUSEA_B1_M512_N1280_K4096_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_HIF4_HIF4_MX_NOGATHER_REUSEA_B1_M512_N1280_K4096_tM32_tN32_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:1112",
+        "gfsim": "AccumulateBlockInfo.cpp:1112"
+      },
+      "error": {
+        "gfrun": "\"implicit-ACC CUBE operations must not encode an ordinary destination\" @ func AccumulateBlockInfo, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1112 ｜ 条件: inst->dsts.empty()",
+        "gfsim": "\"implicit-ACC CUBE operations must not encode an ordinary destination\" @ func AccumulateBlockInfo, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1112 ｜ 条件: inst->dsts.empty()"
+      }
+    },
+    {
+      "idx": 64,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP16_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP16_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "TileLsuArg.cpp:224"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "ASSERTION FAILED: false && \"Unsupport layout\" B12 STID0 BPC 0x113c2 [TMA FALL] rdy:0 TLOAD, lb0:64, lb1:32, lb2:1 FP16 DR, CUBE_M32.normal, INVALID, zero GMBase:0x8000000 stride:512 -> U TileTag:0 addr:0xa0000 size:4096 ready:0 isZero: 0, func InitByMemReqBus, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/TimingSim/common/ModelCommon/TileLsuArg.cpp:224"
+      }
+    },
+    {
+      "idx": 65,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP16_REUSEA_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP16_REUSEA_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f57953ee1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f57953ee28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x56095e8de0d5]"
+      }
+    },
+    {
+      "idx": 66,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP16_REUSEB_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP16_REUSEB_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f50a90791ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f50a907928b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55e4e93820d5]"
+      }
+    },
+    {
+      "idx": 67,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP32_M256_N256_K256_tM32_tN32_tK32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP32_M256_N256_K256_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "TileLsuArg.cpp:224"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "ASSERTION FAILED: false && \"Unsupport layout\" B11 STID0 BPC 0x113f2 [TMA FALL] rdy:0 TLOAD, lb0:32, lb1:32, lb2:1 FP32 DR, CUBE_M32.normal, INVALID, zero GMBase:0x7fe37c8 stride:1024 -> U TileTag:0 addr:0xa0000 size:4096 ready:0 isZero: 0, func InitByMemReqBus, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/TimingSim/common/ModelCommon/TileLsuArg.cpp:224"
+      }
+    },
+    {
+      "idx": 68,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP32_REUSEA_M256_N256_K256_tM32_tN32_tK32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP32_REUSEA_M256_N256_K256_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f222b9741ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f222b97428b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55f42ac170d5]"
+      }
+    },
+    {
+      "idx": 69,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP32_REUSEB_M256_N256_K256_tM32_tN32_tK32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP32_REUSEB_M256_N256_K256_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f78bdb0d1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f78bdb0d28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55ea272fb0d5]"
+      }
+    },
+    {
+      "idx": 70,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP8_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP8_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "TileLsuArg.cpp:224"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "ASSERTION FAILED: false && \"Unsupport layout\" B12 STID0 BPC 0x113c2 [TMA FALL] rdy:0 TLOAD, lb0:64, lb1:32, lb2:1 E4M3 DR, CUBE_M32.normal, INVALID, zero GMBase:0x8012000 stride:256 -> U TileTag:0 addr:0xa0000 size:2048 ready:0 isZero: 0, func InitByMemReqBus, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/TimingSim/common/ModelCommon/TileLsuArg.cpp:224"
+      }
+    },
+    {
+      "idx": 71,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP8_REUSEA_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP8_REUSEA_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f0f56c1b1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f0f56c1b28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x56158c9f70d5]"
+      }
+    },
+    {
+      "idx": 72,
+      "category": "matmul",
+      "config": "matmul_MASK_MASK_FP8_REUSEB_M256_N256_K256_tM32_tN32_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/elf/kernel_matmul/matmul_MASK_MASK_FP8_REUSEB_M256_N256_K256_tM32_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f688596e1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f688596e28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55d24c63a0d5]"
+      }
+    },
+    {
+      "idx": 73,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_BF16_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_BF16_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f0a4996c1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f0a4996c28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55862372b0d5]"
+      }
+    },
+    {
+      "idx": 74,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP32_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP32_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7ff8a71631ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7ff8a716328b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x561be9a540d5]"
+      }
+    },
+    {
+      "idx": 75,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECBF16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fc3746881ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fc37468828b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55d0505240d5]"
+      }
+    },
+    {
+      "idx": 76,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fa14506e1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fa14506e28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5635d346e0d5]"
+      }
+    },
+    {
+      "idx": 77,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF4_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF4_VECBF16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 78,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF8_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "FloatPointUtils.cpp:1719",
+        "gfsim": "FloatPointUtils.cpp:1719"
+      },
+      "error": {
+        "gfrun": "Assertion `0 && \"convert inst error type!!\\r\\n\"' failed.",
+        "gfsim": "Assertion `0 && \"convert inst error type!!\\r\\n\"' failed. FATAL: gfsim received signal 6 /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c214)[0x5599d857a214] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7fad2be99330] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7fad2bef2b2c] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7fad2be9927e] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7fad2be7c8ff] /lib/x86_64-linux-gnu/libc.so.6(+0x2881b)[0x7fad2be7c81b] /lib/x86_64-linux-gnu/libc.so.6(+0x3b517)[0x7fad2be8f517] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x910a3b)[0x5599d8c5ea3b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x2dc8ca)[0x5599d862a8ca] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarMod"
+      }
+    },
+    {
+      "idx": 79,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP4_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP4_VECBF16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 80,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP8_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f43284e41ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f43284e428b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x559ace0b20d5]"
+      }
+    },
+    {
+      "idx": 81,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_FP8_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_FP8_VECBF16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fdc9cc211ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fdc9cc2128b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5627273140d5]"
+      }
+    },
+    {
+      "idx": 82,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_FP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_FP8_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f8c179501ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f8c1795028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x558e8a8830d5]"
+      }
+    },
+    {
+      "idx": 83,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_HIF8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD1024_vD256_X1_Y1_HIF8_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "FloatPointUtils.cpp:1719",
+        "gfsim": "FloatPointUtils.cpp:1719"
+      },
+      "error": {
+        "gfrun": "Assertion `0 && \"convert inst error type!!\\r\\n\"' failed.",
+        "gfsim": "Assertion `0 && \"convert inst error type!!\\r\\n\"' failed. FATAL: gfsim received signal 6 /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c214)[0x55974aa3a214] /lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7f4c0f0fb330] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x7f4c0f154b2c] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x7f4c0f0fb27e] /lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x7f4c0f0de8ff] /lib/x86_64-linux-gnu/libc.so.6(+0x2881b)[0x7f4c0f0de81b] /lib/x86_64-linux-gnu/libc.so.6(+0x3b517)[0x7f4c0f0f1517] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x910a3b)[0x55974b11ea3b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x2dc8ca)[0x55974aaea8ca] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarMod"
+      }
+    },
+    {
+      "idx": 84,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD2048_vD256_X1_Y1_HIF4_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD2048_vD256_X1_Y1_HIF4_VECBF16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 85,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD256_vD256_X1_Y1_FP32_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD256_vD256_X1_Y1_FP32_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fb8952b51ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fb8952b528b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55741378e0d5]"
+      }
+    },
+    {
+      "idx": 86,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD512_vD256_X1_Y1_BF16_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_qD512_vD256_X1_Y1_BF16_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f0c2cae81ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f0c2cae828b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55fe585c80d5]"
+      }
+    },
+    {
+      "idx": 87,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk64_qD1024_vD256_X1_Y1_MXFP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk64_qD1024_vD256_X1_Y1_MXFP8_VECFP32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGSEGV，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f39e10ff1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f39e10ff28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x564faf1930d5]"
+      }
+    },
+    {
+      "idx": 88,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk64_qD2048_vD256_X1_Y1_MXFP4_VECBF16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk64_qD2048_vD256_X1_Y1_MXFP4_VECBF16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1789",
+        "gfsim": "Block.cpp:1789"
+      },
+      "error": {
+        "gfrun": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1789 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 89,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 90,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64_DType__bf16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64_DType__bf16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 91,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64_DType__half",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm64_Tk64_DType__half.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 92,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_FP8_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_FP8_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 93,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_FP8_B1_M256_N256_K512_tM128_tN256_tK512",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_FP8_B1_M256_N256_K512_tM128_tN256_tK512.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fc45500b1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fc45500b28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55d0e8f810d5]"
+      }
+    },
+    {
+      "idx": 94,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_HIF4X2_B1_M256_N256_K1024_tM128_tN256_tK1024",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_HIF4X2_B1_M256_N256_K1024_tM128_tN256_tK1024.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f60781aa1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f60781aa28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5577f16ba0d5]"
+      }
+    },
+    {
+      "idx": 95,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_HIF4X2_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_HIF4X2_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1719",
+        "gfsim": "SoftCore.cpp:1719"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL input types are not in the current ASL matrix class\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1719 ｜ 条件: ((isFloatType(leftType) && isFloatType(rightType)) || (((leftType == DataType::INT16 || leftType == DataType::INT8) && (rightType == DataType::INT16 || rightType == DataType::INT8)) || ((leftType == DataType::UINT16 || leftType == DataType::UINT8) && (rightType == DataType::UINT1…",
+        "gfsim": "\"cooperative TMATMUL input types are not in the current ASL matrix class\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1719 ｜ 条件: ((isFloatType(leftType) && isFloatType(rightType)) || (((leftType == DataType::INT16 || leftType == DataType::INT8) && (rightType == DataType::INT16 || rightType == DataType::INT8)) || ((leftType == DataType::UINT16 || leftType == DataType::UINT8) && (rightType == DataType::UINT1…"
+      }
+    },
+    {
+      "idx": 96,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_HIFP8_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_HIFP8_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1716",
+        "gfsim": "SoftCore.cpp:1716"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL MX input types are not in the current ASL set\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1716 ｜ 条件: isMxInputType(leftType) && isMxInputType(rightType)",
+        "gfsim": "\"cooperative TMATMUL MX input types are not in the current ASL set\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1716 ｜ 条件: isMxInputType(leftType) && isMxInputType(rightType)"
+      }
+    },
+    {
+      "idx": 97,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_HIFP8_B1_M256_N256_K512_tM128_tN256_tK512",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_HIFP8_B1_M256_N256_K512_tM128_tN256_tK512.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f395d3d51ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f395d3d528b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5634479b10d5]"
+      }
+    },
+    {
+      "idx": 98,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_MXFP4_B1_M256_N256_K1024_tM128_tN256_tK1024",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_MXFP4_B1_M256_N256_K1024_tM128_tN256_tK1024.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7ff900ea81ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7ff900ea828b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x56167d8910d5]"
+      }
+    },
+    {
+      "idx": 99,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_MXFP4_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_MXFP4_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 100,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_MXFP8_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_MXFP8_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 101,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_lowp_MXFP8_B1_M256_N256_K512_tM128_tN256_tK512",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_MXFP8_B1_M256_N256_K512_tM128_tN256_tK512.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f54cc2201ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f54cc22028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5601419500d5]"
+      }
+    },
+    {
+      "idx": 102,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_reuseB_B1_M256_N256_K256_tM128_tN256_tK128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_reuseB_B1_M256_N256_K256_tM128_tN256_tK128.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7faea73761ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7faea737628b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x557cb59d40d5]"
+      }
+    },
+    {
+      "idx": 103,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_reuseB_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_reuseB_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 104,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK128.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fe5e5b461ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fe5e5b4628b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x559117e4f0d5]"
+      }
+    },
+    {
+      "idx": 105,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK256_DType__bf16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK256_DType__bf16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f7d7f66f1ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f7d7f66f28b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x556f840ac0d5]"
+      }
+    },
+    {
+      "idx": 106,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK256_DType__half",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK256_DType__half.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f3977b401ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f3977b4028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x55e2f54520d5]"
+      }
+    },
+    {
+      "idx": 107,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 108,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64_DType__bf16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64_DType__bf16.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 109,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64_DType__half",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN64_tK64_DType__half.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "SoftCore.cpp:1912",
+        "gfsim": "SoftCore.cpp:1912"
+      },
+      "error": {
+        "gfrun": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…",
+        "gfsim": "\"cooperative TMATMUL requires ADR-0100 group_M and per-PE M\" @ func ExecuteOrSuspendCollective, file SuperScalarModel/emulator/SoftCore.cpp:1912 ｜ 条件: powersOfTwo && dstCol >= n && (sharedLeftSubview || (leftInfo->validRow == leftPhysicalRows && leftInfo->validCol == leftPhysicalCols)) && (sharedRightSubview || rightInfo->validRow == rightPhysicalRows) && (sharedRightSubview || rightInfo->validCol == rightPhysicalCols) && leftC…"
+      }
+    },
+    {
+      "idx": 110,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_vec_Rows16_Cols16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/vec/elf/kernel_multi_thread_vec_Rows16_Cols16.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 111,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_vec_trowsum_Rows16_Cols16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/vec/elf/kernel_multi_thread_vec_trowsum_Rows16_Cols16.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 112,
+      "category": "reduction",
+      "config": "kernel_reduction_reducemax_col_reducemax_col_DTypeint32_t_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducemax_col/elf/kernel_reduction_reducemax_col_reducemax_col_DTypeint32_t_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f3691d701ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f3691d7028b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x560eca40f0d5]"
+      }
+    },
+    {
+      "idx": 113,
+      "category": "reduction",
+      "config": "kernel_reduction_reducemax_row_reducemax_row_DTypeint32_t_tM16_tN128_GM16_GN8192",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducemax_row/elf/kernel_reduction_reducemax_row_reducemax_row_DTypeint32_t_tM16_tN128_GM16_GN8192.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 114,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_col_reducesum_col_DType__half_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_col/elf/kernel_reduction_reducesum_col_reducesum_col_DType__half_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 115,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_col_reducesum_col_DTypeint32_t_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_col/elf/kernel_reduction_reducesum_col_reducesum_col_DTypeint32_t_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 116,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_row_reducesum_row_DTypefloat_tM16_tN128_GM16_GN8192",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_row/elf/kernel_reduction_reducesum_row_reducesum_row_DTypefloat_tM16_tN128_GM16_GN8192.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:743",
+        "gfsim": "AccumulateBlockInfo.cpp:743"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:743 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 117,
+      "category": "sort",
+      "config": "topk",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/sort/elf/topk.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "MInstCalculator.cpp:85",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "ASSERTION FAILED: m_handlers.find(grp) != m_handlers.cend() missing MInst handler pc=0x1328c binary=0x65c72a5 opcode=invaild group=invalid_group inst=invaild t#1, a3 -> a3, func GetHandler, file /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/isa/calculate/MInstCalculator.cpp:85",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7fae43c121ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7fae43c1228b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x563e95c590d5]"
+      }
+    },
+    {
+      "idx": 118,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1476_32_OUT32_1476",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1476_32_OUT32_1476.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "进程被信号终止（SIGABRT，疑似崩溃）；输出尾部：/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f51065d91ca] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f51065d928b] /workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x22c0d5)[0x5633cb5170d5]"
+      }
+    },
+    {
+      "idx": 119,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_32_8_32_OUT1_8_32_32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_32_8_32_OUT1_8_32_32.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 120,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_8_4096_3_OUT1_8_3_4096",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_8_4096_3_OUT1_8_3_4096.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 121,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_8_64_4_16_7_OUT1_8_16_4_64_7",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_8_64_4_16_7_OUT1_8_16_4_64_7.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 13821,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    }
+  ]
+}
