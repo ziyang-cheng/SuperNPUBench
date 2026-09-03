@@ -1,0 +1,61 @@
+{
+  "report_type": "microbench-guard",
+  "generated_at": "2026-09-03T21:33+0800",
+  "baseline": {"repo": "SuperNPUBench", "tag": "ops-20260828", "commit": "d1604cfdbd60835b751ffdc0b5b27494e3d57ce0"},
+  "harness": {"pr": 96, "path": "microbenchmark/tileop-guard", "n_cases": 126},
+  "method": "four-state precision guard (compile-fail -> run-fail -> precision-fail -> pass); host numpy golden pins pto-spec expected semantics; env_test toolchain only; toolchain fingerprint matched last sweep (incremental, no clean_all)",
+  "criteria": "PASS=golden elementwise match; precision-fail=ran to end but golden mismatch (=model-gap witness); run-fail=gfrun crash/no end marker; compile-fail=cannot assemble; run-only=no checkable output",
+  "tools": {
+    "SuperNPUBench_guard_demo": {"commit": "d1604cf", "branch": "ops-20260828 (PR #96)"},
+    "SuperScalarModel": {"commit": "762a72c", "branch": "codex/pr-0.58.4-shared-model"},
+    "Linx-TileOP-API": {"commit": "6f230c5", "branch": "linx"},
+    "llvm-project": {"commit": "25677bb", "branch": "dev-llvm15_56"},
+    "musl": {"commit": "af0dfc2", "branch": "linx"},
+    "jemalloc": {"commit": "4495309", "branch": "linx"},
+    "linux-linxisa": {"commit": "1055a74", "branch": "main"},
+    "fingerprint": {"clang++_md5": "b6201631d2fdb77c6ad541c2c769460e", "gfrun_md5": "04ca39ece7533eb35c805a4741996ebb"}
+  },
+  "by_domain": {
+    "vec":  {"pass": 35, "precision_fail": 0, "run_only": 0, "compile_fail": 0, "run_fail": 0, "total": 35},
+    "sfu":  {"pass": 45, "precision_fail": 5, "run_only": 0, "compile_fail": 1, "run_fail": 5, "total": 56},
+    "tlsu": {"pass": 6,  "precision_fail": 1, "run_only": 4, "compile_fail": 0, "run_fail": 2, "total": 13},
+    "cube": {"pass": 8,  "precision_fail": 0, "run_only": 0, "compile_fail": 1, "run_fail": 0, "total": 9},
+    "fixp": {"pass": 6,  "precision_fail": 5, "run_only": 0, "compile_fail": 0, "run_fail": 0, "total": 11},
+    "misc": {"pass": 1,  "precision_fail": 0, "run_only": 0, "compile_fail": 0, "run_fail": 1, "total": 2}
+  },
+  "summary": {"pass": 101, "precision_fail": 11, "run_only": 4, "compile_fail": 2, "run_fail": 8, "total": 126},
+  "baseline_reconciliation": {"against": "REPORT_20260903.md", "verdict": "identical case-for-case; zero regression"},
+  "precision_fail_witnesses": [
+    {"case": "tlog", "domain": "sfu", "expected": "natural log ln", "got_vs_ref": "got=2.0875(log2) vs ref=1.4469(ln)", "mismatch": "256/256", "issue": "gfrun-6"},
+    {"case": "tquant", "domain": "sfu", "expected": "clamp(round_RNE(x*mult+zp),S8) mult/zp enforced", "got_vs_ref": "got=-128 vs ref=-127", "mismatch": "2020/2048", "issue": "gfrun-5"},
+    {"case": "trowexpand", "domain": "sfu", "expected": "full col broadcast dst[r,c]=src[r,0]", "got_vs_ref": "only col0 correct", "mismatch": "240/256", "issue": "gfrun-7"},
+    {"case": "tcolexpand", "domain": "sfu", "expected": "full row broadcast dst[r,c]=src[0,c]", "got_vs_ref": "only row0 correct", "mismatch": "240/256", "issue": "gfrun-7"},
+    {"case": "tinsert", "domain": "sfu", "expected": "snapshot base + window overwrite", "got_vs_ref": "base not preserved", "mismatch": "480/512", "issue": "gfrun-8"},
+    {"case": "region_tilearray", "domain": "tlsu", "expected": "TASSEMBLY concat NF slices by col (4x32x16->32x64)", "got_vs_ref": "only slot0 correct, slot1..3 zeroed", "mismatch": "1536/2048", "issue": "gfrun-N3"},
+    {"case": "s8_scalar", "domain": "fixp", "expected": "clamp(round_S9(D*scale)+offset,S8)", "got_vs_ref": "got==offset(5), scale*D zeroed", "mismatch": "993/1024", "issue": "gfrun-N4"},
+    {"case": "scalar_generic", "domain": "fixp", "expected": "same as s8_scalar", "got_vs_ref": "got==offset(5)", "mismatch": "993/1024", "issue": "gfrun-N4"},
+    {"case": "s8_vector", "domain": "fixp", "expected": "VQF322S8Pre per-col scale", "got_vs_ref": "got==offset(5)", "mismatch": "993/1024", "issue": "gfrun-N4"},
+    {"case": "vquant_f16", "domain": "fixp", "expected": "fp16(D*scale) VQF322F16Pre", "got_vs_ref": "got==0, scale zeroed", "mismatch": "1023/1024", "issue": "gfrun-N4"},
+    {"case": "lrelu", "domain": "fixp", "expected": "pos:round_S9(D*scale)+off; neg:round_S9(D*slope)+off", "got_vs_ref": "neg branch ok, pos scale branch zeroed", "mismatch": "491/1024", "issue": "gfrun-N4"}
+  ],
+  "compile_fail": [
+    {"case": "thistogram", "domain": "sfu", "cause": "backend Match Instruction Error", "attribution": "linx toolchain"},
+    {"case": "tmatmul_bf16", "domain": "cube", "cause": "clang frontend abort (exit 134)", "attribution": "linx toolchain"}
+  ],
+  "run_fail": [
+    {"case": "textract", "domain": "sfu", "cause": "source valid-dim treated as block-dim", "golden_ready": true, "issue": "gfrun-N2"},
+    {"case": "tmrgsort", "domain": "sfu", "cause": "TMRGSORT not yet fully implemented", "golden_ready": true, "issue": "gfrun-2"},
+    {"case": "tgather", "domain": "sfu", "cause": "gfrun ASSERTION FAILED", "golden_ready": true, "issue": ""},
+    {"case": "tscatter", "domain": "sfu", "cause": "gfrun ASSERTION FAILED", "golden_ready": true, "issue": ""},
+    {"case": "timg2col", "domain": "sfu", "cause": "TIMG2COL not yet fully implemented", "golden_ready": false, "issue": "gfrun-1"},
+    {"case": "gmov", "domain": "tlsu", "cause": "GMOV src/dst descriptors must match", "golden_ready": false, "issue": ""},
+    {"case": "range_subview", "domain": "tlsu", "cause": "gfrun descriptor contract reject", "golden_ready": false, "issue": "gfrun-4"},
+    {"case": "reinterpret_tcmp", "domain": "misc", "cause": "TCMP handler rejects reinterpret view source", "golden_ready": false, "issue": "gfrun-N1"}
+  ],
+  "run_only": ["tload", "tstore", "tmov", "tprefetch"],
+  "caveats": [
+    "all 11 precision-fails are model-gap witnesses (golden pins pto-spec), not our regression",
+    "2 compile-fails + several run-fails attributed to linx toolchain/model, not demo/golden",
+    "identical to REPORT_20260903.md signed baseline; toolchain fingerprint unchanged (incremental compile safe)"
+  ]
+}
