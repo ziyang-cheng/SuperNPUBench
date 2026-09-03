@@ -1,0 +1,37 @@
+{
+  "report_type": "pr-validation",
+  "generated_at": "2026-09-03T15:23+0800",
+  "baseline": {"repo": "SuperNPUBench", "tag": "ops-20260828", "commit": "d1604cfdbd60835b751ffdc0b5b27494e3d57ce0"},
+  "inventory_source": "wangyuascend-spec/SuperScalarSkillsForOps: skills/supernpu-gfrun-accuracy/references/operators.md",
+  "method": "merge each open PR onto release tag; per-ELF gfrun+gfsim with bare-then-4PE fallback; output/ cleaned per PR",
+  "tools": {
+    "SuperScalarModel": {"commit": "762a72c34305", "branch": "codex/pr-0.58.4-shared-model"},
+    "llvm-project": {"commit": "25677bb1a6c7", "branch": "dev-llvm15_56"},
+    "Linx-TileOP-API": {"commit": "6f230c598dd6", "branch": "linx"},
+    "musl": {"commit": "af0dfc206627", "branch": "linx"},
+    "jemalloc": {"commit": "4495309cd11c", "branch": "linx"},
+    "linux-linxisa": {"commit": "1055a743f16e", "branch": "main"},
+    "built_at": "2026-09-03T06:16+0800"
+  },
+  "results": [
+    {"pr": 82, "head": "dec7e3e", "operator": "Matmul", "target": "matmul", "compile": "partial", "n_elf": 3, "gfrun_pass": 3, "gfsim_pass": 0, "note": "own matmul_test COMPILE_FAIL(7 errors); pre-existing MASK ELFs gfsim crash 'Unsupport layout' @TileLsuArg.cpp:224"},
+    {"pr": 73, "head": "52f6c29", "operator": "QuantMatmul", "target": "matmul", "compile": "partial", "n_elf": 3, "gfrun_pass": 3, "gfsim_pass": 0, "note": "MULTI_BLOCK config produced no distinct ELF; gfsim same as #82"},
+    {"pr": 84, "head": "a6582b9", "operator": "RmsNorm", "target": "normalization/rms_norm, normalization/rms_norm_binary", "compile": "ok", "n_elf": 2, "gfrun_pass": 2, "gfsim_pass": 0, "note": "gfrun PASS; gfsim signal6 abort"},
+    {"pr": 84, "head": "a6582b9", "operator": "GroupNormGrad", "target": "normalization/group_norm_grad, normalization/group_norm_grad_1d", "compile": "ok", "n_elf": 2, "gfrun_pass": 2, "gfsim_pass": 0, "note": "gfrun PASS (needs 4PE); gfsim TIMEOUT"},
+    {"pr": 79, "head": "d3af977", "operator": "GatherV2", "target": "gather_v2", "compile": "ok", "n_elf": 3, "gfrun_pass": 3, "gfsim_pass": 0, "note": "gfrun PASS (needs 4PE); gfsim FAIL"},
+    {"pr": 79, "head": "d3af977", "operator": "ViewCopy", "target": "view_copy", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "fatal error: 'view_copy/view_copy_pto.hpp' file not found"},
+    {"pr": 83, "head": "ce01230", "operator": "DynamicMxQuant", "target": "quant/dynamic_mx_quant", "compile": "ok", "n_elf": 3, "gfrun_pass": 0, "gfsim_pass": 0, "note": "nontail_cublas_fp8/tail_cublas_fp8/tail_ocp_fp4 all gfrun+gfsim FAIL"},
+    {"pr": 39, "head": "0214897", "operator": "QSMLA", "target": "fa", "compile": "partial", "n_elf": 10, "gfrun_pass": 0, "gfsim_pass": 0, "note": "some configs fail TileOP static_assert 'CUBE destination D must use CUBE_M16/M32'; built ELFs gfrun assert 'binary TEPL source dtype/shape/stride incompatible'"},
+    {"pr": 78, "head": "3ee5a75", "operator": "QLI", "target": "qli", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "hardcoded absolute incbin path /home/z00947698/.../srcsk.bin — PR bug, NOT tool-version related"},
+    {"pr": 75, "head": "5c49b7e", "operator": "Conv2dV2", "target": "conv2d", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "conv2d.cpp conv2d_1x1_tileop instantiation 5 errors"},
+    {"pr": 75, "head": "5c49b7e", "operator": "Conv2dV2", "target": "conv2d_rm", "compile": "NO_COMPILE_ALL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "no compile.all integration entry"},
+    {"pr": 74, "head": "e9193c8", "operator": "MegaMoe/DispatchCombine", "target": "mega_moe, moe_dispatch, moe_combine", "compile": "SKIPPED", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "based on post-tag kernels/ restructure (single_thread/multi_thread); cannot sit on flat release-tag baseline"}
+  ],
+  "summary": {"prs_validated": 8, "prs_skipped": 1, "gfrun_pass_total": 13, "gfsim_pass_total": 0, "pure_compile_fail": ["#79 ViewCopy", "#78 QLI", "#75 Conv2dV2"]},
+  "caveats": [
+    "#78 QLI compile fail is a PR hardcoded-path bug, not tool-version impact",
+    "4PE false-failures corrected via bare+4PE dual-config run",
+    "#74 skipped: depends on post-tag kernels/ restructure",
+    "gfsim 0-pass consistent with ~18% gfsim baseline on same env_test build; these PR kernels hit unsupported/timeout paths"
+  ]
+}
