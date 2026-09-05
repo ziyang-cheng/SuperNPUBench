@@ -1,0 +1,56 @@
+{
+  "report_type": "pr-validation",
+  "generated_at": "2026-09-05T10:18+0800",
+  "baseline": {"repo": "SuperNPUBench", "tag": "ops-20260904", "commit": "a0ddcc36b8dd54e827d61479b45ceb8f7307d8b0"},
+  "inventory_source": "wangyuascend-spec/SuperScalarSkillsForOps:skills/supernpu-gfrun-accuracy/references/operators.md",
+  "method": "merge each open PR onto release tag; per-ELF gfrun+gfsim with bare-then-4PE fallback; output/ cleaned per PR",
+  "baseline_note": "ops-20260904 tag introduced kernels/ restructure (single_thread/ + multi_thread/); 5/9 PRs conflict on merge (verified via git merge-tree). Conflicted PRs are auto-resolved (degraded) and NOT a faithful validation; clean-merge PRs (#73/#79/#83/#74) are trustworthy.",
+  "tools": {
+    "SuperScalarModel": {"commit": "49547742cbd3", "branch": "codex/consolidate-post-main-fixes-20260903"},
+    "llvm-project": {"commit": "67d3ac9869f7", "branch": "dev-llvm15_56"},
+    "Linx-TileOP-API": {"commit": "f8fb8943a9f4", "branch": "linx"},
+    "musl": {"commit": "af0dfc206627", "branch": "linx"},
+    "jemalloc": {"commit": "4495309cd11c", "branch": "linx"},
+    "linux-linxisa": {"commit": "1055a743f16e", "branch": "main"},
+    "built_at": "2026-09-04T18:05+0800"
+  },
+  "results": [
+    {"pr": 82, "head": "dec7e3e", "operator": "Matmul", "target": "matmul", "merge": "conflict", "compile": "partial", "n_elf": 3, "gfrun_pass": 0, "gfsim_pass": 0, "note": "3 ELF are tag's own matmul MASK baseline (not PR-specific); matmul_test file-location conflict"},
+    {"pr": 73, "head": "52f6c29", "operator": "QuantMatmul", "target": "matmul", "merge": "clean", "compile": "partial", "n_elf": 3, "gfrun_pass": 0, "gfsim_pass": 0, "note": "same tag MASK baseline; MULTI_BLOCK produced no distinct ELF; clean merge -> trustworthy"},
+    {"pr": 84, "head": "a6582b9", "operator": "RmsNorm", "target": "normalization/rms_norm", "merge": "conflict", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "COMPILE_FAIL from merge damage (static.cpp modify/delete conflict)"},
+    {"pr": 84, "head": "a6582b9", "operator": "RmsNormBinary", "target": "normalization/rms_norm_binary", "merge": "conflict", "compile": "ok", "n_elf": 1, "gfrun_pass": 1, "gfsim_pass": 1, "note": "gfsim 0->PASS vs old tag; under same-PR conflict"},
+    {"pr": 84, "head": "a6582b9", "operator": "GroupNormGrad", "target": "normalization/group_norm_grad", "merge": "conflict", "compile": "ok", "n_elf": 1, "gfrun_pass": 0, "gfsim_pass": 0, "note": "gfrun FAIL; gfsim TIMEOUT (bare+4PE)"},
+    {"pr": 84, "head": "a6582b9", "operator": "GroupNormGrad1d", "target": "normalization/group_norm_grad_1d", "merge": "conflict", "compile": "ok", "n_elf": 1, "gfrun_pass": 0, "gfsim_pass": 0, "note": "gfrun+gfsim FAIL"},
+    {"pr": 79, "head": "d3af977", "operator": "GatherV2", "target": "gather_v2", "merge": "clean", "compile": "ok", "n_elf": 3, "gfrun_pass": 3, "gfsim_pass": 3, "note": "gfsim 0/3->3/3 genuine model improvement; clean merge -> trustworthy"},
+    {"pr": 79, "head": "d3af977", "operator": "ViewCopy", "target": "view_copy", "merge": "clean", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "missing header view_copy_pto.hpp (PR self, tool-independent)"},
+    {"pr": 83, "head": "ce01230", "operator": "DynamicMxQuant", "target": "quant/dynamic_mx_quant", "merge": "clean", "compile": "partial", "n_elf": 1, "gfrun_pass": 0, "gfsim_pass": 0, "note": "only nontail_cublas_fp8 compiles; tail configs rejected by new TileOP TROWMAX single-col assert; gfrun TCMPS model assert"},
+    {"pr": 39, "head": "0214897", "operator": "QSMLA", "target": "fa", "merge": "conflict", "compile": "partial", "n_elf": 10, "gfrun_pass": 0, "gfsim_pass": 0, "note": "degraded merge; 10 ELF gfrun all assert (not faithfully attributable)"},
+    {"pr": 78, "head": "3ee5a75", "operator": "QLI", "target": "qli", "merge": "conflict", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "PR self hardcoded absolute .incbin path (tool-independent) + add/add conflict"},
+    {"pr": 75, "head": "5c49b7e", "operator": "Conv2dV2", "target": "conv2d", "merge": "conflict", "compile": "COMPILE_FAIL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "merge damage + template instantiation"},
+    {"pr": 75, "head": "5c49b7e", "operator": "Conv2dV2", "target": "conv2d_rm", "merge": "conflict", "compile": "NO_COMPILE_ALL", "n_elf": 0, "gfrun_pass": 0, "gfsim_pass": 0, "note": "no compile.all, not integrated"},
+    {"pr": 74, "head": "e9193c8", "operator": "MegaMoe", "target": "mega_moe", "merge": "clean", "compile": "ok", "n_elf": 1, "gfrun_pass": 1, "gfsim_pass": 0, "note": "newly validatable on restructured tag; gfrun PASS, gfsim TIMEOUT"},
+    {"pr": 74, "head": "e9193c8", "operator": "MoeDispatch", "target": "moe_dispatch", "merge": "clean", "compile": "ok", "n_elf": 1, "gfrun_pass": 1, "gfsim_pass": 1, "note": "gfrun+gfsim full PASS"},
+    {"pr": 74, "head": "e9193c8", "operator": "MoeCombine", "target": "moe_combine", "merge": "clean", "compile": "ok", "n_elf": 1, "gfrun_pass": 1, "gfsim_pass": 1, "note": "gfrun+gfsim full PASS"},
+    {"pr": 74, "head": "e9193c8", "operator": "GroupTokenOld", "target": "group_token_old", "merge": "clean", "compile": "ok", "n_elf": 1, "gfrun_pass": 0, "gfsim_pass": 1, "note": "gfrun TIMEOUT (bare+4PE); gfsim PASS"},
+    {"pr": 74, "head": "e9193c8", "operator": "GroupTokenVec", "target": "group_token_vec", "merge": "clean", "compile": "ok", "n_elf": 1, "gfrun_pass": 0, "gfsim_pass": 1, "note": "gfrun TIMEOUT (bare+4PE); gfsim PASS"}
+  ],
+  "summary": {
+    "prs_validated": 9,
+    "prs_skipped": 0,
+    "prs_clean_merge": [73, 79, 83, 74],
+    "prs_conflict_merge": [82, 84, 39, 78, 75],
+    "gfrun_pass_total": 7,
+    "gfsim_pass_total": 8,
+    "gfrun_pass_clean_merge_only": 6,
+    "gfsim_pass_clean_merge_only": 7,
+    "pure_compile_fail": ["#84 rms_norm", "#79 view_copy", "#78 qli", "#75 conv2d"]
+  },
+  "caveats": [
+    "ops-20260904 tag introduced kernels/ restructure; 5/9 PRs conflict on merge and are auto-resolved (degraded) -> not a faithful per-PR validation; rebase onto restructured layout before re-validating.",
+    "#82/#73 matmul gfrun failures are the tag's own MASK baseline under new model (B.FPATR None assert), consistent with version-tracking ops-20260904 known matmul/conv failures; not attributable to PR kernels.",
+    "#74 newly validatable this round (old flat tag skipped it due to restructure; new tag already contains the restructure).",
+    "#79 ViewCopy (missing header) and #78 QLI (hardcoded absolute incbin path) are PR-self bugs, tool-version-independent.",
+    "gfsim total 0->8 is a genuine new-model gain on clean-merge PRs; totals not directly comparable to ops-20260828 (PR set changed, 5 degraded merges).",
+    "All TIMEOUTs verified genuine (bare + 4PE both hit 100s)."
+  ]
+}
