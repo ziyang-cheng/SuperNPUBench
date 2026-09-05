@@ -1,0 +1,1429 @@
+{
+  "report_type": "microbench-guard",
+  "generated_at": "2026-09-05T08:01+0800",
+  "baseline": {
+    "repo": "SuperNPUBench",
+    "tag": "ops-20260904"
+  },
+  "harness": {
+    "path": "microbenchmark/tileop-guard",
+    "n_cases": 131
+  },
+  "method": "four-state precision guard; host numpy golden pins pto-spec; env_test toolchain (reused, not rebuilt); guard_all fingerprint-driven ELF clean_all",
+  "tools": {
+    "fingerprint": {
+      "clang++_md5": "e427d1429c0e69f6228ca850a2ff6925",
+      "gfrun_md5": "0c433cd11c00a5bae3ebf03252f6a42b"
+    },
+    "components": {
+      "SuperNPUBench": {
+        "branch": "ops-20260904",
+        "commit": "a0ddcc3"
+      },
+      "SuperScalarModel": {
+        "branch": "codex/consolidate-post-main-fixes-20260903",
+        "commit": "4954774"
+      },
+      "llvm-project": {
+        "branch": "dev-llvm15_56",
+        "commit": "67d3ac9"
+      },
+      "musl": {
+        "branch": "linx",
+        "commit": "af0dfc2"
+      },
+      "jemalloc": {
+        "branch": "linx",
+        "commit": "4495309"
+      },
+      "linux-linxisa": {
+        "branch": "main",
+        "commit": "1055a74"
+      },
+      "Linx-TileOP-API": {
+        "branch": "linx",
+        "commit": "f8fb894"
+      }
+    }
+  },
+  "by_domain": {
+    "vec": {
+      "pass": 35,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 0,
+      "total": 35
+    },
+    "sfu": {
+      "pass": 38,
+      "precision-fail": 7,
+      "run-only": 0,
+      "compile-fail": 8,
+      "run-fail": 8,
+      "total": 61
+    },
+    "tlsu": {
+      "pass": 4,
+      "precision-fail": 1,
+      "run-only": 4,
+      "compile-fail": 0,
+      "run-fail": 4,
+      "total": 13
+    },
+    "cube": {
+      "pass": 2,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 1,
+      "run-fail": 6,
+      "total": 9
+    },
+    "fixp": {
+      "pass": 2,
+      "precision-fail": 5,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 4,
+      "total": 11
+    },
+    "misc": {
+      "pass": 1,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 1,
+      "total": 2
+    }
+  },
+  "summary": {
+    "pass": 82,
+    "precision_fail": 13,
+    "run_only": 4,
+    "compile_fail": 9,
+    "run_fail": 23,
+    "total": 131
+  },
+  "regression": {
+    "verdict": "NONE",
+    "regressed": [],
+    "improved": []
+  },
+  "results": [
+    {
+      "case": "tabs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadd",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadds",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tand",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmp",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmps",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcvt",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdiv",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdivs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "texpands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tfma",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmax",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmaxs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmin",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmins",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmul",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmuls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tneg",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tnot",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trelu",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trem",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trems",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsel",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsels",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshl",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshr",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshrs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsub",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsubs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_desc",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_s16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u32",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolargmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tconcat",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdequant",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "texp",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "textract",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tfillpad",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tgpr2t",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "thistogram",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "timg2col",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tinsert",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tlog",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmrgsort",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tpartadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpartmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpartmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpartmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpermute",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tquant",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "trecip",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trowexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "trsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tshuf",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tsort",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "ttrans",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "ttri",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tunpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "gmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "mgather",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mgather_cas",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "mgather_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "range_assemble",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tload",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tprefetch",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tstore",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_bf16",
+      "domain": "cube",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "tmatmul_bias",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_f16",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_relu",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "convert",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "prelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "reinterpret_tile",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    }
+  ],
+  "precision_fail_witnesses": [
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "got": "0",
+      "ref": "15",
+      "mismatch": "16",
+      "issue": "-"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "1.2957252264022827",
+      "mismatch": "14/16",
+      "issue": "-"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.7000057697296143",
+      "mismatch": "15/16",
+      "issue": "-"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.6143242120742798",
+      "mismatch": "16/16",
+      "issue": "-"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "15.924647331237793",
+      "mismatch": "16/16",
+      "issue": "-"
+    },
+    {
+      "case": "tinsert",
+      "domain": "sfu",
+      "got": null,
+      "ref": null,
+      "mismatch": "480",
+      "issue": "gfrun-8"
+    },
+    {
+      "case": "tquant",
+      "domain": "sfu",
+      "got": "-128",
+      "ref": "-127",
+      "mismatch": "2020/2048",
+      "issue": "gfrun-5"
+    },
+    {
+      "case": "mgather_cas",
+      "domain": "tlsu",
+      "got": null,
+      "ref": null,
+      "mismatch": null,
+      "issue": "-"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "11",
+      "mismatch": "491/1024",
+      "issue": "gfrun-N4"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "issue": "gfrun-N4"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "issue": "gfrun-N4"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "issue": "gfrun-N4"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "got": "-0.0",
+      "ref": "-29.03125",
+      "mismatch": "1023/1024",
+      "issue": "gfrun-N4"
+    }
+  ],
+  "compile_fail": [
+    {
+      "case": "tgpr2t",
+      "domain": "sfu"
+    },
+    {
+      "case": "thistogram",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu"
+    },
+    {
+      "case": "tmatmul_bf16",
+      "domain": "cube"
+    }
+  ],
+  "run_fail": [
+    {
+      "case": "textract",
+      "domain": "sfu",
+      "issue": "gfrun-N2"
+    },
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "timg2col",
+      "domain": "sfu",
+      "issue": "gfrun-1"
+    },
+    {
+      "case": "tpack",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "tpermute",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "tshuf",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "tunpack",
+      "domain": "sfu",
+      "issue": "-"
+    },
+    {
+      "case": "gmov",
+      "domain": "tlsu",
+      "issue": "-"
+    },
+    {
+      "case": "range_assemble",
+      "domain": "tlsu",
+      "issue": "-"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "issue": "gfrun-4"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "issue": "gfrun-N3"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "tmatmul",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "tmatmul_bias",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "issue": "-"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "issue": "-"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "issue": "-"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "issue": "-"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "issue": "-"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "issue": "gfrun-N1"
+    }
+  ],
+  "run_only": [
+    "tload",
+    "tmov",
+    "tprefetch",
+    "tstore"
+  ]
+}
