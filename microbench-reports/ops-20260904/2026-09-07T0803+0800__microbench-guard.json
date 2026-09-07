@@ -1268,162 +1268,258 @@
   "compile_fail": [
     {
       "case": "tgpr2t",
-      "domain": "sfu"
+      "domain": "sfu",
+      "family": "新 layout 算子 demo 开发中",
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
     },
     {
       "case": "thistogram",
-      "domain": "sfu"
+      "domain": "sfu",
+      "family": "linx 后端 Match Error",
+      "cause": "linx 后端指令 Match Error",
+      "attribution": "工具链"
     },
     {
       "case": "tmatmul_bf16",
-      "domain": "cube"
+      "domain": "cube",
+      "family": "CUBE 前端 abort",
+      "cause": "clang frontend 对 bf16 matmul abort",
+      "attribution": "工具链"
     }
   ],
   "run_fail": [
     {
       "case": "textract",
       "domain": "sfu",
-      "issue": "gfrun-N2"
+      "issue": "gfrun-N2",
+      "family": "gather/extract 模型缺口(就绪 golden)",
+      "cause": "gather/extract/img2col 模型缺口,demo 已备就绪 golden,模型补齐自动升精度 check",
+      "attribution": "模型"
     },
     {
       "case": "tgather",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "gather/extract 模型缺口(就绪 golden)",
+      "cause": "gather/extract/img2col 模型缺口,demo 已备就绪 golden,模型补齐自动升精度 check",
+      "attribution": "模型"
     },
     {
       "case": "timg2col",
       "domain": "sfu",
-      "issue": "gfrun-1"
+      "issue": "gfrun-1",
+      "family": "gather/extract 模型缺口(就绪 golden)",
+      "cause": "gather/extract/img2col 模型缺口,demo 已备就绪 golden,模型补齐自动升精度 check",
+      "attribution": "模型"
     },
     {
       "case": "tpack",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "新 layout 算子 demo 开发中",
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
     },
     {
       "case": "tpermute",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "新 layout 算子 demo 开发中",
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
     },
     {
       "case": "trowargmax",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "trowargmin",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "trowmax",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "trowmin",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "trowprod",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "trowsum",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "SFU 行归约签名/模型缺口",
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
     },
     {
       "case": "tscatter",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "gather/extract 模型缺口(就绪 golden)",
+      "cause": "gather/extract/img2col 模型缺口,demo 已备就绪 golden,模型补齐自动升精度 check",
+      "attribution": "模型"
     },
     {
       "case": "tshuf",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "新 layout 算子 demo 开发中",
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
     },
     {
       "case": "tunpack",
       "domain": "sfu",
-      "issue": "-"
+      "issue": "-",
+      "family": "新 layout 算子 demo 开发中",
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
     },
     {
       "case": "gmov",
       "domain": "tlsu",
-      "issue": "-"
+      "issue": "-",
+      "family": "TLSU range/descriptor 契约",
+      "cause": "新模型 TLSU/range descriptor/region 契约变化",
+      "attribution": "模型"
     },
     {
       "case": "range_assemble",
       "domain": "tlsu",
-      "issue": "-"
+      "issue": "-",
+      "family": "TLSU range/descriptor 契约",
+      "cause": "新模型 TLSU/range descriptor/region 契约变化",
+      "attribution": "模型"
     },
     {
       "case": "range_subview",
       "domain": "tlsu",
-      "issue": "gfrun-4"
+      "issue": "gfrun-4",
+      "family": "TLSU range/descriptor 契约",
+      "cause": "新模型 TLSU/range descriptor/region 契约变化",
+      "attribution": "模型"
     },
     {
       "case": "region_tilearray",
       "domain": "tlsu",
-      "issue": "gfrun-N3"
+      "issue": "gfrun-N3",
+      "family": "TLSU range/descriptor 契约",
+      "cause": "新模型 TLSU/range descriptor/region 契约变化",
+      "attribution": "模型"
     },
     {
       "case": "tgemv",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "tmatmul",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "tmatmul_acc",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "tmatmul_bias",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "tmatmul_mx",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "tmatmul_rowmax",
       "domain": "cube",
-      "issue": "-"
+      "issue": "-",
+      "family": "CUBE 契约收紧",
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
     },
     {
       "case": "chain",
       "domain": "fixp",
-      "issue": "-"
+      "issue": "-",
+      "family": "FIXP 走 cube 通路牵连",
+      "cause": "fixpipe 经 cube 通路,受 CUBE 契约收紧牵连",
+      "attribution": "模型"
     },
     {
       "case": "cscale",
       "domain": "fixp",
-      "issue": "-"
+      "issue": "-",
+      "family": "FIXP 走 cube 通路牵连",
+      "cause": "fixpipe 经 cube 通路,受 CUBE 契约收紧牵连",
+      "attribution": "模型"
     },
     {
       "case": "group_max",
       "domain": "fixp",
-      "issue": "-"
+      "issue": "-",
+      "family": "FIXP 走 cube 通路牵连",
+      "cause": "fixpipe 经 cube 通路,受 CUBE 契约收紧牵连",
+      "attribution": "模型"
     },
     {
       "case": "rowmax_acc",
       "domain": "fixp",
-      "issue": "-"
+      "issue": "-",
+      "family": "FIXP 走 cube 通路牵连",
+      "cause": "fixpipe 经 cube 通路,受 CUBE 契约收紧牵连",
+      "attribution": "模型"
     },
     {
       "case": "reinterpret_tcmp",
       "domain": "misc",
-      "issue": "gfrun-N1"
+      "issue": "gfrun-N1",
+      "family": "视图/其它已知缺口",
+      "cause": "reinterpret 视图 TCMP 官方修复漏项等已知缺口",
+      "attribution": "模型"
     }
   ],
   "run_only": [
@@ -1431,5 +1527,165 @@
     "tmov",
     "tprefetch",
     "tstore"
+  ],
+  "fault_families": [
+    {
+      "family": "SFU 行归约签名/模型缺口",
+      "cases": [
+        "trowargmax",
+        "trowargmin",
+        "trowmax",
+        "trowmin",
+        "trowprod",
+        "trowsum"
+      ],
+      "count": 6,
+      "cause": "行归约 intrinsic 新 TileOP-API 签名漂移 + 模型行归约缺口",
+      "attribution": "工具链/模型"
+    },
+    {
+      "family": "CUBE 契约收紧",
+      "cases": [
+        "tgemv",
+        "tmatmul",
+        "tmatmul_acc",
+        "tmatmul_bias",
+        "tmatmul_mx",
+        "tmatmul_rowmax"
+      ],
+      "count": 6,
+      "cause": "新模型收紧 CUBE 契约(store layout/SizeCode/subview)",
+      "attribution": "模型"
+    },
+    {
+      "family": "CUBE 前端 abort",
+      "cases": [
+        "tmatmul_bf16"
+      ],
+      "count": 1,
+      "cause": "clang frontend 对 bf16 matmul abort",
+      "attribution": "工具链"
+    },
+    {
+      "family": "FIXP 走 cube 通路牵连",
+      "cases": [
+        "chain",
+        "cscale",
+        "group_max",
+        "rowmax_acc"
+      ],
+      "count": 4,
+      "cause": "fixpipe 经 cube 通路,受 CUBE 契约收紧牵连",
+      "attribution": "模型"
+    },
+    {
+      "family": "TLSU range/descriptor 契约",
+      "cases": [
+        "gmov",
+        "range_assemble",
+        "range_subview",
+        "region_tilearray"
+      ],
+      "count": 4,
+      "cause": "新模型 TLSU/range descriptor/region 契约变化",
+      "attribution": "模型"
+    },
+    {
+      "family": "新 layout 算子 demo 开发中",
+      "cases": [
+        "tgpr2t",
+        "tpack",
+        "tpermute",
+        "tshuf",
+        "tunpack"
+      ],
+      "count": 5,
+      "cause": "TGPR2T/TPACK/TPERMUTE/TSHUF/TUNPACK 新算子 demo 尚在开发",
+      "attribution": "demo(开发中)"
+    },
+    {
+      "family": "gather/extract 模型缺口(就绪 golden)",
+      "cases": [
+        "textract",
+        "tgather",
+        "timg2col",
+        "tscatter"
+      ],
+      "count": 4,
+      "cause": "gather/extract/img2col 模型缺口,demo 已备就绪 golden,模型补齐自动升精度 check",
+      "attribution": "模型"
+    },
+    {
+      "family": "视图/其它已知缺口",
+      "cases": [
+        "reinterpret_tcmp"
+      ],
+      "count": 1,
+      "cause": "reinterpret 视图 TCMP 官方修复漏项等已知缺口",
+      "attribution": "模型"
+    },
+    {
+      "family": "linx 后端 Match Error",
+      "cases": [
+        "thistogram"
+      ],
+      "count": 1,
+      "cause": "linx 后端指令 Match Error",
+      "attribution": "工具链"
+    }
+  ],
+  "issue_index": [
+    {
+      "issue": "gfrun-1",
+      "cases": [
+        "timg2col"
+      ]
+    },
+    {
+      "issue": "gfrun-4",
+      "cases": [
+        "range_subview"
+      ]
+    },
+    {
+      "issue": "gfrun-5",
+      "cases": [
+        "tquant"
+      ]
+    },
+    {
+      "issue": "gfrun-8",
+      "cases": [
+        "tinsert"
+      ]
+    },
+    {
+      "issue": "gfrun-N1",
+      "cases": [
+        "reinterpret_tcmp"
+      ]
+    },
+    {
+      "issue": "gfrun-N2",
+      "cases": [
+        "textract"
+      ]
+    },
+    {
+      "issue": "gfrun-N3",
+      "cases": [
+        "region_tilearray"
+      ]
+    },
+    {
+      "issue": "gfrun-N4",
+      "cases": [
+        "lrelu",
+        "s8_scalar",
+        "s8_vector",
+        "scalar_generic",
+        "vquant_f16"
+      ]
+    }
   ]
 }
