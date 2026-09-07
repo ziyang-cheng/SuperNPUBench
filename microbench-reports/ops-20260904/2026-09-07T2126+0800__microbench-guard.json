@@ -1,0 +1,1759 @@
+{
+  "report_type": "microbench-guard",
+  "generated_at": "2026-09-07T21:26+0800",
+  "baseline": {
+    "repo": "SuperNPUBench",
+    "tag": "ops-20260904"
+  },
+  "harness": {
+    "path": "microbenchmark/tileop-guard",
+    "n_cases": 116
+  },
+  "method": "four-state precision guard; host numpy golden pins pto-spec; env_test toolchain (reused, not rebuilt); guard_all fingerprint-driven ELF clean_all",
+  "tools": {
+    "fingerprint": {
+      "clang++_md5": "e427d1429c0e69f6228ca850a2ff6925",
+      "gfrun_md5": "0c433cd11c00a5bae3ebf03252f6a42b"
+    },
+    "components": {
+      "SuperNPUBench": {
+        "branch": "ops-20260904",
+        "commit": "a0ddcc3"
+      },
+      "SuperScalarModel": {
+        "branch": "codex/consolidate-post-main-fixes-20260903",
+        "commit": "4954774"
+      },
+      "llvm-project": {
+        "branch": "dev-llvm15_56",
+        "commit": "67d3ac9"
+      },
+      "musl": {
+        "branch": "linx",
+        "commit": "af0dfc2"
+      },
+      "jemalloc": {
+        "branch": "linx",
+        "commit": "4495309"
+      },
+      "linux-linxisa": {
+        "branch": "main",
+        "commit": "1055a74"
+      },
+      "Linx-TileOP-API": {
+        "branch": "linx",
+        "commit": "0566283"
+      }
+    }
+  },
+  "by_domain": {
+    "vec": {
+      "pass": 34,
+      "precision-fail": 1,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 0,
+      "total": 35
+    },
+    "sfu": {
+      "pass": 28,
+      "precision-fail": 5,
+      "run-only": 0,
+      "compile-fail": 1,
+      "run-fail": 12,
+      "total": 46
+    },
+    "tlsu": {
+      "pass": 6,
+      "precision-fail": 0,
+      "run-only": 4,
+      "compile-fail": 0,
+      "run-fail": 3,
+      "total": 13
+    },
+    "cube": {
+      "pass": 2,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 1,
+      "run-fail": 6,
+      "total": 9
+    },
+    "fixp": {
+      "pass": 2,
+      "precision-fail": 5,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 4,
+      "total": 11
+    },
+    "misc": {
+      "pass": 1,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 1,
+      "total": 2
+    }
+  },
+  "summary": {
+    "pass": 73,
+    "precision_fail": 11,
+    "run_only": 4,
+    "compile_fail": 2,
+    "run_fail": 26,
+    "total": 116
+  },
+  "regression": {
+    "verdict": "NONE",
+    "regressed": [],
+    "improved": []
+  },
+  "results": [
+    {
+      "case": "tabs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadd",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadds",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tand",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmp",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmps",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcvt",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tdiv",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdivs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "texpands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tfma",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmax",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmaxs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmin",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmins",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmul",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmuls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tneg",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tnot",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trelu",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trem",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trems",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsel",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsels",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshl",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshr",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshrs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsub",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsubs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_desc",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_s16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u32",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolargmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "texp",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tgpr2t",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "tlog",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tpermute",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trecip",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tshuf",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "ttri",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tunpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "gmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "mgather",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mgather_cas",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mgather_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "range_assemble",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tload",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tprefetch",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tstore",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_bf16",
+      "domain": "cube",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "tmatmul_bias",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_f16",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_relu",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "convert",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "prelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "reinterpret_tile",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    }
+  ],
+  "precision_fail_witnesses": [
+    {
+      "case": "tcvt",
+      "domain": "vec",
+      "got": "-126",
+      "ref": "-125",
+      "mismatch": "63/256",
+      "owner": "model",
+      "owning_asl": "TCVT.asl",
+      "first_divergence": "operand 发对(跑到底);model float→int 用 RNE,pto-spec 默认 RTZ → model 算错",
+      "evidence": "precision-fail got=-126 vs ref=-125(RTZ);已在 #560 gfrun-5(model 保留)",
+      "issue": "SSM#560",
+      "category": "model-tcvt-rtz",
+      "label": "TCVT float→int 默认应 RTZ，模型现做 RNE",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "got": "0",
+      "ref": "15",
+      "mismatch": "16",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "1.2957252264022827",
+      "mismatch": "14/16",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.7000057697296143",
+      "mismatch": "15/16",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.6143242120742798",
+      "mismatch": "16/16",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "15.924647331237793",
+      "mismatch": "16/16",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "11",
+      "mismatch": "491/1024",
+      "owner": "model",
+      "owning_asl": "Matrix pre-quant / FP19",
+      "first_divergence": "operand 发对(跑到底);model 矩阵 pre-quant 未消费 FP19 scale 乘子 → 数值错",
+      "evidence": "precision-fail;已在 #560 gfrun-4(model 保留,Matrix pre-quant 丢 FP19 scale)",
+      "issue": "SSM#560",
+      "category": "model-fp19-prequant",
+      "label": "Matrix pre-quant 丢弃 FP19 scale",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner": "model",
+      "owning_asl": "Matrix pre-quant / FP19",
+      "first_divergence": "operand 发对(跑到底);model 矩阵 pre-quant 未消费 FP19 scale 乘子 → 数值错",
+      "evidence": "precision-fail;已在 #560 gfrun-4(model 保留,Matrix pre-quant 丢 FP19 scale)",
+      "issue": "SSM#560",
+      "category": "model-fp19-prequant",
+      "label": "Matrix pre-quant 丢弃 FP19 scale",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner": "model",
+      "owning_asl": "Matrix pre-quant / FP19",
+      "first_divergence": "operand 发对(跑到底);model 矩阵 pre-quant 未消费 FP19 scale 乘子 → 数值错",
+      "evidence": "precision-fail;已在 #560 gfrun-4(model 保留,Matrix pre-quant 丢 FP19 scale)",
+      "issue": "SSM#560",
+      "category": "model-fp19-prequant",
+      "label": "Matrix pre-quant 丢弃 FP19 scale",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner": "model",
+      "owning_asl": "Matrix pre-quant / FP19",
+      "first_divergence": "operand 发对(跑到底);model 矩阵 pre-quant 未消费 FP19 scale 乘子 → 数值错",
+      "evidence": "precision-fail;已在 #560 gfrun-4(model 保留,Matrix pre-quant 丢 FP19 scale)",
+      "issue": "SSM#560",
+      "category": "model-fp19-prequant",
+      "label": "Matrix pre-quant 丢弃 FP19 scale",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "got": "-0.0",
+      "ref": "-29.03125",
+      "mismatch": "1023/1024",
+      "owner": "model",
+      "owning_asl": "Matrix pre-quant / FP19",
+      "first_divergence": "operand 发对(跑到底);model 矩阵 pre-quant 未消费 FP19 scale 乘子 → 数值错",
+      "evidence": "precision-fail;已在 #560 gfrun-4(model 保留,Matrix pre-quant 丢 FP19 scale)",
+      "issue": "SSM#560",
+      "category": "model-fp19-prequant",
+      "label": "Matrix pre-quant 丢弃 FP19 scale",
+      "source": "验证",
+      "confidence": "verified"
+    }
+  ],
+  "compile_fail": [
+    {
+      "case": "tgpr2t",
+      "domain": "sfu",
+      "captured_error": "/workspace/cheng-ziyang2/SuperNPU/env_test/linx-toolchain-build/output/linx_blockisa_llvm_musl/lib/clang/15.0.4/include/tileop-api/jcore/template_asm.hpp:11077:8: error: Match Instruction Error!",
+      "owner": "llvm",
+      "owning_asl": "-(汇编器缺 pattern)",
+      "first_divergence": "op 在 spec catalog active,集成汇编器无法匹配 TileOP-API asm 模板 → 后端/汇编器缺 pattern",
+      "evidence": "ERRSIG 'template_asm.hpp:...: Match Instruction Error!';TGPR2T catalog active。已在 llvm #87",
+      "issue": "llvm#87",
+      "category": "llvm-match-instr",
+      "label": "TGPR2T 汇编器 Match Instruction Error",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul_bf16",
+      "domain": "cube",
+      "captured_error": "#8 0x00007f0976f368ff abort ./stdlib/abort.c:81:7",
+      "owner": "llvm",
+      "owning_asl": "-(前端崩溃)",
+      "first_divergence": "clang frontend abort,编译期崩,非缺 pattern、非 header 非法 asm",
+      "evidence": "ERRSIG 'abort ./stdlib/abort.c:81'(clang-15 frontend command failed exit 134)。【新,#87 仅含 tgpr2t】",
+      "issue": "-",
+      "category": "llvm-clang-abort",
+      "label": "bf16 matmul clang frontend abort（前端崩溃）",
+      "source": "验证",
+      "confidence": "verified"
+    }
+  ],
+  "run_fail": [
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: false",
+      "owner": "model",
+      "owning_asl": "TGATHER/TSCATTER(SFU)",
+      "first_divergence": "header 发得合规(跑到 model handler),model 到 assert(false) 未实现桩 → model 未实现 gather/scatter",
+      "evidence": "ERRSIG[2×] 'ASSERTION FAILED: false';demo 已备就绪 golden。【新,未入现有 issue】",
+      "issue": "-",
+      "category": "model-gather-scatter",
+      "label": "gather/scatter 未实现桩（assert false）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tpack",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction at 0x0: reserved/deleted tile selector",
+      "owner": "model",
+      "owning_asl": "spec catalog tile-operations.json(active)",
+      "first_divergence": "op 在 spec catalog 为 accepted-direct-operation(active),但 model 解码器把其选择码判 reserved/deleted(TINVALID) → model 解码器未跟进 spec 0.58.6",
+      "evidence": "ERRSIG[4×] 'reserved/deleted tile selector';catalog 核实 TPACK/TPERMUTE/TSHUF/TUNPACK 均 active。已在 #560 gfrun-3(model 保留)。前提:发射选择码==spec(否则转 API)",
+      "issue": "SSM#560",
+      "category": "model-reserved-selector",
+      "label": "reserved/deleted 选择码：TPACK/TPERMUTE/TSHUF/TUNPACK（解码器未跟进 catalog active）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tpermute",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction at 0x0: reserved/deleted tile selector",
+      "owner": "model",
+      "owning_asl": "spec catalog tile-operations.json(active)",
+      "first_divergence": "op 在 spec catalog 为 accepted-direct-operation(active),但 model 解码器把其选择码判 reserved/deleted(TINVALID) → model 解码器未跟进 spec 0.58.6",
+      "evidence": "ERRSIG[4×] 'reserved/deleted tile selector';catalog 核实 TPACK/TPERMUTE/TSHUF/TUNPACK 均 active。已在 #560 gfrun-3(model 保留)。前提:发射选择码==spec(否则转 API)",
+      "issue": "SSM#560",
+      "category": "model-reserved-selector",
+      "label": "reserved/deleted 选择码：TPACK/TPERMUTE/TSHUF/TUNPACK（解码器未跟进 catalog active）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner": "API",
+      "owning_asl": "TROWMAX.asl/TCOLMAX.asl(行列归约 B.DIM)",
+      "first_divergence": "header 发 B.DIM 错用 destination 几何(ValidCol=1)而非 source 几何;spec(TROWMAX.asl)要 B.DIM=源几何。row 轴崩溃(legality)、column 轴不崩但静默错算(precision-fail)——同一 header B.DIM 错误的两种表现",
+      "evidence": "ERRSIG[6× row] 'validCol!=0 && ... physicalCol>=validCol ...';tcol* 为 precision-fail(数值静默错)。反汇编行归约确认 header 发 dst 维;zhoubot #63(权威,依 pto-spec)明确 row 崩溃+column 静默错算同归 API B.DIM。建议反汇编一个 tcol 的 B.DIM 终证 column 轴",
+      "issue": "TileOP-API#63",
+      "category": "api-reduction-bdim",
+      "label": "reduction B.DIM 错用 destination 几何（行崩溃/列静默错算）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: false",
+      "owner": "model",
+      "owning_asl": "TGATHER/TSCATTER(SFU)",
+      "first_divergence": "header 发得合规(跑到 model handler),model 到 assert(false) 未实现桩 → model 未实现 gather/scatter",
+      "evidence": "ERRSIG[2×] 'ASSERTION FAILED: false';demo 已备就绪 golden。【新,未入现有 issue】",
+      "issue": "-",
+      "category": "model-gather-scatter",
+      "label": "gather/scatter 未实现桩（assert false）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tshuf",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction at 0x0: reserved/deleted tile selector",
+      "owner": "model",
+      "owning_asl": "spec catalog tile-operations.json(active)",
+      "first_divergence": "op 在 spec catalog 为 accepted-direct-operation(active),但 model 解码器把其选择码判 reserved/deleted(TINVALID) → model 解码器未跟进 spec 0.58.6",
+      "evidence": "ERRSIG[4×] 'reserved/deleted tile selector';catalog 核实 TPACK/TPERMUTE/TSHUF/TUNPACK 均 active。已在 #560 gfrun-3(model 保留)。前提:发射选择码==spec(否则转 API)",
+      "issue": "SSM#560",
+      "category": "model-reserved-selector",
+      "label": "reserved/deleted 选择码：TPACK/TPERMUTE/TSHUF/TUNPACK（解码器未跟进 catalog active）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tunpack",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction at 0x0: reserved/deleted tile selector",
+      "owner": "model",
+      "owning_asl": "spec catalog tile-operations.json(active)",
+      "first_divergence": "op 在 spec catalog 为 accepted-direct-operation(active),但 model 解码器把其选择码判 reserved/deleted(TINVALID) → model 解码器未跟进 spec 0.58.6",
+      "evidence": "ERRSIG[4×] 'reserved/deleted tile selector';catalog 核实 TPACK/TPERMUTE/TSHUF/TUNPACK 均 active。已在 #560 gfrun-3(model 保留)。前提:发射选择码==spec(否则转 API)",
+      "issue": "SSM#560",
+      "category": "model-reserved-selector",
+      "label": "reserved/deleted 选择码：TPACK/TPERMUTE/TSHUF/TUNPACK（解码器未跟进 catalog active）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "gmov",
+      "domain": "tlsu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: sourceOperand->size == destinationOperand->size && sourceOperand->tileInfo && destinationOperand->tileInfo && sourceOperand->tileInfo->dataType == destinationOperand->tileInf",
+      "owner": "model",
+      "owning_asl": "GMOV.asl",
+      "first_divergence": "header 发 spec-legal move bundle(BSTART.GMOV; B.IOT src→dst; 无 B.DIM,符合 GMOV.asl block);model ExecuteTMA(TMAEngine.cpp:965)未按 move 语义令 dst 继承 src 几何却断言 src==dst 全等",
+      "evidence": "反汇编:GMOV bundle 无 B.DIM、src/dst 均 t<8KB> 同容量;demo tA/tC 同 vtile_t<float,8,256>;GMOV.asl block 无 B.DIM、'dest TSize equals source per-PE capacity'。【新】",
+      "issue": "-",
+      "category": "model-gmov-descriptor",
+      "label": "GMOV 未按 move 语义令 dst 继承 src 几何",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "captured_error": "gfrun: illegal instruction at 0x0: illegal TSTORE operand or descriptor contract",
+      "owner": "待定位",
+      "owning_asl": "-",
+      "first_divergence": "未入 fault-attribution.json,待按判据反汇编核实",
+      "evidence": "-",
+      "issue": "-",
+      "category": "-",
+      "label": "-",
+      "source": "待定位",
+      "confidence": "-"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "captured_error": "gfrun: illegal B.ASSEMBLE generation or descriptor contract",
+      "owner": "待定位",
+      "owning_asl": "-",
+      "first_divergence": "未入 fault-attribution.json,待按判据反汇编核实",
+      "evidence": "-",
+      "issue": "-",
+      "category": "-",
+      "label": "-",
+      "source": "待定位",
+      "confidence": "-"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul_bias",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner": "API",
+      "owning_asl": "B.FPATR.asl",
+      "first_divergence": "header 发 B.DATR RMode=RNE 且 PreQuant=0;spec 要 FPATR=None 时 RMode=NONE 且 Sat=0",
+      "evidence": "ERRSIG[10×] 'B.FPATR None requires B.DATR RMode=NONE and Sat=0'(AccumulateBlockInfo:1109);cube-matmul 全族 + FIXP 走 cube 通路共享硬编码 RMode=RNE。zhoubot #560 重分类亦判 API #62",
+      "issue": "TileOP-API#62",
+      "category": "api-bfpatr-rmode",
+      "label": "B.FPATR None 路径固定发 RNE（矩阵/FIXP-cube 全族）",
+      "source": "验证",
+      "confidence": "verified"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: priorSources == 0 && inst->srcs.size() == 3 && inst->dsts.size() == 1 && inst->dsts[0]->size >= predicateBytes && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRo",
+      "owner": "model",
+      "owning_asl": "TCMP/TSEL predicate",
+      "first_divergence": "header 发合规(reinterpret 视图 + TCMP 三源);model TCMP handler 拒 view-reinterpreted 源(官方 TCMP 修复漏视图)",
+      "evidence": "ERRSIG 'priorSources==0 && inst->srcs.size()==3 && ... predicate'。【新,未入现有 issue】",
+      "issue": "-",
+      "category": "model-tcmp-view",
+      "label": "TCMP 拒 reinterpret 视图源（官方修复漏视图）",
+      "source": "验证",
+      "confidence": "verified"
+    }
+  ],
+  "run_only": [
+    "tload",
+    "tmov",
+    "tprefetch",
+    "tstore"
+  ],
+  "owner_summary": [
+    {
+      "owner": "API",
+      "cases": [
+        "trowargmax",
+        "trowargmin",
+        "trowmax",
+        "trowmin",
+        "trowprod",
+        "trowsum",
+        "tgemv",
+        "tmatmul",
+        "tmatmul_acc",
+        "tmatmul_bias",
+        "tmatmul_mx",
+        "tmatmul_rowmax",
+        "chain",
+        "cscale",
+        "group_max",
+        "rowmax_acc",
+        "tcolargmax",
+        "tcolmax",
+        "tcolmin",
+        "tcolprod",
+        "tcolsum"
+      ],
+      "count": 21
+    },
+    {
+      "owner": "llvm",
+      "cases": [
+        "tgpr2t",
+        "tmatmul_bf16"
+      ],
+      "count": 2
+    },
+    {
+      "owner": "model",
+      "cases": [
+        "tgather",
+        "tpack",
+        "tpermute",
+        "tscatter",
+        "tshuf",
+        "tunpack",
+        "gmov",
+        "reinterpret_tcmp",
+        "tcvt",
+        "lrelu",
+        "s8_scalar",
+        "s8_vector",
+        "scalar_generic",
+        "vquant_f16"
+      ],
+      "count": 14
+    },
+    {
+      "owner": "待定位",
+      "cases": [
+        "range_subview",
+        "region_tilearray"
+      ],
+      "count": 2
+    }
+  ],
+  "issue_index": [
+    {
+      "issue": "SSM#560",
+      "cases": [
+        "tcvt",
+        "lrelu",
+        "s8_scalar",
+        "s8_vector",
+        "scalar_generic",
+        "vquant_f16",
+        "tpack",
+        "tpermute",
+        "tshuf",
+        "tunpack"
+      ]
+    },
+    {
+      "issue": "TileOP-API#62",
+      "cases": [
+        "tgemv",
+        "tmatmul",
+        "tmatmul_acc",
+        "tmatmul_bias",
+        "tmatmul_mx",
+        "tmatmul_rowmax",
+        "chain",
+        "cscale",
+        "group_max",
+        "rowmax_acc"
+      ]
+    },
+    {
+      "issue": "TileOP-API#63",
+      "cases": [
+        "tcolargmax",
+        "tcolmax",
+        "tcolmin",
+        "tcolprod",
+        "tcolsum",
+        "trowargmax",
+        "trowargmin",
+        "trowmax",
+        "trowmin",
+        "trowprod",
+        "trowsum"
+      ]
+    },
+    {
+      "issue": "gfrun-4",
+      "cases": [
+        "range_subview"
+      ]
+    },
+    {
+      "issue": "gfrun-N1",
+      "cases": [
+        "reinterpret_tcmp"
+      ]
+    },
+    {
+      "issue": "gfrun-N3",
+      "cases": [
+        "region_tilearray"
+      ]
+    },
+    {
+      "issue": "llvm#87",
+      "cases": [
+        "tgpr2t"
+      ]
+    }
+  ]
+}
