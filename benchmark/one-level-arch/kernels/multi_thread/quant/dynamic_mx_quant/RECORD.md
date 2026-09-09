@@ -1890,3 +1890,40 @@ TileOP 对 TCOLSUM/MAX/MIN/PROD/ARGMAX/ARGMIN 六 op 做与 PR#69 对称的 **so
 复现 issue（多行 source 逐元素 golden + bisect + 行/列不对称机制）见 `ISSUE_tileop_column_reduction_dest_geometry.md`（对应 **Linx-TileOP-API #63**，官方 OPEN column remainder；关联 SuperScalarModel #560）。
 
 > **注（B③ / 问题14）**：TCMP/TCMPS/TSEL compare-select 源 dtype 位宽匹配已在**问题14**跟踪【pto-spec #256 裁决】，本地 model 补丁 `71dfae6c`（发 TCMPS 的 6 个 dmxq 依赖），上游唯一未合入项。
+
+## 问题30：gfsim 时序模型把 TROWEXPAND 广播源限制为「单个 128B CELL」，与 pto-spec 冲突（需 gfsim 侧解决）【SuperScalarModel #605·未修】
+
+- **归属**：SuperScalarModel（gfsim 时序模型）。**非 kernel/工具链问题**——编译 + gfrun 功能均正常，仅 gfsim abort。
+- **复现入口**：全部尾轴 dmxq（`TROWEXPANDMUL` 广播每行 recip）：`tail_ocp_fp8`/`tail_ocp_fp4`/`tail_cublas_fp8_4pe`。
+
+### 现象
+
+gfsim 默认(hosted)模式跑尾轴 kernel abort（rc=134）：
+```
+[gfsim] ASSERTION FAILED: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY
+  && "TROWEXPAND broadcast source must fit one 128B CELL"
+, func ValidateRowExpandContract, file TimingSim/pe/vec/VecTop.cpp:1601
+```
+反汇编铁证：`BSTART.TEPL TROWEXPANDMUL, FP32` + `C.B.DIMI 64 ->lb1` → gfsim `broadcastBytes = lb1(64) × 4(FP32) = 256B > 128B(VEC_CELL_GRANULARITY)`。广播源 `[TileM=64, 1]` fp32=256B 跨 2 个 CELL。
+
+### 根因（对照 pto-spec `dea0b75e`）
+
+pto-spec 对 TROWEXPAND 广播源**只约束形状、无字节/CELL 尺寸上限**：`reduction-and-expansion.asl:224-230` / `expansion-schema.asl:84-92` 仅要求行扩展 `broadcast.valid_columns==1 && valid_rows==dest.valid_rows`；`B.IOT` SizeCode 允许 128B..64KB tile。故广播源 256B 合法，gfsim 的「≤1 个 128B CELL」是时序模型自造的过严约束。
+
+### 定位（隔离，纯 gfsim）
+
+同 gfsim/kernel，仅换 TileOP 头：`804eb03` 与 `b8669ce` 都触发同一断言（都发 `lb1=64`）→ 与工具链无关（非 #63/#100）。gfrun 同 ELF 功能跑通 `R2=0`。需 ppoll 修复（`5491fa6e`，已并入 main）才够到此断言（否则更早启动期 abort）。
+
+### 解除路径
+
+`ValidateRowExpandContract` 按 `ceil(broadcastBytes/128)` 个 CELL 建模广播源读取时序，去掉 `≤ VEC_CELL_GRANULARITY` 上限（保留 `>0` 与形状校验）；列扩展同款处若有一并修。
+
+复现 issue（mainline solution kernel+test 复现步骤 + 反汇编铁证 + spec 依据 + 隔离）见 `ISSUE_gfsim_trowexpand_broadcast_one_cell.md`（已提交 **SuperScalarModel #605**）。
+
+### 本地 kernel 侧规避（TileM 预算 4KB，已落地工作路径）
+
+在 gfsim 修好前，尾轴 kernel 可**把 TileM 的 tile 预算从 8KB 降到 4KB**（TileM 64→32）令 `TROWEXPANDMUL` 广播源 `[TileM,1]` fp32 从 256B 降到 **128B = 恰好 1 个 VEC CELL**，绕开本断言：
+- `dynamic_mx_quant_tail_ocp_fp8.hpp` / `dynamic_mx_quant_tail_ocp_fp4.hpp`：各自 `tilem_max` 的 `budgetMax` 分母预算 `8192→4096`。
+- `dynamic_mx_quant_common.hpp` `max_tilem`（仅 `tail_cublas` 调用）：`budget = tile_elem_budget<>() / 2`；**nontail 的 `pick_tilen` 直接用 `tile_elem_budget`、不受影响**。
+
+实测（3 尾轴，seed=42，M=512 N=256 BS=32）：反汇编 `TROWEXPANDMUL lb1` 由 64→**32**；**gfsim 默认模式全部 `rc=0` 跑到底出 cycles**（tail_ocp_fp8=4998 / tail_ocp_fp4=7057 / tail_cublas_fp8_4pe=13204）；**gfrun res_check 精度逐字节不变**（output pass MSE=0，MaxAE 0.0117/0/0.0098；scale MSE=0）。纯 tiling 参数、功能/精度零回归；新工具链 tile 上限已 256KB（问题1），4KB 预算无硬约束冲突。**注**：此时 gfsim 测得的是 TileM=32 小 tile 配置的 cycle（段内循环翻倍），非原生 TileM=64；#605 修好后可测原配。非尾轴不适用（另阻于 #63）。

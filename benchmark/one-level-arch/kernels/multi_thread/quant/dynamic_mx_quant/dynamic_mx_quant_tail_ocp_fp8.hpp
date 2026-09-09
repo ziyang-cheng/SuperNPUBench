@@ -17,13 +17,16 @@ constexpr int pow2_floor(int v) {
     return p;
 }
 // 最大可支持 TileM —— **仅由 blocksize 决定, 与 SubM 无关**：
-//   budgetMax = 8192/(BS*sizeof fp32)  —— data pass 的 fp32 中间量 tile <= 8KB (绑定约束)
+//   budgetMax = 4096/(BS*sizeof fp32)  —— data pass 的 fp32 中间量 tile <= 4KB (tile 预算)
 //   floorMin  = 512/(BS*sizeof half)   —— 物理 tile >= 512B (避免 LinxV5 sub-512B spill)
-//   TileMmax = pow2_floor(budgetMax) 抬到 floorMin。BS=32 -> 64。
-// SubM 只决定循环次数 (seg_full = SubM/TileMmax), 不改 TileM 本身 —— 不能把 SubM 当 tile 行
-// (SubM 可远大于 budgetMax, 直接当行数会爆 8KB)。
+//   TileMmax = pow2_floor(budgetMax) 抬到 floorMin。BS=32 -> 32。
+// SubM 只决定循环次数 (seg_full = SubM/TileMmax), 不改 TileM 本身 —— 不能把 SubM 当 tile 行。
+// 注：预算从 8KB 降到 4KB 使 TileM 64->32 —— TROWEXPANDMUL 广播源 [TileM,1] fp32 从 256B
+//     降到 128B(=1 个 VEC 128B CELL),规避 gfsim ValidateRowExpandContract 的单-CELL 契约
+//     (SuperScalarModel #605);功能/精度不变(纯 tiling 参数,仅多一倍循环)。新工具链 tile
+//     上限已 256KB(问题1),4KB 预算是自由选择、非硬约束。
 constexpr int tilem_max(int blockSize) {
-    const int budgetMax = 8192 / (blockSize * static_cast<int>(sizeof(float)));   // 64 @ BS=32
+    const int budgetMax = 4096 / (blockSize * static_cast<int>(sizeof(float)));   // 32 @ BS=32
     const int floorMin  = (512 / static_cast<int>(sizeof(__half)) + blockSize - 1) / blockSize; // 8 @ BS=32
     int t = pow2_floor(budgetMax);
     if (t > 0 && t < floorMin) t = floorMin;

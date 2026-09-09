@@ -8,6 +8,22 @@
 
 > **⚠️ 2026-09-08 收敛：方案 A「大 BlockSize 专用模板」（`_bigbs`）已退休。** 新工具链头把 tile 大小上限从 8KB 抬到 256KB（`StorageBytes` 须为 [128B,256KB] 内 2 的幂，见 `pto_tile.hpp` TilesizeCode），非尾轴单块 load `[BlockSize, TileN]` 在大 BlockSize 下也合法（如 [128,64] bf16=16KB），当初逼出 `_bigbs`（切归约轴）的 tile-size 墙已消失。两个 `_bigbs.hpp` 已移入 `bak/`，非尾轴统一入口对大 BS 回退到 `TileN=对齐下界` 走 plain 单块。BS=128 plain 实测 gfrun 逐字节 == 旧 bigbs、全用例零回归。**下文「大 BlockSize 变体」及各处 `_bigbs` 描述为退休前的历史记录**，当前活代码只有 plain 路径。
 
+> **📊 2026-09-09 当前基线 `ops-20260908` 状态**（Bench tag `a3fa598` / model `07e9c661`+本地补丁 / llvm `553b08045` / TileOP `b8669ce`）。下方各行的详细历史叙述基于更早基线，**当前权威状态以此表为准**：
+>
+> | kernel | gfrun 精度(res_check, seed=42) | gfsim(默认模式) | 阻塞 |
+> |---|---|---|---|
+> | `TAIL_OCP_FP8` (512×256) | ✅ pass MSE=0 MaxAE=0.0117 | ✅ 跑通 4998 cyc | — |
+> | `TAIL_OCP_FP4` (512×256) | ✅ pass **MSE=0 逐字节**（fp4 写侧已官方上游）| ✅ 跑通 7057 cyc | — |
+> | `TAIL_CUBLAS_FP8_4PE` (512×256) | ✅ pass MSE=0 MaxAE=0.0098 | ✅ 跑通 13204 cyc | — |
+> | `NONTAIL_CUBLAS_FP8_4PE` / `_BS128` | ❌ fail (MSE=48492) | — | **TileOP #63**（列规约 B.DIM destination 几何静默错算）|
+> | `NONTAIL_OCP_FP4_4PE` / `_BS128` | ❌ fail | — | **TileOP #63** |
+> | `TAIL_OCP_FP8_DYN` | 编译失败 | — | **TileOP #100**（B.DIM per-dim lowering 动态维度编译回归）|
+>
+> - **3 尾轴**：gfrun 精度全过；gfsim 默认模式经 **TileM=32 规避**（gfsim #605，见 RECORD 问题30：`tilem_max` 预算 8KB→4KB 使广播源 256B→128B）全部跑通出 cycle，精度逐字节不变。
+> - **4 非尾轴**：阻于 **TileOP #63**（column-reduction，非 kernel 问题，等官方修）。
+> - **1 动态（dyn）**：阻于 **TileOP #100**（下方该行「✅ 已落地」是旧工具链状态，现被 b8669ce 的 B.DIM lowering 回归打断编译；kernel 本身不变、非 kernel 问题）。
+> - **本地补丁**：model `71dfae6c`（TCMP/TCMPS/TSEL compare-select 位宽匹配，pto-spec#256，唯一真本地）+ `3ededd70`（ppoll，官方 `5491fa6e` cherry-pick，重新 pin main 即自带）；Bench kernel TileM=32 规避（`tail_ocp_fp8/fp4` + `common` 共 3 文件，gfsim #605 规避）。
+
 > **状态定义**（当前工具链不成熟，代码存在缺陷是必然的，故不以「零缺陷」为准，而以下述两态区分）：
 > - **已调试**：代码计算逻辑**基本正确**（逐 op 对齐 AscendC），且**所有已知问题都记录在 RECORD 中**。允许存在待工具链/ISA 补齐的已记录缺口（如 fp32→fp4 cast 语义待确认），只要它们被显式记录。（注：非尾轴 scale「parity 交织缺失」已于 2026-09-03 解除——PTO-ISA 规范 ADR-0101 定义 matmul 消费 planar scale，无需交织，见 RECORD 问题5。）
 > - **未调试**：代码逻辑**完全错误 / 未经订正**——未逐 op review，或核心算法仍套用错误路径。

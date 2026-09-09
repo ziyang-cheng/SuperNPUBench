@@ -138,7 +138,11 @@ constexpr int nontail_align_lower() {
 // boxes the valid rows, so a physical TileM > M is safe (valid rows = min(M, TileM)).
 template <int M, int Contig, typename InT, bool IsCublas>
 constexpr int max_tilem() {
-    constexpr int budget = tile_elem_budget<InT, IsCublas>();
+    // 预算减半(8KB->4KB 等效): TileM 折半使 tail_cublas 的 TROWEXPANDMUL 广播源
+    // [TileM,1] fp32 从 256B 降到 128B(1 个 VEC CELL),规避 gfsim #605 单-CELL 契约。
+    // 仅 tail_cublas 调用 max_tilem;nontail 的 pick_tilen 直接用 tile_elem_budget、不受影响。
+    // 纯 tiling、功能/精度不变(新工具链 tile 上限已 256KB)。
+    constexpr int budget = tile_elem_budget<InT, IsCublas>() / 2;
     constexpr int min_elems = 512 / static_cast<int>(sizeof(InT)); // >= 512B floor
     constexpr int tilem_min = (min_elems + Contig - 1) / Contig;    // ceil
     constexpr int tilem_max = budget / Contig;

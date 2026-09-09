@@ -16,11 +16,13 @@ constexpr int pow2_floor(int v) {
     return p;
 }
 // 最大 TileM —— 仅由 blockSize + 输入宽度决定，与 SubM 无关：
-//   budgetMax = 8192/(BS*sizeof fp32)  —— data pass 的 fp32 中间量 tile <= 8KB（绑定约束）
+//   budgetMax = 4096/(BS*sizeof fp32)  —— data pass 的 fp32 中间量 tile <= 4KB（tile 预算）
 //   floorMin  = 512/(BS*inBytes)       —— 物理 tile >= 512B（避免 LinxV5 sub-512B spill）
-//   TileMmax = pow2_floor(budgetMax) 抬到 floorMin。BS=32 -> 64。
+//   TileMmax = pow2_floor(budgetMax) 抬到 floorMin。BS=32 -> 32。
+//   注：8KB->4KB 使 TileM 64->32，TROWEXPANDMUL 广播源 [TileM,1] fp32 256B->128B(1 CELL)，
+//       规避 gfsim #605 单-CELL 契约;纯 tiling、功能/精度不变(新工具链 tile 上限已 256KB)。
 constexpr int tilem_max(int blockSize, int inBytes) {
-    const int budgetMax = 8192 / (blockSize * static_cast<int>(sizeof(float)));   // 64 @ BS=32
+    const int budgetMax = 4096 / (blockSize * static_cast<int>(sizeof(float)));   // 32 @ BS=32
     const int floorMin  = (512 / inBytes + blockSize - 1) / blockSize;            // 8 @ BS=32/bf16
     int t = pow2_floor(budgetMax);
     if (t > 0 && t < floorMin) t = floorMin;
