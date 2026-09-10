@@ -1,7 +1,7 @@
 {
   "tracked_release_branch": "ops-20260908",
   "mode": "latest",
-  "generated_at": "2026-09-10T16:10+0800",
+  "generated_at": "2026-09-10T16:39+0800",
   "versions": [
     {
       "component": "SuperNPUBench",
@@ -1641,7 +1641,7 @@
     },
     {
       "idx": 82,
-      "category": "?",
+      "category": "fa",
       "config": "kernel/fa",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1659,7 +1659,7 @@
     },
     {
       "idx": 83,
-      "category": "?",
+      "category": "flashMLA",
       "config": "kernel/flashMLA",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1677,7 +1677,7 @@
     },
     {
       "idx": 84,
-      "category": "?",
+      "category": "matmul",
       "config": "kernel/matmul",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1695,7 +1695,7 @@
     },
     {
       "idx": 85,
-      "category": "?",
+      "category": "multi_thread",
       "config": "kernel/multi_thread/matmul",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1713,7 +1713,7 @@
     },
     {
       "idx": 86,
-      "category": "?",
+      "category": "multi_thread",
       "config": "kernel/multi_thread/reduction/reduceprod_row",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1731,7 +1731,7 @@
     },
     {
       "idx": 87,
-      "category": "?",
+      "category": "multi_thread",
       "config": "kernel/multi_thread/transpose",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1749,7 +1749,7 @@
     },
     {
       "idx": 88,
-      "category": "?",
+      "category": "norm",
       "config": "kernel/norm",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1767,7 +1767,7 @@
     },
     {
       "idx": 89,
-      "category": "?",
+      "category": "reduction",
       "config": "kernel/reduction/reducemax_3dcol",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1785,7 +1785,7 @@
     },
     {
       "idx": 90,
-      "category": "?",
+      "category": "reduction",
       "config": "kernel/reduction/reducesum_3dcol",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
@@ -1803,7 +1803,7 @@
     },
     {
       "idx": 91,
-      "category": "?",
+      "category": "solution/quant",
       "config": "solution/quant/dynamic_mx_quant",
       "elf": "",
       "gfrun": "COMPILE_FAIL",
