@@ -1,7 +1,7 @@
 {
   "tracked_release_branch": "ops-20260908",
   "mode": "latest",
-  "generated_at": "2026-09-10T05:41+0800",
+  "generated_at": "2026-09-10T10:19+0800",
   "versions": [
     {
       "component": "SuperNPUBench",
