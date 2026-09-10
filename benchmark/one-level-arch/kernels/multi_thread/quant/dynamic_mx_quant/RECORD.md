@@ -1838,7 +1838,7 @@ emulator 最近邻搜索纳入 `code 0`（从 `code 0` 起，ties-to-even）；p
 
 复现 issue（组件清单以 Bench PR#111 给出 + 前置依赖 + 逐元素证据 + spec 依据/缺口）见 `ISSUE_gfrun_tcvt_e2m1_rne_code0.md`。
 
-## 问题28：动态 shape kernel 编译失败 —— B.DIM per-dim lowering 把运行期维度误 lower 成立即数形式（需 Linx-TileOP-API 侧解决）【Linx-TileOP-API #100·未修】
+## 问题28：动态 shape kernel 编译失败 —— B.DIM per-dim lowering 把运行期维度误 lower 成立即数形式（需 Linx-TileOP-API 侧解决）【Linx-TileOP-API #100·已修复 PR#102/`deca1f1`，2026-09-10 cherry-pick 验证】
 
 - **归属**：Linx-TileOP-API（工具链头 lowering）。**非 kernel 问题**。
 - **复现入口**：`dynamic_mx_quant_tail_ocp_fp8_dyn`（运行期 M/N，`Tile<...,-1,...>` + `RowMajor<-1,-1>`）。
@@ -1866,7 +1866,11 @@ TileOP 修 per-dim lowering：运行期维度发 `B.DIM <gpr>,0`（"r"），仅�
 
 复现 issue（组件清单 + 主线 kernel 复现步骤 + spec 依据 + 嫌疑 commit #82/#92）见 `ISSUE_tileop_dynamic_dim_bdim_immediate_regression.md`（已提交为 **Linx-TileOP-API #100**）。
 
-## 问题29：非尾轴 column-reduction 的 B.DIM 错用 destination 几何 → 只归约 source `row0`，静默错算（需 Linx-TileOP-API 侧解决）【Linx-TileOP-API #63·未修（column remainder）】
+### 已修复并验证（2026-09-10）
+
+官方 2026-09-09 修复：**PR#102 / `deca1f1`**「dynamic TLOAD/TSTORE dims use register-form B.DIM」，与本 issue 根因判定一致（plain TLOAD/TSTORE + 两 Shared TLOAD 变体的 DYNAMIC `GetValidRow/Col` 绑 `"i"` 约束 → 补齐与 TLOAD_CUBE 对称的 SS/SD/DS/DD 分派）；VV0003 全接口审计除 8 处 B.ASSEMBLE/B.SUBVIEW range-modifier 残留外无同类问题。修复晚于 `b8669ce`，故 **cherry-pick 该 commit**（分支 `fix/cherrypick-63-100`，range-diff 逐字等价）+ `make install` 装头。实测：`TAIL_OCP_FP8_DYN` 编译 **EXIT=0**、4-PE gfrun **`R2=0`**（model 消费 register-form B.DIM 正常）。详见 README「2026-09-10 更新」。
+
+## 问题29：非尾轴 column-reduction 的 B.DIM 错用 destination 几何 → 只归约 source `row0`，静默错算（需 Linx-TileOP-API 侧解决）【Linx-TileOP-API #63·已修复 PR#101/`f6a037a`，2026-09-10 cherry-pick 验证】
 
 - **归属**：Linx-TileOP-API（TCOL* reduction lowering）。**非 kernel/model 问题**（模型按 pto-spec source-geometry 校验，官方定性不放宽模型）。
 - **复现入口**：全部非尾轴 dmxq（沿 Axis 行 `TCOLMAX` 列规约）：`nontail_cublas_fp8_4pe`/`_bs128`、`nontail_ocp_fp4_4pe`/`_bs128`。
@@ -1889,7 +1893,11 @@ TileOP 对 TCOLSUM/MAX/MIN/PROD/ARGMAX/ARGMIN 六 op 做与 PR#69 对称的 **so
 
 复现 issue（多行 source 逐元素 golden + bisect + 行/列不对称机制）见 `ISSUE_tileop_column_reduction_dest_geometry.md`（对应 **Linx-TileOP-API #63**，官方 OPEN column remainder；关联 SuperScalarModel #560）。
 
-> **注（B③ / 问题14）**：TCMP/TCMPS/TSEL compare-select 源 dtype 位宽匹配已在**问题14**跟踪【pto-spec #256 裁决】，本地 model 补丁 `71dfae6c`（发 TCMPS 的 6 个 dmxq 依赖），上游唯一未合入项。
+### 已修复并验证（2026-09-10）
+
+官方 2026-09-09 修复：**PR#101 / `f6a037a`**「column-reduction B.DIM describes the source tile geometry」，对 `TCOLSUM/MAX/MIN/PROD/ARGMAX/ARGMIN` 六 op 做与 PR#69（row）对称的 source-geometry lowering（静态 `tile_shape_in::{ValidCol,ValidRow,Cols}`、动态 `src.GetValidCol/Row()`），zhoubot 两轮复核确认。修复晚于 `b8669ce`，**cherry-pick 该 commit**（分支 `fix/cherrypick-63-100`，range-diff 逐字等价）+ `make install` 装头。实测 `nontail_ocp_fp4`（Axis=32 Post=64 BS=32 bf16 seed=42）gfrun **`R2=0` → output=pass / scale=pass，MSE=0 MaxAE=0 逐字节**（TCOLMAX 列规约由静默只归约 row0 转为全行正确）；`tail_ocp_fp4` 回归 byte-exact 无副作用。model 侧本按 source-geometry 消费（#560/current-ASL），无需改。详见 README「2026-09-10 更新」。
+
+> **注（B③ / 问题14）**：TCMP/TCMPS/TSEL compare-select 源 dtype 位宽匹配在**问题14**跟踪【pto-spec #256】，本地 model 补丁 `71dfae6c`（发 TCMPS 的 dmxq 依赖）。**2026-09-09 已裁决**（#256 closed，PR#260）：区分 source backing dtype 与 selected operation type，允许 equal-width **non-4bit** carrier reinterpret（`!TileDataTypeIsFourBit(stored) && TileCarrierWidthCompatible`），修订 ADR-TILE-0008/0009。核对本地 `71dfae6c`（`BytesOf(src)==BytesOf(op)`）：方向一致（同型放行/equal-width 放行/保留 provenance/按 op-type 读），但**缺「排除 4-bit」谓词 = 过宽一处**（BytesOf 对 packed 4-bit=1 会与 U8 误判，裁决要 FAULT）。**dmxq 不受影响**（实证：tail_ocp_fp4 的 12×TCMPS + 12×TSEL operation type 全为 U16，4-bit 分支永不触发，gfrun byte-exact 佐证）。处置：model 上游未实现该裁决，保留本地 patch 并**收紧**——加 `!IsFourBitDataType(src) && !IsFourBitDataType(op)`（helper `isa/ISACommon/DataType.h:291`），待办。
 
 ## 问题30：gfsim 时序模型把 TROWEXPAND 广播源限制为「单个 128B CELL」，与 pto-spec 冲突（需 gfsim 侧解决）【SuperScalarModel #605·未修】
 

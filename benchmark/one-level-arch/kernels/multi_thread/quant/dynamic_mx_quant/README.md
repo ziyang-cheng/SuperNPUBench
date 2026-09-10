@@ -24,6 +24,18 @@
 > - **1 动态（dyn）**：阻于 **TileOP #100**（下方该行「✅ 已落地」是旧工具链状态，现被 b8669ce 的 B.DIM lowering 回归打断编译；kernel 本身不变、非 kernel 问题）。
 > - **本地补丁**：model `71dfae6c`（TCMP/TCMPS/TSEL compare-select 位宽匹配，pto-spec#256，唯一真本地）+ `3ededd70`（ppoll，官方 `5491fa6e` cherry-pick，重新 pin main 即自带）；Bench kernel TileM=32 规避（`tail_ocp_fp8/fp4` + `common` 共 3 文件，gfsim #605 规避）。
 
+> **✅ 2026-09-10 更新：TileOP #63 / #100 已 cherry-pick 并 gfrun 验证解除**（上表两处 ❌ fail 与「编译失败」的阻塞已消除）。官方 2026-09-09 修复的 `f6a037a`(#63) / `deca1f1`(#100) 晚于 `ops-20260908` 配套 TileOP（pin=`b8669ce`，正是 #100 触发版），故**只 cherry-pick 这两个修复、不整体升级**：分支 `fix/cherrypick-63-100` = `b8669ce` + 两 commit（`git range-diff` 证与原 commit 逐字等价、未耦合中间无关 commit），装头走 `cd src/Linx-TileOP-API && make install CLANG_PREFIX=<output>`（`cp -r` 到 clang resource dir，**不用**顶层 `make build-tileopapi` 以免 stamp 触发 llvm 全量重编）。gfrun 层四项实测全绿：
+>
+> | 验证 | 依赖 | 结果 |
+> |---|---|---|
+> | `TAIL_OCP_FP8_DYN` 编译 | #100 | ✅ EXIT=0（此前 `"i"` constraint 崩）|
+> | 动态 shape gfrun 执行 | #100 + model | ✅ `R2=0`（model 消费 register-form B.DIM）|
+> | `nontail_ocp_fp4` 精度（Axis=32 Post=64 BS=32 bf16）| #63 | ✅ output/scale **byte-exact MSE=0 MaxAE=0**（TCOLMAX 列规约由静默错算转正）|
+> | `tail_ocp_fp4` 回归（240×1536 bf16）| — | ✅ output/scale **byte-exact**，无回归 |
+>
+> - **model 补丁未动**（已在 `bin/gfrun`）。**pto-spec#256 已裁决**（2026-09-09 closed，PR#260）：本地 `71dfae6c` 方向与裁决一致，但缺「排除 4-bit carrier」谓词、比裁决过宽一处；dmxq 的 compare-select 全在 U16（16-bit）域、不触及该路径，**功能与精度不受影响**（收紧待办，见 RECORD 问题14/29 注）。
+> - **未覆盖**：gfsim 时序（`SuperScalarModel #605` 仍 OPEN），非尾轴 gfsim 不保证全绿。
+
 > **状态定义**（当前工具链不成熟，代码存在缺陷是必然的，故不以「零缺陷」为准，而以下述两态区分）：
 > - **已调试**：代码计算逻辑**基本正确**（逐 op 对齐 AscendC），且**所有已知问题都记录在 RECORD 中**。允许存在待工具链/ISA 补齐的已记录缺口（如 fp32→fp4 cast 语义待确认），只要它们被显式记录。（注：非尾轴 scale「parity 交织缺失」已于 2026-09-03 解除——PTO-ISA 规范 ADR-0101 定义 matmul 消费 planar scale，无需交织，见 RECORD 问题5。）
 > - **未调试**：代码逻辑**完全错误 / 未经订正**——未逐 op review，或核心算法仍套用错误路径。
