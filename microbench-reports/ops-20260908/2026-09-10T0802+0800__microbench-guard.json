@@ -1,0 +1,1844 @@
+{
+  "report_type": "microbench-guard",
+  "generated_at": "2026-09-10T08:02+0800",
+  "baseline": {
+    "repo": "SuperNPUBench",
+    "tag": "ops-20260908"
+  },
+  "harness": {
+    "path": "microbenchmark/tileop-guard",
+    "n_cases": 117
+  },
+  "method": "four-state precision guard; host numpy golden pins pto-spec; env_test toolchain (reused, not rebuilt); guard_all fingerprint-driven ELF clean_all; attribution = official issue verdicts only",
+  "tools": {
+    "fingerprint": {
+      "clang++_md5": "599d10d899962a732199dd8699e272f5",
+      "gfrun_md5": "549574958175aae8cd2c489fede81d36"
+    },
+    "components": {
+      "SuperNPUBench": {
+        "branch": "ops-20260908",
+        "commit": "a3fa598"
+      },
+      "SuperScalarModel": {
+        "branch": "main",
+        "commit": "db88b82"
+      },
+      "llvm-project": {
+        "branch": "dev-llvm15_56",
+        "commit": "10abd6e"
+      },
+      "musl": {
+        "branch": "linx",
+        "commit": "af0dfc2"
+      },
+      "jemalloc": {
+        "branch": "linx",
+        "commit": "4495309"
+      },
+      "linux-linxisa": {
+        "branch": "main",
+        "commit": "1055a74"
+      },
+      "Linx-TileOP-API": {
+        "branch": "linx",
+        "commit": "748ac69"
+      }
+    }
+  },
+  "by_domain": {
+    "vec": {
+      "pass": 35,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 0,
+      "total": 35
+    },
+    "sfu": {
+      "pass": 32,
+      "precision-fail": 5,
+      "run-only": 0,
+      "compile-fail": 1,
+      "run-fail": 8,
+      "total": 46
+    },
+    "tlsu": {
+      "pass": 6,
+      "precision-fail": 0,
+      "run-only": 6,
+      "compile-fail": 0,
+      "run-fail": 2,
+      "total": 14
+    },
+    "cube": {
+      "pass": 4,
+      "precision-fail": 0,
+      "run-only": 1,
+      "compile-fail": 0,
+      "run-fail": 4,
+      "total": 9
+    },
+    "fixp": {
+      "pass": 2,
+      "precision-fail": 5,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 4,
+      "total": 11
+    },
+    "misc": {
+      "pass": 1,
+      "precision-fail": 0,
+      "run-only": 0,
+      "compile-fail": 0,
+      "run-fail": 1,
+      "total": 2
+    }
+  },
+  "summary": {
+    "pass": 80,
+    "precision_fail": 10,
+    "run_only": 7,
+    "compile_fail": 1,
+    "run_fail": 19,
+    "total": 117
+  },
+  "regression": {
+    "verdict": "NONE",
+    "regressed": [],
+    "improved": [],
+    "against": {
+      "tag": "ops-20260908",
+      "at": "2026-09-09T08:03+0800",
+      "cross_tag": false
+    },
+    "changes": {
+      "新增失败": [],
+      "修复转好": [],
+      "状态迁移": [
+        "tmatmul_bf16(compile-fail→run-only)"
+      ],
+      "新增case": [],
+      "消失case": [],
+      "不变": 116
+    }
+  },
+  "results": [
+    {
+      "case": "tabs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadd",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tadds",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tand",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmp",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcmps",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcvt",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdiv",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tdivs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "texpands",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tfma",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmax",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmaxs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmin",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmins",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmul",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmuls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tneg",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tnot",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trelu",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trem",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trems",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsel",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsels",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshl",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshls",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshr",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tshrs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsub",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsubs",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txor",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "txors",
+      "domain": "vec",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_desc",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_s16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u16",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tci_u32",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolargmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "texp",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tgpr2t",
+      "domain": "sfu",
+      "compile": "FAIL",
+      "gfrun": "-",
+      "precision": "-",
+      "state": "compile-fail"
+    },
+    {
+      "case": "tlog",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tpermute",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trecip",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowexpand",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandadd",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpanddiv",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandexpdif",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandmul",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowexpandsub",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "trsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tshuf",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tsqrt",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "ttri",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tunpack",
+      "domain": "sfu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "gmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "mgather",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mgather_cas",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mgather_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "mscatter_mask",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "range_assemble",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tload",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tmov",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tpartview_subview",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tprefetch",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tstore",
+      "domain": "tlsu",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_bf16",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "run-only",
+      "state": "run-only"
+    },
+    {
+      "case": "tmatmul_bias",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_f16",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "tmatmul_relu",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "convert",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "prelu",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "MISMATCH",
+      "state": "precision-fail"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "FAIL",
+      "precision": "-",
+      "state": "run-fail"
+    },
+    {
+      "case": "reinterpret_tile",
+      "domain": "misc",
+      "compile": "ok",
+      "gfrun": "ok",
+      "precision": "PASS",
+      "state": "pass"
+    }
+  ],
+  "precision_fail_witnesses": [
+    {
+      "case": "tcolargmax",
+      "domain": "sfu",
+      "got": "0",
+      "ref": "15",
+      "mismatch": "16",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tcolmax",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "1.2957252264022827",
+      "mismatch": "14/16",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tcolmin",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.7000057697296143",
+      "mismatch": "15/16",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tcolprod",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "0.6143242120742798",
+      "mismatch": "16/16",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tcolsum",
+      "domain": "sfu",
+      "got": "1.0",
+      "ref": "15.924647331237793",
+      "mismatch": "16/16",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "lrelu",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "11",
+      "mismatch": "491/1024",
+      "owner_disp": "model(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "model",
+          "verdict_ref": "SuperScalarModel#560",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-4 pre-quant 丢 FP19 scale",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "s8_scalar",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner_disp": "model(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "model",
+          "verdict_ref": "SuperScalarModel#560",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-4 pre-quant 丢 FP19 scale",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "s8_vector",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner_disp": "model(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "model",
+          "verdict_ref": "SuperScalarModel#560",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-4 pre-quant 丢 FP19 scale",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "scalar_generic",
+      "domain": "fixp",
+      "got": "5",
+      "ref": "-24",
+      "mismatch": "993/1024",
+      "owner_disp": "model(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "model",
+          "verdict_ref": "SuperScalarModel#560",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-4 pre-quant 丢 FP19 scale",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "vquant_f16",
+      "domain": "fixp",
+      "got": "-0.0",
+      "ref": "-29.03125",
+      "mismatch": "1023/1024",
+      "owner_disp": "model(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "model",
+          "verdict_ref": "SuperScalarModel#560",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-4 pre-quant 丢 FP19 scale",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    }
+  ],
+  "compile_fail": [
+    {
+      "case": "tgpr2t",
+      "domain": "sfu",
+      "captured_error": "/workspace/cheng-ziyang2/SuperNPU/env_test/linx-toolchain-build/output/linx_blockisa_llvm_musl/lib/clang/15.0.4/include/tileop-api/jcore/template_asm.hpp:15776:8: error: Match Instruction Error!",
+      "owner_disp": "—",
+      "status_disp": "旧版已提交 ops-20260904 #87·待官方裁决",
+      "verdicts": [],
+      "reference_verdicts": [],
+      "reference_pending": [
+        {
+          "issue": "#87",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版待裁决"
+    }
+  ],
+  "run_fail": [
+    {
+      "case": "tgather",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: false",
+      "owner_disp": "API(#569·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #569·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#569",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#78",
+          "authority": "jiale-wangOwO 2026-09-07 https://github.com/LinxISA/SuperScalarModel/issues/569#issuecomment-5569122773",
+          "sub": "gfrun-10 TGATHER/TSCATTER",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowargmax",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowargmin",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowmax",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowmin",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowprod",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "trowsum",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->ti",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#63",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-2 reduction 几何",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tscatter",
+      "domain": "sfu",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: false",
+      "owner_disp": "API(#569·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #569·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#569",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#78",
+          "authority": "jiale-wangOwO 2026-09-07 https://github.com/LinxISA/SuperScalarModel/issues/569#issuecomment-5569122773",
+          "sub": "gfrun-10 TGATHER/TSCATTER",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "range_subview",
+      "domain": "tlsu",
+      "captured_error": "gfrun: illegal instruction at 0x0: illegal TSTORE operand or descriptor contract",
+      "owner_disp": "demo(#569·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #569·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#569",
+          "owner": "demo",
+          "verdict_ref": "SuperNPUBench PR#96 demo（parent 须 Matrix+CUBE，见 subview-descriptor.asl）",
+          "authority": "jiale-wangOwO 2026-09-07 https://github.com/LinxISA/SuperScalarModel/issues/569#issuecomment-5569122773",
+          "sub": "gfrun-8 range::subview",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "region_tilearray",
+      "domain": "tlsu",
+      "captured_error": "gfrun: illegal B.ASSEMBLE generation or descriptor contract",
+      "owner_disp": "—",
+      "status_disp": "旧版已提交 ops-20260904 #586·待官方裁决",
+      "verdicts": [],
+      "reference_verdicts": [],
+      "reference_pending": [
+        {
+          "issue": "#586",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版待裁决"
+    },
+    {
+      "case": "tgemv",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tmatmul_acc",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tmatmul_mx",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "tmatmul_rowmax",
+      "domain": "cube",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "chain",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "cscale",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "group_max",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "rowmax_acc",
+      "domain": "fixp",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: (currentBlock->preQuantMode != 0 || (currentBlock->blockAttr->rMode == FRMMode::FRM_NONE && !currentBlock->blockAttr->saturation)) && \"B.FPATR None requires B.DATR RMode=NONE",
+      "owner_disp": "API(#560·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #560·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#560",
+          "owner": "API",
+          "verdict_ref": "Linx-TileOP-API#62",
+          "authority": "zhoubot 2026-09-06 https://github.com/LinxISA/SuperScalarModel/issues/560#issuecomment-5556285140",
+          "sub": "gfrun-1 B.FPATR None",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    },
+    {
+      "case": "reinterpret_tcmp",
+      "domain": "misc",
+      "captured_error": "gfrun: illegal instruction: ASSERTION FAILED: priorSources == 0 && inst->srcs.size() == 3 && inst->dsts.size() == 1 && inst->dsts[0]->size >= predicateBytes && IsCompatibleDataTile(inst->srcs[1], block->dataType, validRo",
+      "owner_disp": "spec(#569·ops-20260904)",
+      "status_disp": "旧版裁决 ops-20260904 #569·待本版复核",
+      "verdicts": [],
+      "reference_verdicts": [
+        {
+          "issue": "#569",
+          "owner": "spec",
+          "verdict_ref": "PTO-SPEC #256（ADR-0112 适用范围裁决）",
+          "authority": "jiale-wangOwO 2026-09-07 https://github.com/LinxISA/SuperScalarModel/issues/569#issuecomment-5569122773",
+          "sub": "gfrun-9 TCMP+reinterpret",
+          "src_tag": "ops-20260904"
+        }
+      ],
+      "reference_pending": [],
+      "pending_issues": [],
+      "owners": [],
+      "state": "旧版参考"
+    }
+  ],
+  "run_only": [
+    "gmov",
+    "tload",
+    "tmov",
+    "tpartview_subview",
+    "tprefetch",
+    "tstore",
+    "tmatmul_bf16"
+  ],
+  "verdict_summary": [],
+  "unadjudicated": {
+    "完全待裁决": [],
+    "未提交": [],
+    "部分待裁决": [],
+    "旧版参考": [
+      "tgather(#569·ops-20260904)",
+      "trowargmax(#560·ops-20260904)",
+      "trowargmin(#560·ops-20260904)",
+      "trowmax(#560·ops-20260904)",
+      "trowmin(#560·ops-20260904)",
+      "trowprod(#560·ops-20260904)",
+      "trowsum(#560·ops-20260904)",
+      "tscatter(#569·ops-20260904)",
+      "range_subview(#569·ops-20260904)",
+      "tgemv(#560·ops-20260904)",
+      "tmatmul_acc(#560·ops-20260904)",
+      "tmatmul_mx(#560·ops-20260904)",
+      "tmatmul_rowmax(#560·ops-20260904)",
+      "chain(#560·ops-20260904)",
+      "cscale(#560·ops-20260904)",
+      "group_max(#560·ops-20260904)",
+      "rowmax_acc(#560·ops-20260904)",
+      "reinterpret_tcmp(#569·ops-20260904)",
+      "tcolargmax(#560·ops-20260904)",
+      "tcolmax(#560·ops-20260904)",
+      "tcolmin(#560·ops-20260904)",
+      "tcolprod(#560·ops-20260904)",
+      "tcolsum(#560·ops-20260904)",
+      "lrelu(#560·ops-20260904)",
+      "s8_scalar(#560·ops-20260904)",
+      "s8_vector(#560·ops-20260904)",
+      "scalar_generic(#560·ops-20260904)",
+      "vquant_f16(#560·ops-20260904)"
+    ],
+    "旧版待裁决": [
+      "tgpr2t(#87·ops-20260904)",
+      "region_tilearray(#586·ops-20260904)"
+    ]
+  },
+  "issue_index": [
+    {
+      "issue": "#87(ops-20260904)",
+      "cases": [
+        "tgpr2t"
+      ]
+    },
+    {
+      "issue": "#560(ops-20260904)",
+      "cases": [
+        "chain",
+        "cscale",
+        "group_max",
+        "lrelu",
+        "rowmax_acc",
+        "s8_scalar",
+        "s8_vector",
+        "scalar_generic",
+        "tcolargmax",
+        "tcolmax",
+        "tcolmin",
+        "tcolprod",
+        "tcolsum",
+        "tgemv",
+        "tmatmul_acc",
+        "tmatmul_mx",
+        "tmatmul_rowmax",
+        "trowargmax",
+        "trowargmin",
+        "trowmax",
+        "trowmin",
+        "trowprod",
+        "trowsum",
+        "vquant_f16"
+      ]
+    },
+    {
+      "issue": "#569(ops-20260904)",
+      "cases": [
+        "range_subview",
+        "reinterpret_tcmp",
+        "tgather",
+        "tscatter"
+      ]
+    },
+    {
+      "issue": "#586(ops-20260904)",
+      "cases": [
+        "region_tilearray"
+      ]
+    }
+  ]
+}
