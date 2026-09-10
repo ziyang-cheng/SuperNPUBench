@@ -1927,3 +1927,42 @@ pto-spec 对 TROWEXPAND 广播源**只约束形状、无字节/CELL 尺寸上限
 - `dynamic_mx_quant_common.hpp` `max_tilem`（仅 `tail_cublas` 调用）：`budget = tile_elem_budget<>() / 2`；**nontail 的 `pick_tilen` 直接用 `tile_elem_budget`、不受影响**。
 
 实测（3 尾轴，seed=42，M=512 N=256 BS=32）：反汇编 `TROWEXPANDMUL lb1` 由 64→**32**；**gfsim 默认模式全部 `rc=0` 跑到底出 cycles**（tail_ocp_fp8=4998 / tail_ocp_fp4=7057 / tail_cublas_fp8_4pe=13204）；**gfrun res_check 精度逐字节不变**（output pass MSE=0，MaxAE 0.0117/0/0.0098；scale MSE=0）。纯 tiling 参数、功能/精度零回归；新工具链 tile 上限已 256KB（问题1），4KB 预算无硬约束冲突。**注**：此时 gfsim 测得的是 TileM=32 小 tile 配置的 cycle（段内循环翻倍），非原生 TileM=64；#605 修好后可测原配。非尾轴不适用（另阻于 #63）。
+
+---
+
+## 探查记录：非尾轴归约多实现的现象（只记现象，不下结论，2026-09-10）
+
+调研"非尾轴列 abs-max 归约"的几种写法,在工作路径 `test/kernel/multi_thread/quant/dynamic_mx_quant/src/` 建探针(TYPE 见该目录 `Makefile`)。以下**只记录实测现象/数值**,不做因果解释。
+
+### 探针清单（现存 dmxq 下）
+- `colmax_tree_probe.cpp`（`TYPE=COLMAX_TREE_PROBE`；`CMT_W`=独立累加器路数，`CMT_A/CMT_P/CMT_BS`）—— blocksize 外提循环 + W 路累加器。
+- `colmax_bintree_probe.cpp`（`COLMAX_BINTREE_PROBE`；`CBT_ROWS/CBT_P/CBT_A`）—— 纯二分树（stride 折半），编译期常量下标。
+- `colmax_baseline_probe.cpp`（`COLMAX_BASELINE_PROBE`）—— 单条 `TCOLMAX`/块。
+- `rowmax_tail_probe.cpp`（`ROWMAX_TAIL_PROBE`；`CTL_TILEM`）—— 尾轴 `TROWMAX`/块。
+
+### 编译/运行现象（实测）
+1. `TPARTVIEW<CubeTileM32<bf16,1,64>,2,1>`（按行切 M32）→ **编译失败**：`partition_contract` static_assert `Parent::LogicalTileBytes == Rows*Cols*SubTile::LogicalTileBytes`（`pto_tile_region.hpp:48`）；实测 `CubeTileM32<bf16,2,64>` 与 `CubeTileM32<bf16,1,64>` 的 `LogicalTileBytes` **相等**（M32 存储行恒 32）。
+2. `range::subview<len,off>(a)` 作 `TMAX` 源 → **编译失败**：无匹配 `TMAX` 重载（普通 `TMAX` 报 `tile_shape` 类型冲突 `Tile` vs `Subview`；region `TMAX` 收 `SubTileView`≠`Subview`）。全头树 `is_subview_v` 仅 `TSTORE`（`template_asm.hpp:2468`，发 `B.SUBVIEW`）消费；`TLOAD` 显式拒（`2229`）。
+3. **运行期下标**索引 tile 数组（`v[j]` 的 j 为运行期循环变量 / `acc[i%W]`）→ gfrun `ASSERTION FAILED: RawTileSourceFits(source, shape) && "raw tile spill source does not fit the carrier shape"`（`TMAEngine.cpp:165`）。
+4. **编译期常量下标**（fold-expression + 递归 `tree_fold<N>`）的纯二分树：`ROWS=2/4/8/16/32` **全部 compile + gfrun pass**（单块 32×512 res_check 逐字节 exact）；diss `B.IOR` 数 = `ROWS+1`。即峰值 32 个活 `[1,512]` tile 未触发 spill。
+5. W 路多累加器（常量下标）：`W=1/2/4` gfrun exact；`W=8` gfrun **DIFF**（无 assert，diss `B.IOR=17`）。
+6. gfsim 跑 res_check ELF（自带 silent `open/read/write`）→ **signal 11 段错误**。故本轮 cycle 用 non-res_check（不填充输入、`static` 零初始化）量，正确性用 gfrun res_check 单独验。
+
+### 等工作量 cycle 实测
+口径：gfsim 默认（single-PE）Total Cycles；non-res_check 无输入填充。两组 shape 的规约工作量一致（**4096 次规约 × 每次长度 32 × 131072 元素**）：非尾轴 `[256,512]` bs=32 沿行、尾轴 `[512,256]` bs=32 沿尾轴。fp32。
+
+| 方案 | shape | Total | Vector Tileop | TLSU Tileop | gfrun 正确性 | 每块规约结构 |
+|---|---|---|---|---|---|---|
+| 非尾轴 TCOLMAX 基线 | 256×512 | 4878 | 787 | 4025 | DIFF（输出==abs(x[每块row0])，同问题29） | 1 `TCOLMAX`/块 ×8 |
+| 非尾轴 行循环 W=1（线性） | 256×512 | 9071 | 8355 | — | exact | 31 `TMAX`/块 ×8 |
+| 非尾轴 行循环 W=4 | 256×512 | 8536 | 8075 | — | exact | 31 `TMAX`/块 ×8（4 路） |
+| 非尾轴 纯二分树 | 256×512 | 8388 | 8072 | 886 | exact | 31 `TMAX`/块 ×8（树，关键路径 5） |
+| 尾轴 TROWMAX（TileM=512） | 512×256 | 5155 | 722 | 4368 | exact | 1 `TROWMAX`/块 ×8（共 16 VecOp） |
+
+### 分解补充（gfsim Key Stats）
+- 基线：`Total 4878 = Vector 787 + TLSU 4025`；Top-Down `TLSU Tload 29.82% + Tstore 34.14%`；VecOps 16 / LdStOps 16。
+- 尾轴 TileM=512：`Total 5155 = Vector 722 + TLSU 4368`；VecOps 16。
+- 纯二分树 32：`Total 8388 = Vector 8072 + TLSU 886`。
+- 行循环 W 扫描（Total/Vector）：W=1→9071/8355，W=2→8469/7978，W=4→8536/8075。
+
+> 探针与本节数据仅为现象留存；因果解释与优化取舍待进一步核实，不在此下定论。

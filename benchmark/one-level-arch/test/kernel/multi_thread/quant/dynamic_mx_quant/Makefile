@@ -158,6 +158,41 @@ ifdef PPOST
    DEFINES += -DPPOST=$(PPOST)
 endif
 
+ifeq ($(TYPE), ROWMAX_TAIL_PROBE)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/rowmax_tail_probe.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_rowmax_tail_probe.elf
+endif
+ifdef CTL_TILEM
+   DEFINES += -DCTL_TILEM=$(CTL_TILEM)
+endif
+ifeq ($(TYPE), COLMAX_BINTREE_PROBE)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/colmax_bintree_probe.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_colmax_bintree_probe.elf
+endif
+ifdef CBT_A
+   DEFINES += -DCBT_A=$(CBT_A)
+endif
+ifdef CBT_ROWS
+   DEFINES += -DCBT_ROWS=$(CBT_ROWS)
+endif
+ifdef CBT_P
+   DEFINES += -DCBT_P=$(CBT_P)
+endif
+ifeq ($(TYPE), COLMAX_BASELINE_PROBE)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/colmax_baseline_probe.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_colmax_baseline_probe.elf
+endif
+ifeq ($(TYPE), COLMAX_TREE_PROBE)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/colmax_tree_probe.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_colmax_tree_probe.elf
+endif
+ifdef CMT_W
+   DEFINES += -DCMT_W=$(CMT_W)
+endif
+ifdef CMT_MODE
+   DEFINES += -DCMT_MODE=$(CMT_MODE)
+endif
+
 include ../../../../common/Makefile.common
 
 clean:
