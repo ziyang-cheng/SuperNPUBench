@@ -36,6 +36,36 @@
 > - **model 补丁未动**（已在 `bin/gfrun`）。**pto-spec#256 已裁决**（2026-09-09 closed，PR#260）：本地 `71dfae6c` 方向与裁决一致，但缺「排除 4-bit carrier」谓词、比裁决过宽一处；dmxq 的 compare-select 全在 U16（16-bit）域、不触及该路径，**功能与精度不受影响**（收紧待办，见 RECORD 问题14/29 注）。
 > - **未覆盖**：gfsim 时序（`SuperScalarModel #605` 仍 OPEN），非尾轴 gfsim 不保证全绿。
 
+## 动态 shape（`_dyn`）家族（2026-09-10）
+
+在静态 kernel 之外，另有一套**运行期动态 shape** 版：M/N 编译期不可知，经 `tiling` 指针运行期传入；`BlockSize`/`TileN`/`OutT`/`InT`/`kPeNum` 仍是编译期模板参（属性）。当前 6 个：
+
+| kernel 头 | 轴 | scaleAlg | PE 切分 | 状态 |
+|---|---|---|---|---|
+| `dynamic_mx_quant_tail_ocp_fp8_dyn` | 尾轴 | OCP | M 行 | ✅ 4-PE gfrun R2=0，逐字节同静态源 |
+| `dynamic_mx_quant_tail_ocp_fp4_dyn` | 尾轴 | OCP | M 行 | ✅ byte-exact（MSE=0/MaxAE=0）|
+| `dynamic_mx_quant_tail_cublas_fp8_dyn` | 尾轴 | cuBLAS | M 行 | ✅ 逐字节等价静态 4pe |
+| `dynamic_mx_quant_nontail_cublas_fp8_dyn` | 非尾轴 | cuBLAS | **kb 块行** | ✅ **任意 N**，逐字节等价静态 4pe |
+| `dynamic_mx_quant_nontail_ocp_fp4_dyn` | 非尾轴 | OCP | **kb 块行** | ✅ **任意 N**（Post 偶数），逐字节等价静态 4pe |
+| `dynamic_mx_quant_nontail_cublas_fp8_splitN_dyn` | 非尾轴 | cuBLAS | **N 列 tile** | ✅ **任意 N**，逐字节等价 kb 版 |
+| `dynamic_mx_quant_nontail_ocp_fp4_splitN_dyn` | 非尾轴 | OCP | **N 列 tile** | ✅ **任意 N**（Post 偶数），逐字节等价 kb 版 |
+
+### 动态化范式
+- **physical tile 编译期锁定**（`[TileM/BlockSize, TileN]`，仅由 BlockSize/预算定，与 M/N 无关）；**Valid 尺寸下放运行期**：尾轴自由轴 M→行维 `ValidRow=-1`；非尾轴自由轴 N→列维 `ValidCol=-1`，每列 tile 用运行期 `validN=min(TileN,Post-n*TileN)` 构造。量化轴恒满（`M%BS==0`/`K%BS==0` 是调用方前提）。
+- `global_tensor` 用 `RowMajor<-1,-1>` + 基址偏移 + `TLOAD/TSTORE`（弃依赖编译期 RowStride 的 `global_iterator`）。
+- 非尾轴两种 PE 切分：**kb 版**沿量化轴块行切（宜 `numKb≥kPeNum`，输出连续），**splitN 版**沿列 tile 索引切（TILE 粒度，宜 `numN≥kPeNum`，扁矩阵更均衡）。两者计算逐 op 相同、输出逐字节一致。
+
+### 验证（4-PE gfrun res_check，seed=42）
+非尾轴支持**任意 N**（最右列 tile 走运行期 `ValidCol`）：
+
+| kernel | shape | gfrun | output | scale |
+|---|---|---|---|---|
+| nontail_cublas_fp8_dyn / splitN | Axis=512 Post=176（非 TileN 整数倍）| R2=0 | pass MSE=0 MaxAE=0.0137 | pass byte-exact |
+| nontail_ocp_fp4_dyn / splitN | Axis=512 Post=160（非 TileN 整数倍）| R2=0 | pass MSE=0.0063 MaxAE=3.0 | pass |
+| nontail_cublas_fp8_dyn | Axis=512 Post=256（整除）| R2=0 | pass byte-exact | pass byte-exact |
+
+kb 版与 splitN 版输出逐字节一致、亦逐字节等价对应静态 4pe kernel（fp4 的 MaxAE=3/1 是静态 nontail_ocp_fp4 基线固有，非动态化引入）。
+
 > **状态定义**（当前工具链不成熟，代码存在缺陷是必然的，故不以「零缺陷」为准，而以下述两态区分）：
 > - **已调试**：代码计算逻辑**基本正确**（逐 op 对齐 AscendC），且**所有已知问题都记录在 RECORD 中**。允许存在待工具链/ISA 补齐的已记录缺口（如 fp32→fp4 cast 语义待确认），只要它们被显式记录。（注：非尾轴 scale「parity 交织缺失」已于 2026-09-03 解除——PTO-ISA 规范 ADR-0101 定义 matmul 消费 planar scale，无需交织，见 RECORD 问题5。）
 > - **未调试**：代码逻辑**完全错误 / 未经订正**——未逐 op review，或核心算法仍套用错误路径。

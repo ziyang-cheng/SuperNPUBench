@@ -83,6 +83,20 @@ ifeq ($(TYPE), TAIL_OCP_FP8_DYN)
    TARGET = $(ELF_HEAD)/$(TESTCASE)_tail_ocp_fp8_dyn.elf
 endif
 
+# TAIL_OCP_FP4 运行期动态 shape 版（M/N 运行期 tiling 传入；fp4 打包 + 三守卫 recip）。
+# kPeNum=4 时必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
+ifeq ($(TYPE), TAIL_OCP_FP4_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/tail_ocp_fp4_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_tail_ocp_fp4_dyn.elf
+endif
+
+# TAIL_CUBLAS_FP8 运行期动态 shape 版（M/K 运行期 tiling 传入；cuBLAS scale，fp16 in）。
+# kPeNum=4 时必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
+ifeq ($(TYPE), TAIL_CUBLAS_FP8_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/tail_cublas_fp8_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_tail_cublas_fp8_dyn.elf
+endif
+
 # 正式 TAIL_CUBLAS_FP8 kernel（固定 SPMD 4-PE，kPeNum=4，fp16 in）。
 # 必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
 ifeq ($(TYPE), TAIL_CUBLAS_FP8_4PE)
@@ -97,11 +111,37 @@ ifeq ($(TYPE), NONTAIL_CUBLAS_FP8_4PE)
    TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_cublas_fp8_4pe.elf
 endif
 
+# NONTAIL_CUBLAS_FP8 运行期动态 shape 版（Axis/Post 运行期 tiling 传入；约束 Post%TileN==0）。
+# kPeNum=4 时必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
+ifeq ($(TYPE), NONTAIL_CUBLAS_FP8_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/nontail_cublas_fp8_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_cublas_fp8_dyn.elf
+endif
+
+# NONTAIL_CUBLAS_FP8 动态 shape + 按自由轴 N（列 tile）切分 4-PE 版。
+ifeq ($(TYPE), NONTAIL_CUBLAS_FP8_SPLITN_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/nontail_cublas_fp8_splitN_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_cublas_fp8_splitN_dyn.elf
+endif
+
 # 正式 NONTAIL_OCP_FP4 kernel（固定 SPMD 4-PE，kPeNum=4，按块行切分，fp16 in）。
 # 必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
 ifeq ($(TYPE), NONTAIL_OCP_FP4_4PE)
    SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/nontail_ocp_fp4_4pe.cpp
    TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_ocp_fp4_4pe.elf
+endif
+
+# NONTAIL_OCP_FP4 运行期动态 shape 版（Axis/Post 运行期 tiling 传入；约束 Post%TileN==0）。
+# kPeNum=4 时必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
+ifeq ($(TYPE), NONTAIL_OCP_FP4_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/nontail_ocp_fp4_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_ocp_fp4_dyn.elf
+endif
+
+# NONTAIL_OCP_FP4 动态 shape + 按自由轴 N（列 tile）切分 4-PE 版。
+ifeq ($(TYPE), NONTAIL_OCP_FP4_SPLITN_DYN)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/nontail_ocp_fp4_splitN_dyn.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_nontail_ocp_fp4_splitN_dyn.elf
 endif
 
 ifeq ($(TYPE), ALIGN32_PROBE)
