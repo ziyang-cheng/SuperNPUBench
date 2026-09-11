@@ -1,0 +1,2002 @@
+{
+  "tracked_release_branch": "ops-20260908",
+  "mode": "latest",
+  "generated_at": "2026-09-12T05:49+0800",
+  "versions": [
+    {
+      "component": "SuperNPUBench",
+      "repo": "https://github.com/PTO-ISA/SuperNPUBench",
+      "branch": "ops-20260908",
+      "resolved_commit": "a3fa59899dc4b3781edab60738fa303fe4f6f116",
+      "drift": "UNCHANGED",
+      "source": "tracked",
+      "note": ""
+    },
+    {
+      "component": "SuperScalarModel",
+      "repo": "https://github.com/LinxISA/SuperScalarModel",
+      "branch": "main",
+      "resolved_commit": "6a9b739cb8b60c7d87d9b0d57412921532104331",
+      "drift": "FAST_FORWARD(+23)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "llvm-project",
+      "repo": "https://github.com/LinxISA/llvm-project",
+      "branch": "dev-llvm15_56",
+      "resolved_commit": "4a3e0bdb53c9b5dca7db14109d2449162a76246f",
+      "drift": "FAST_FORWARD(+1)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "musl",
+      "repo": "https://github.com/LinxISA/linx-musl",
+      "branch": "linx",
+      "resolved_commit": "af0dfc2066272563fa5607cb6ae8cf974baaa415",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "jemalloc",
+      "repo": "https://github.com/LinxISA/jemalloc",
+      "branch": "linx",
+      "resolved_commit": "4495309cd11cae1a0a2d008c65acd9c410076f06",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "linux-linxisa",
+      "repo": "https://github.com/LinxISA/linux",
+      "branch": "main",
+      "resolved_commit": "1055a743f16eaebfc371e0aabec8c861ab44858f",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "Linx-TileOP-API",
+      "repo": "https://github.com/LinxISA/Linx-TileOP-API",
+      "branch": "linx",
+      "resolved_commit": "987d0346a54c9ea711f0cb4bd87f5d73c99d9757",
+      "drift": "FAST_FORWARD(+3)",
+      "source": "state-tracked",
+      "note": ""
+    }
+  ],
+  "warnings": [],
+  "n_elf": 77,
+  "n_units": 91,
+  "coverage": {
+    "compile_units": 45,
+    "compiled_ok": 27,
+    "compile_failed": [
+      {
+        "unit": "kernel/fa",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/src/fa_2d_unroll.o] Error 1"
+      },
+      {
+        "unit": "kernel/flashMLA",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/flashMLA/src/flashMLA.o] Error 1"
+      },
+      {
+        "unit": "kernel/matmul",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "matmul_hif4x2_mx<globM, globN, globK, tilM, tilN, tilK, false>( ^ 3 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/src/HiF4_HiF4.o] Error 1"
+      },
+      {
+        "unit": "kernel/multi_thread/matmul",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "static_assert(Dst::ValidRow == RowsPerPE && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 errors generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/src/matmul_shared.o] Error 1"
+      },
+      {
+        "unit": "kernel/multi_thread/reduction/reduceprod_row",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "supernpu::multi_thread::reduceprod_rowvec<float, 64, 128, 16, 128>( ^ 1 error generated. make: *** [../../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reduceprod_row/src/reduceprod_row.o] Error 1"
+      },
+      {
+        "unit": "kernel/multi_thread/transpose",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "supernpu::multi_thread::transpose_2d< ^ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/transpose/src/transpose.o] Error 1"
+      },
+      {
+        "unit": "kernel/norm",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "supernpu::norm::rms_norm<RMS_M, RMS_N, RMS_TM, RMS_TN>( ^ 1 error generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/norm/src/rms_norm.o] Error 1"
+      },
+      {
+        "unit": "kernel/reduction/reducemax_3dcol",
+        "rc": 0,
+        "n_new_elf": 0,
+        "log_tail": ""
+      },
+      {
+        "unit": "kernel/reduction/reducesum_3dcol",
+        "rc": 0,
+        "n_new_elf": 0,
+        "log_tail": ""
+      },
+      {
+        "unit": "solution/normalization/group_norm_grad",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/src/group_norm_grad.o] Error 1"
+      },
+      {
+        "unit": "solution/normalization/group_norm_grad_1d",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/src/group_norm_grad_1d.o] Error 1"
+      },
+      {
+        "unit": "solution/normalization/rms_norm",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/src/rms_norm.o] Error 1"
+      },
+      {
+        "unit": "solution/normalization/rms_norm_binary",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_binary/src/rms_norm_binary.o] Error 1"
+      },
+      {
+        "unit": "solution/quant/dynamic_mx_quant",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "dynamic_mx_quant_tail_ocp_fp8<PM, PN, 32>( ^ 1 warning and 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/src/tail_ocp_fp8.o] Error 1"
+      }
+    ],
+    "partial_compile": [
+      {
+        "unit": "kernel/deepseek",
+        "rc": 2,
+        "n_new_elf": 16,
+        "log_tail": "batched_transpose<float, 2, 16, 16>(input, output); ^ 1 error generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/src/batched_transpose.o] Error 1"
+      },
+      {
+        "unit": "kernel/multi_thread/fa",
+        "rc": 2,
+        "n_new_elf": 5,
+        "log_tail": "flash_attention_2d_unroll_shared_impl< ^ 4 errors generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/src/fa_2d_unroll_gmma.o] Error 1"
+      },
+      {
+        "unit": "solution/group_token_vec",
+        "rc": 2,
+        "n_new_elf": 1,
+        "log_tail": "TROWMIN(tMin, tRem);               // per-token min ^ 1 error generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/src/group_token_vec_mt.o] Error 1"
+      },
+      {
+        "unit": "solution/matmul_test",
+        "rc": 2,
+        "n_new_elf": 3,
+        "log_tail": "static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/src/matmul_test.o] Error 1"
+      }
+    ],
+    "makefile_only_uncovered": [
+      "conv2d",
+      "solution/quant_sparse_flash_mla"
+    ]
+  },
+  "stats": {
+    "gfrun": {
+      "pass": 59,
+      "fail": 17,
+      "timeout": 1,
+      "compile_fail": 14
+    },
+    "gfsim": {
+      "pass": 40,
+      "fail": 29,
+      "timeout": 8,
+      "compile_fail": 14
+    }
+  },
+  "results": [
+    {
+      "idx": 1,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1042_1_OUT_SHAPE1042_129",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1042_1_OUT_SHAPE1042_129.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 5,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 2,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1280_1_49_OUT_SHAPE1280_8_49.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 4806,
+      "insts": 5,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 3,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1_1_1_65_128_OUT_SHAPE1_1_7_65_128",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast__DType__half_tM2048_IN_SHAPE1_1_1_65_128_OUT_SHAPE1_1_7_65_128.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 5,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 4,
+      "category": "broadcast",
+      "config": "kernel_broadcast_broadcast_vec_07__DType__half_tM16_IN_SHAPE1443_1_OUT_SHAPE1443_129",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/broadcast/elf/kernel_broadcast_broadcast_vec_07__DType__half_tM16_IN_SHAPE1443_1_OUT_SHAPE1443_129.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:1210",
+        "gfsim": "AccumulateBlockInfo.cpp:1210"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 COPY expansion requires one broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1210 ｜ 条件: inst->dsts[0]->size >= validRow * physicalCol * elemBytes && broadcastShapeLegal",
+        "gfsim": "\"PTO v0.58 COPY expansion requires one broadcast source\" @ func ValidateReduceAndExpandTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:1210 ｜ 条件: inst->dsts[0]->size >= validRow * physicalCol * elemBytes && broadcastShapeLegal"
+      }
+    },
+    {
+      "idx": 5,
+      "category": "concat",
+      "config": "kernel_concat_concat_gather_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_gather_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 17062,
+      "insts": 16,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 6,
+      "category": "concat",
+      "config": "kernel_concat_concat_gather_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_gather_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 16,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 7,
+      "category": "concat",
+      "config": "kernel_concat_concat_scatter_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_scatter_DType__half_tM512_IN_SHAPE256_8_OUT_SHAPE256_8000.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 8,
+      "category": "concat",
+      "config": "kernel_concat_concat_scatter_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/concat/elf/kernel_concat_concat_scatter_DTypeint32_t_tM512_IN_SHAPE64_2_OUT_SHAPE64_2000.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 19,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 9,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 10,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col1024_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 11,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 12,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col256_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 13,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_off",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_off.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 14,
+      "category": "control",
+      "config": "hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_on",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/control/elf/hashtable_lookup_simd_kNum6144_kMaxProbe512_knum_col512_debug_on.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract",
+        "gfsim": "进程非零退出 rc=1；输出尾部：illegal instruction at 0x0: illegal MGATHER operand or descriptor contract"
+      }
+    },
+    {
+      "idx": 15,
+      "category": "deepseek",
+      "config": "cast_back_per_channel",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/cast_back_per_channel.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 9,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 16,
+      "category": "deepseek",
+      "config": "cast_back_per_token",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/cast_back_per_token.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 11,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 17,
+      "category": "deepseek",
+      "config": "engram_hash_layer",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/engram_hash_layer.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 21,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 18,
+      "category": "deepseek",
+      "config": "expand_to_mhc_bwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/expand_to_mhc_bwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 11,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 19,
+      "category": "deepseek",
+      "config": "expand_to_mhc_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/expand_to_mhc_fwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 14,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 20,
+      "category": "deepseek",
+      "config": "fn_normw_merge_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/fn_normw_merge_fwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 9,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 21,
+      "category": "deepseek",
+      "config": "fused_weight",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/fused_weight.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 12,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 22,
+      "category": "deepseek",
+      "config": "mask_indices_by_tp",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/mask_indices_by_tp.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "AccumulateBlockInfo.cpp:973",
+        "gfsim": "AccumulateBlockInfo.cpp:973"
+      },
+      "error": {
+        "gfrun": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:973 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)",
+        "gfsim": "\"binary TEPL source dtype/shape/stride is incompatible\" @ func ValidateBasicBinaryTepl, file SuperScalarModel/emulator/engine/AccumulateBlockInfo.cpp:973 ｜ 条件: IsCompatibleOperationDataTile(source, block->dataType, validRow, validCol, physicalCol, dstBytes)"
+      }
+    },
+    {
+      "idx": 23,
+      "category": "deepseek",
+      "config": "multilayer_recompute",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/multilayer_recompute.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 5,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 24,
+      "category": "deepseek",
+      "config": "normalize_weight",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/normalize_weight.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 11,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 25,
+      "category": "deepseek",
+      "config": "per_channel_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/per_channel_cast.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 7,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 26,
+      "category": "deepseek",
+      "config": "per_token_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/per_token_cast.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 8,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 27,
+      "category": "deepseek",
+      "config": "reduce_fused",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/reduce_fused.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 20,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 28,
+      "category": "deepseek",
+      "config": "rms_norm",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/rms_norm.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 9,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 29,
+      "category": "deepseek",
+      "config": "sinkhorn_fwd",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/sinkhorn_fwd.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 8,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 30,
+      "category": "deepseek",
+      "config": "swiglu_forward_and_per_token_cast",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/deepseek/elf/kernel_deepseek/swiglu_forward_and_per_token_cast.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 8,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 31,
+      "category": "element_wise",
+      "config": "kernel_element_wise_gelu_gelu_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/element_wise/gelu/elf/kernel_element_wise_gelu_gelu_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:2232"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:2232 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 32,
+      "category": "element_wise",
+      "config": "kernel_element_wise_gelu_debug_gelu_debug_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/element_wise/gelu_debug/elf/kernel_element_wise_gelu_debug_gelu_debug_Approximate_false_DType__bf16_tM2048_SHAPE24_8_1024.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 2402,
+      "insts": 4,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 33,
+      "category": "gather",
+      "config": "kernel_gather_gather_DType__fp32_OTypeuint32_t_gKs131072_gMs32_gNs256_tMs32_tNs64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/gather/elf/kernel_gather_gather_DType__fp32_OTypeuint32_t_gKs131072_gMs32_gNs256_tMs32_tNs64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 5,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 34,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_broadcast_broadcast_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/broadcast/elf/kernel_multi_thread_broadcast_broadcast_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 16,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 35,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_concat_concat_gather_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/concat/elf/kernel_multi_thread_concat_concat_gather_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 16,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 36,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_concat_concat_scatter_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/concat/elf/kernel_multi_thread_concat_concat_scatter_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 17,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 37,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_conv2d_v300_conv2d_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/conv2d/elf/kernel_multi_thread_conv2d_v300_conv2d_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 11,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 38,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_element_wise_gelu_gelu_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/element_wise/gelu/elf/kernel_multi_thread_element_wise_gelu_gelu_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:2232"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"PTO 0.58 TCVT requires matching valid shape/layout and legal physical descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:2232 ｜ 条件: srcTile.size() == 1 && dstTile.size() == 1 && srcTile[0] && dstTile[0] && srcTile[0]->tileInfo && dstTile[0]->tileInfo && TileCarrierWidthCompatible(srcTile[0]->tileInfo->dataType, dataType) && !IsCubeLayout(srcTile[0]->tileInfo->layout) && !IsCubeLayout(dstTile[0]->tileInfo->lay…"
+      }
+    },
+    {
+      "idx": 39,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_BF16_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_BF16_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 40,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP32_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP32_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 41,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP8_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 42,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_HIF8_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 43,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP8_VECFP32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/fa/elf/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_MXFP8_VECFP32.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 44,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_gather_gather_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/gather/elf/kernel_multi_thread_gather_gather_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 6,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 45,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_reduction_cumsum_row_cumsum_row_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/cumsum_row/elf/kernel_multi_thread_reduction_cumsum_row_cumsum_row_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 38818,
+      "insts": 18,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 46,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_reduction_reducemax_row_reducemax_row_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reducemax_row/elf/kernel_multi_thread_reduction_reducemax_row_reducemax_row_PE4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 47,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_reduction_reducesum_row_reducesum_row_PE4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reducesum_row/elf/kernel_multi_thread_reduction_reducesum_row_reducesum_row_PE4.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 48,
+      "category": "multi_thread",
+      "config": "kernel_multi_thread_vec_Rows16_Cols16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/vec/elf/kernel_multi_thread_vec_Rows16_Cols16.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 29,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 49,
+      "category": "reduction",
+      "config": "kernel_reduction_reducemax_col_reducemax_col_DTypeint32_t_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducemax_col/elf/kernel_reduction_reducemax_col_reducemax_col_DTypeint32_t_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 4,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 50,
+      "category": "reduction",
+      "config": "kernel_reduction_reducemax_row_reducemax_row_DTypeint32_t_tM16_tN128_GM16_GN8192",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducemax_row/elf/kernel_reduction_reducemax_row_reducemax_row_DTypeint32_t_tM16_tN128_GM16_GN8192.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 51,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_col_reducesum_col_DType__half_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_col/elf/kernel_reduction_reducesum_col_reducesum_col_DType__half_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 6,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 52,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_col_reducesum_col_DTypeint32_t_tM32_tN64_GM2048_GN64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_col/elf/kernel_reduction_reducesum_col_reducesum_col_DTypeint32_t_tM32_tN64_GM2048_GN64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 4,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 53,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_row_reducesum_row_DTypefloat_tM16_tN128_GM16_GN8192",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_row/elf/kernel_reduction_reducesum_row_reducesum_row_DTypefloat_tM16_tN128_GM16_GN8192.elf",
+      "gfrun": "FAIL",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "Block.cpp:1990",
+        "gfsim": "Block.cpp:1990"
+      },
+      "error": {
+        "gfrun": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…",
+        "gfsim": "\"PTO v0.58 row reduction requires final compatible source and destination descriptors\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:1990 ｜ 条件: validCol != 0 && validRow != 0 && physicalCol >= validCol && sourceElemBytes != 0 && destinationElemBytes != 0 && source && destination && source->tileInfo && destination->tileInfo && source->size <= 2048u && (!sourceCubeM || cubeDescriptorValid) && (!destinationCubeM || cubeDesc…"
+      }
+    },
+    {
+      "idx": 54,
+      "category": "reduction",
+      "config": "kernel_reduction_reducesum_row_rowsum_subview_Rows32_Cols32_Parts4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/reduction/reducesum_row/elf/kernel_reduction_reducesum_row_rowsum_subview_Rows32_Cols32_Parts4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:3656"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Unsupport B.PARAMETER\" @ func InsertOneFromPark, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:3656 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 55,
+      "category": "sort",
+      "config": "topk",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/sort/elf/topk.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 12,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 56,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1476_32_OUT32_1476",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1476_32_OUT32_1476.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 8,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 57,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_32_8_32_OUT1_8_32_32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_32_8_32_OUT1_8_32_32.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 9,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 58,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_8_4096_3_OUT1_8_3_4096",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_8_4096_3_OUT1_8_3_4096.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 8,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 59,
+      "category": "transpose",
+      "config": "transpose_DType__half_tM512_IN1_8_64_4_16_7_OUT1_8_16_4_64_7",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/transpose/elf/kernel_transpose/transpose_DType__half_tM512_IN1_8_64_4_16_7_OUT1_8_16_4_64_7.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 12428,
+      "insts": 9,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 60,
+      "category": "solution/gather_v2",
+      "config": "solution_gather_v2_gather_v2_DType__half_ITypeuint32_t_RANK2_DIM0_IN11_17_OUT8_17_TILE64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DType__half_ITypeuint32_t_RANK2_DIM0_IN11_17_OUT8_17_TILE64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 2345,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 61,
+      "category": "solution/gather_v2",
+      "config": "solution_gather_v2_gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 62,
+      "category": "solution/gather_v2",
+      "config": "solution_gather_v2_gather_v2_DTypeint32_t_ITypeint32_t_RANK2_DIM1_IN5_11_OUT5_7_TILE32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DTypeint32_t_ITypeint32_t_RANK2_DIM1_IN5_11_OUT5_7_TILE32.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 63,
+      "category": "solution/group_token_old",
+      "config": "solution_group_token_old_group_token_old",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 1117,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 64,
+      "category": "solution/group_token_old",
+      "config": "solution_group_token_old_group_token_old_mt",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 1772,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 65,
+      "category": "solution/group_token_vec",
+      "config": "solution_group_token_vec_group_token_vec",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/elf/solution_group_token_vec_group_token_vec.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 1105,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 66,
+      "category": "solution/matmul_test",
+      "config": "solution_matmul_test_matmul_test_B1_M200_N96_K128_tM16_tN16_tK16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M200_N96_K128_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 7,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 67,
+      "category": "solution/matmul_test",
+      "config": "solution_matmul_test_matmul_test_B1_M256_N256_K256_tM16_tN16_tK16",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M256_N256_K256_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 8,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 68,
+      "category": "solution/matmul_test",
+      "config": "solution_matmul_test_matmul_test_B1_M512_N256_K512_tM32_tN32_tK32",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M512_N256_K512_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 8,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 69,
+      "category": "solution/mega_moe",
+      "config": "solution_mega_moe_mega_moe_sim_BS16_H32_HD64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/elf/solution_mega_moe_mega_moe_sim_BS16_H32_HD64.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 70,
+      "category": "solution/mega_moe",
+      "config": "solution_mega_moe_mega_moe_sim_mt_BS16_H32_HD64",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/elf/solution_mega_moe_mega_moe_sim_mt_BS16_H32_HD64.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 71,
+      "category": "solution/moe_combine",
+      "config": "solution_moe_combine_moe_combine_mt",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 72,
+      "category": "solution/moe_combine",
+      "config": "solution_moe_combine_moe_combine_v2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 12,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 73,
+      "category": "solution/moe_dispatch",
+      "config": "solution_moe_dispatch_moe_dispatch_mt",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 74,
+      "category": "solution/moe_dispatch",
+      "config": "solution_moe_dispatch_moe_dispatch_v2",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "blocks": 0,
+      "insts": 22,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 75,
+      "category": "solution/view_copy",
+      "config": "solution_view_copy_view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 736,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 76,
+      "category": "solution/view_copy",
+      "config": "solution_view_copy_view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "blocks": 1123,
+      "insts": 0,
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SimSys.cpp:1287"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Deadlock detected: simulation stalled, no new blocks committed for too long\" @ func ResVerify, file SuperScalarModel/TimingSim/infra/SimSys.cpp:1287 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 77,
+      "category": "solution/view_copy",
+      "config": "solution_view_copy_view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1",
+      "elf": "/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>120s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 78,
+      "category": "fa",
+      "config": "kernel/fa",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 13 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/src/fa_2d_unroll.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 13 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/fa/src/fa_2d_unroll.o] Error 1"
+      }
+    },
+    {
+      "idx": 79,
+      "category": "flashMLA",
+      "config": "kernel/flashMLA",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 2 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/flashMLA/src/flashMLA.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 2 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == AValidRows && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/flashMLA/src/flashMLA.o] Error 1"
+      }
+    },
+    {
+      "idx": 80,
+      "category": "matmul",
+      "config": "kernel/matmul",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 16 个变体，全部编译失败/未产出 ELF）；日志尾部：matmul_hif4x2_mx<globM, globN, globK, tilM, tilN, tilK, false>( ^ 3 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/src/HiF4_HiF4.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 16 个变体，全部编译失败/未产出 ELF）；日志尾部：matmul_hif4x2_mx<globM, globN, globK, tilM, tilN, tilK, false>( ^ 3 errors generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/matmul/src/HiF4_HiF4.o] Error 1"
+      }
+    },
+    {
+      "idx": 81,
+      "category": "multi_thread",
+      "config": "kernel/multi_thread/matmul",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 8 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == RowsPerPE && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 errors generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/src/matmul_shared.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 8 个变体，全部编译失败/未产出 ELF）；日志尾部：static_assert(Dst::ValidRow == RowsPerPE && ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 errors generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/src/matmul_shared.o] Error 1"
+      }
+    },
+    {
+      "idx": 82,
+      "category": "multi_thread",
+      "config": "kernel/multi_thread/reduction/reduceprod_row",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::multi_thread::reduceprod_rowvec<float, 64, 128, 16, 128>( ^ 1 error generated. make: *** [../../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reduceprod_row/src/reduceprod_row.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::multi_thread::reduceprod_rowvec<float, 64, 128, 16, 128>( ^ 1 error generated. make: *** [../../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reduceprod_row/src/reduceprod_row.o] Error 1"
+      }
+    },
+    {
+      "idx": 83,
+      "category": "multi_thread",
+      "config": "kernel/multi_thread/transpose",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::multi_thread::transpose_2d< ^ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/transpose/src/transpose.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::multi_thread::transpose_2d< ^ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/transpose/src/transpose.o] Error 1"
+      }
+    },
+    {
+      "idx": 84,
+      "category": "norm",
+      "config": "kernel/norm",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::norm::rms_norm<RMS_M, RMS_N, RMS_TM, RMS_TN>( ^ 1 error generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/norm/src/rms_norm.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：supernpu::norm::rms_norm<RMS_M, RMS_N, RMS_TM, RMS_TN>( ^ 1 error generated. make: *** [../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/norm/src/rms_norm.o] Error 1"
+      }
+    },
+    {
+      "idx": 85,
+      "category": "reduction",
+      "config": "kernel/reduction/reducemax_3dcol",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=0, 新增 ELF=0（该单元预期 0 个变体，全部编译失败/未产出 ELF）；日志尾部：",
+        "gfsim": "compile.all rc=0, 新增 ELF=0（该单元预期 0 个变体，全部编译失败/未产出 ELF）；日志尾部："
+      }
+    },
+    {
+      "idx": 86,
+      "category": "reduction",
+      "config": "kernel/reduction/reducesum_3dcol",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=0, 新增 ELF=0（该单元预期 0 个变体，全部编译失败/未产出 ELF）；日志尾部：",
+        "gfsim": "compile.all rc=0, 新增 ELF=0（该单元预期 0 个变体，全部编译失败/未产出 ELF）；日志尾部："
+      }
+    },
+    {
+      "idx": 87,
+      "category": "solution/normalization",
+      "config": "solution/normalization/group_norm_grad",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/src/group_norm_grad.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/src/group_norm_grad.o] Error 1"
+      }
+    },
+    {
+      "idx": 88,
+      "category": "solution/normalization",
+      "config": "solution/normalization/group_norm_grad_1d",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/src/group_norm_grad_1d.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/src/group_norm_grad_1d.o] Error 1"
+      }
+    },
+    {
+      "idx": 89,
+      "category": "solution/normalization",
+      "config": "solution/normalization/rms_norm",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/src/rms_norm.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/src/rms_norm.o] Error 1"
+      }
+    },
+    {
+      "idx": 90,
+      "category": "solution/normalization",
+      "config": "solution/normalization/rms_norm_binary",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_binary/src/rms_norm_binary.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：\"B.DATR %D[DType], RNONE\\n\" ~~~~~~~~~~~^~~~~~~~~~~~~~~~ 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_binary/src/rms_norm_binary.o] Error 1"
+      }
+    },
+    {
+      "idx": 91,
+      "category": "solution/quant",
+      "config": "solution/quant/dynamic_mx_quant",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "blocks": null,
+      "insts": null,
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：dynamic_mx_quant_tail_ocp_fp8<PM, PN, 32>( ^ 1 warning and 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/src/tail_ocp_fp8.o] Error 1",
+        "gfsim": "compile.all rc=2, 新增 ELF=0（该单元预期 1 个变体，全部编译失败/未产出 ELF）；日志尾部：dynamic_mx_quant_tail_ocp_fp8<PM, PN, 32>( ^ 1 warning and 1 error generated. make: *** [../../../common/Makefile.common:141: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/src/tail_ocp_fp8.o] Error 1"
+      }
+    }
+  ],
+  "precision": {
+    "stage": "precision",
+    "drivers": [
+      "res_check_all",
+      "check_gfrun"
+    ],
+    "coverage_note": "legacy：res_check_all.py(16 mt) + check_gfrun.py(6 solution)；solution 骨架合入后自动切新机制",
+    "compile_fail": [
+      "fa",
+      "matmul",
+      "reduction/reduceprod_row",
+      "transpose"
+    ],
+    "stats": {
+      "pass": 6,
+      "fail": 11,
+      "skip": 5,
+      "timeout": 0,
+      "total": 22
+    },
+    "results": [
+      {
+        "driver": "res_check_all",
+        "op": "broadcast",
+        "status": "PASS",
+        "detail": "max_abs=0"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "concat_gather",
+        "status": "PASS",
+        "detail": "max_abs=0"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "concat_scatter",
+        "status": "PASS",
+        "detail": "max_abs=0"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "conv2d",
+        "status": "FAIL",
+        "detail": "max_abs=0.282559"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "gelu",
+        "status": "PASS",
+        "detail": "max_abs=7.62939e-06"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "fa",
+        "status": "FAIL",
+        "detail": "gfrun rc=1: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/compare/kernel_multi_thread_fa_Sq256_Skv256_Tm128_Tk128_X1_Y2_FP32_VECFP32/gfrun.log"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "gather",
+        "status": "FAIL",
+        "detail": "max_abs=1.03847e+34"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "matmul_shared",
+        "status": "SKIP",
+        "detail": "missing ELF: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_shared_B1_M256_N256_K256_tM128_tN256_tK128.elf"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "matmul_reuseB",
+        "status": "SKIP",
+        "detail": "missing ELF: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_reuseB_B1_M256_N256_K256_tM128_tN256_tK128.elf"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "matmul_lowp_fp8",
+        "status": "SKIP",
+        "detail": "missing ELF: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/matmul/elf/kernel_multi_thread_matmul_matmul_lowp_FP8_B1_M256_N256_K512_tM128_tN256_tK512.elf"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "cumsum_row",
+        "status": "PASS",
+        "detail": "max_abs=0"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "reducemax_row",
+        "status": "FAIL",
+        "detail": "gfrun rc=1: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/compare/kernel_multi_thread_reduction_reducemax_row_reducemax_row_PE4/gfrun.log"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "reduceprod_row",
+        "status": "SKIP",
+        "detail": "missing ELF: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/reduction/reduceprod_row/elf/kernel_multi_thread_reduction_reduceprod_row_reduceprod_row_PE4.elf"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "reducesum_row",
+        "status": "FAIL",
+        "detail": "gfrun rc=1: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/compare/kernel_multi_thread_reduction_reducesum_row_reducesum_row_PE4/gfrun.log"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "transpose",
+        "status": "SKIP",
+        "detail": "missing ELF: /workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/kernel/multi_thread/transpose/elf/kernel_multi_thread_transpose_transpose_PE4.elf"
+      },
+      {
+        "driver": "res_check_all",
+        "op": "tadd",
+        "status": "PASS",
+        "detail": "max_abs=0"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_view_copy_view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_view_copy_view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_view_copy_view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_gather_v2_gather_v2_DType__half_ITypeuint32_t_RANK2_DIM0_IN11_17_OUT8_17_TILE64.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_gather_v2_gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      },
+      {
+        "driver": "check_gfrun",
+        "op": "solution_gather_v2_gather_v2_DTypeint32_t_ITypeint32_t_RANK2_DIM1_IN5_11_OUT5_7_TILE32.elf",
+        "status": "FAIL",
+        "detail": "host_golden=False"
+      }
+    ]
+  }
+}
