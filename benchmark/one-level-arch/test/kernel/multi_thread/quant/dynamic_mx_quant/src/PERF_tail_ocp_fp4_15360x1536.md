@@ -3,8 +3,42 @@
 > 方法遵循 `SuperScalarModel/modelSpec/performance_analysis_guide.md`：三个可观测面联用
 > （**PMU Top-Down 分诊 → PMU 深层子块定位 → PipeView/SwimLane 可视化验证**），
 > 逐层下钻 L1 → Backend →（Memory vs Core）→ 执行单元 → **Vector 内部 uop/CellReg 路径** → 下游依赖。
-> 配套 artifact（同目录）：`tail_ocp_fp4_15360x1536.json`（SwimLane 稳态窗）、
-> `tail_ocp_fp4_192x1536.json`（SwimLane 小 case 完整）、`tail_ocp_fp4_15360x1536_pipeview.out`（Konata PipeView）。
+> 配套 artifact（同目录）：`tail_ocp_fp4_15360x1536.json`（V1 SwimLane 稳态窗）、
+> `tail_ocp_fp4_192x1536.json`（V1 小 case 完整）、`tail_ocp_fp4_15360x1536_pipeview.out`（Konata PipeView）；
+> `tail_ocp_fp4_v2_15360x1536.json` / `tail_ocp_fp4_v2_192x1536.json`（V2 SwimLane）。
+
+---
+
+## 0. 版本与优化记录（V1 → V2）
+
+### V1 = 性能基线（下文 §1–§8 的深度分析针对 V1）
+锚点见 §2；瓶颈 = Vector 执行端口 Core-Bound，根因 = 向量发射受 CellReg 源读延迟 + 关键串行链长限制。
+
+### V2 优化：TSELS 守卫融合（消除 recip 位补链上的 TEXPANDS）
+
+**优化手段**：把 recip 三守卫从 `TCMPS(EQ) + TEXPANDS(常量) + TSEL(recip,mask,常量tile)`（每守卫 3 op）改为
+`TCMPS(NE) + TSELS(recip, mask, 常量立即数, recip)`（每守卫 2 op）：
+- `TSELS` 语义 `dst = mask ? true_tile : scalar_false`，直接把哨兵常量当**标量立即数**吃进去 → **去掉 3 个 TEXPANDS**；
+- 比较翻转为 **NE**（mask=“保留 recip”条件），使 `eq 命中→写常量、否则保留 recip`，与原 TSEL 版优先级（inf→zero→special 后者覆盖）**逐位一致**；
+- 附带消除了原代码**单个 `k` 常量寄存器被 4 次复写**造成的假串行；TSELS 用显式 false-source，也不踩就地 TSEL 的 false-src 读 0 缺陷。
+
+**为什么有效**：VEC 瓶颈是**关键串行链的长度**（每 op 等 ~5 拍 CellReg 源读、whole-tile 依赖串行），不是并行度不足（unroll/交织/ping-pong 实测均 ≈0）。这 3 个 TEXPANDS 因 `k` 复写卡在守卫关键链上；砍掉它们直接缩短关键链——**uop 只减 2.7%，周期却降 13%**，正是"砍链长 ≫ 减 uop 数"的体现。
+
+**优化效果**（同条件复测：Bench ops-20260908 · TileM=32 tiling · `gfsim --conf fourpe --pto-v02 true` · 1.65GHz；gfrun 4-PE 逐字节验证于 TileM=128）：
+
+| 指标 | V1 | **V2** | 变化 |
+|---|---|---|---|
+| **大 case [15360,1536] Total Cycles** | 3,686,979 | **3,203,139** | **−13.1%**（≈2.235ms→1.941ms@1.65GHz） |
+| **小 case [192,1536] 完整 Total Cycles** | 61,846 | **53,782** | **−13.0%** |
+| 向量发射率(uop/cyc/PE) | 0.175 | 0.20 | +14% |
+| UopNum/PE | 645,120 | 627,840 | −17,280（=3 TEXPANDS × 5760 kb 次/PE） |
+| Backend Bound | 76.74% | 74.24% | ↓ |
+| Core Bound → Vector | 48.65% | 46.12% | ↓ |
+| gfrun 逐字节(TileM=128) | — | **output/scale MSE=0** | ✅ 正确 |
+
+**仍是 Vector 端口 Core-Bound**（46.12%）——V2 缩短了关键链但没改变瓶颈性质；进一步收益需继续减 VEC 关键链 op（bf16 域直乘省全宽 TCVT）或硬件侧（SrcBuf/读延迟）。改动仅在 `dynamic_mx_quant_tail_ocp_fp4.hpp` 守卫块（+12/−10），其余 kernel 不变。
+
+---
 
 ## 1. 用例与构建
 

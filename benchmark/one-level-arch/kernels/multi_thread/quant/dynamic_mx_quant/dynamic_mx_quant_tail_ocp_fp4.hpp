@@ -158,17 +158,19 @@ void dynamic_mx_quant_tail_ocp_fp4(InT *x, OutT *y, uint8_t *scale) {
             auto eq_zero    = reinterpret_tile<uint16_t>(eqzero_bf);
             auto eq_special = reinterpret_tile<uint16_t>(eqspc_bf);
             auto k_u16      = reinterpret_tile<uint16_t>(k_bf);
-            TCMPS(eq_inf,     max_u16,    BF16_EXP_MASK);              // NOT finite
-            TCMPS(eq_zero,    max_u16,    static_cast<uint16_t>(0));   // all-zero block
-            TCMPS(eq_special, shared_u16, BF16_EXP_BIAS);             // shared==0x7F00
+            // 【TSELS 融合】守卫改用 TSELS(dst = mask ? true_tile : scalar_false) 直接吃标量哨兵：
+            //   翻转比较为 NE（mask=“保留 recip”的条件），true_tile=recip，scalar_false=哨兵常量。
+            //   eq 命中(NE=false)→写常量；否则(NE=true)→保留 recip。省掉 3 个 TEXPANDS + k 复用串行，
+            //   且 TSELS 用显式 false-source 不踩就地 TSEL 的 false-src 读 0 缺陷。优先级(inf→zero→
+            //   special，后者覆盖)与原 TSEL 版逐位一致。eq_inf/eq_zero/eq_special 现存 NE 结果。
+            TCMPS<CmpMode::NE>(eq_inf,     max_u16,    BF16_EXP_MASK);              // max_exp≠0x7F80 → 保留
+            TCMPS<CmpMode::NE>(eq_zero,    max_u16,    static_cast<uint16_t>(0));   // max≠0 → 保留
+            TCMPS<CmpMode::NE>(eq_special, shared_u16, BF16_EXP_BIAS);             // shared≠0x7F00 → 保留
             TEXPANDS(k_u16, BF16_EXP_BIAS);
-            TSUB(recip_u16, k_u16, shared_u16);                       // 0x7F00 - shared
-            TEXPANDS(k_u16, BF16_NAN_PATTERN);
-            TSEL(recip_u16, eq_inf, k_u16);                           // inf 命中 -> 0x7F81
-            TEXPANDS(k_u16, static_cast<uint16_t>(0));
-            TSEL(recip_u16, eq_zero, k_u16);                          // 全零命中 -> 0
-            TEXPANDS(k_u16, BF16_SPECIAL_EXP);
-            TSEL(recip_u16, eq_special, k_u16);                       // special 命中 -> 0x0040
+            TSUB(recip_u16, k_u16, shared_u16);                       // recip = 0x7F00 - shared
+            TSELS(recip_u16, eq_inf,     BF16_NAN_PATTERN,          recip_u16);    // inf 命中 -> 0x7F81
+            TSELS(recip_u16, eq_zero,    static_cast<uint16_t>(0),   recip_u16);   // 全零命中 -> 0
+            TSELS(recip_u16, eq_special, BF16_SPECIAL_EXP,           recip_u16);   // special 命中 -> 0x0040
             t_fb recip_f; TCVT(recip_f, recip_bf);                    // bf16 -> fp32
             t_o oq;
             if constexpr (std::is_same_v<InT, float>) {
