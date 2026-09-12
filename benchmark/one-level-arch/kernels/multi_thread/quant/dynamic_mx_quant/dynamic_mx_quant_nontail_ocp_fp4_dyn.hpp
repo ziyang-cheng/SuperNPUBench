@@ -36,7 +36,7 @@ namespace supernpu::tile_isa::mxquant {
 // SPMD：kPeNum=1 / kPeNum=4（按 kb 切，须 gfrun -s softcore.multiThreadNum=4）。
 //   tiling[0]=Axis（量化轴 M），tiling[1]=Post（自由轴 N）。
 // ===========================================================================
-template <int BlockSize = 32, int TileN = 64, typename OutT = __fp4_e2m1x2,
+template <int BlockSize = 32, int TileN = 128, typename OutT = __fp4_e2m1x2,
           typename InT = __bf16, int kPeNum = 1>
 void dynamic_mx_quant_nontail_ocp_fp4_dyn(InT *x, OutT *y, uint8_t *scale,
                                           const int64_t *tiling) {

@@ -25,7 +25,7 @@ using namespace supernpu::tile_isa::mxquant;
 #define PBS 32
 #endif
 #ifndef PTILEN
-#define PTILEN 64
+#define PTILEN 128
 #endif
 #ifndef PPE
 #define PPE 4

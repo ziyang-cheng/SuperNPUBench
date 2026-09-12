@@ -90,6 +90,12 @@ ifeq ($(TYPE), TAIL_OCP_FP4_DYN)
    TARGET = $(ELF_HEAD)/$(TESTCASE)_tail_ocp_fp4_dyn.elf
 endif
 
+# TAIL_OCP_FP4 大 shape 基准 [15360,1536] BS=32（专用 driver=专用 .o，避免与 512×256 共享）。
+ifeq ($(TYPE), TAIL_OCP_FP4_BENCH)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/tail_ocp_fp4_bench.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_tail_ocp_fp4_bench.elf
+endif
+
 # TAIL_CUBLAS_FP8 运行期动态 shape 版（M/K 运行期 tiling 传入；cuBLAS scale，fp16 in）。
 # kPeNum=4 时必须用 4 线程跑：gfrun -s softcore.multiThreadNum=4。
 ifeq ($(TYPE), TAIL_CUBLAS_FP8_DYN)
@@ -182,9 +188,12 @@ ifeq ($(TYPE), TCVT_REDUCE_SHAPE_PROBE)
    TARGET = $(ELF_HEAD)/$(TESTCASE)_tcvt_reduce_shape_probe.elf
 endif
 
-# 可选 shape 覆盖（4-PE res_check 多 Post 一致性验证，issue #489）：命令行提供时
-# 转发为 -D 宏，使同一 driver 可编不同 shape；driver 内 #ifndef 默认值不受影响。
-# tail driver 用 PM/PN；nontail driver 用 PAXIS/PPOST。
+# 命令行可覆盖的 driver 参数：**全部**转发为 -D 宏；driver 内 #ifndef 默认值兜底。
+# 关键：凡 driver 里出现的 #ifndef 宏都必须在此转发，否则 `make VAR=x` 会被静默忽略
+#       （历史教训：PTILEN 未转发导致覆盖失效）。任一新增 driver 宏须同步登记到这里。
+#   形状：tail driver 用 PM/PN；nontail driver 用 PAXIS/PPOST。
+#   结构常量（默认已正确）：PBS=BlockSize、PTILEN=physical TileN(=128, TCVT physical-Row 契约)、
+#       PPE=kPeNum。覆盖为非法值会在编译期响亮报错（非静默），故转发安全。
 ifdef PM
    DEFINES += -DPM=$(PM)
 endif
@@ -196,6 +205,15 @@ ifdef PAXIS
 endif
 ifdef PPOST
    DEFINES += -DPPOST=$(PPOST)
+endif
+ifdef PBS
+   DEFINES += -DPBS=$(PBS)
+endif
+ifdef PTILEN
+   DEFINES += -DPTILEN=$(PTILEN)
+endif
+ifdef PPE
+   DEFINES += -DPPE=$(PPE)
 endif
 
 ifeq ($(TYPE), ROWMAX_TAIL_PROBE)

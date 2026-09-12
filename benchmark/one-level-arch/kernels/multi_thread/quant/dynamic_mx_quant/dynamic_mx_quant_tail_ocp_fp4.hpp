@@ -15,17 +15,20 @@ constexpr int pow2_floor(int v) {
     while (p * 2 <= v) p *= 2;
     return p;
 }
-// 最大 TileM —— 仅由 blockSize + 输入宽度决定，与 SubM 无关：
-//   budgetMax = 4096/(BS*sizeof fp32)  —— data pass 的 fp32 中间量 tile <= 4KB（tile 预算）
-//   floorMin  = 512/(BS*inBytes)       —— 物理 tile >= 512B（避免 LinxV5 sub-512B spill）
-//   TileMmax = pow2_floor(budgetMax) 抬到 floorMin。BS=32 -> 32。
-//   注：8KB->4KB 使 TileM 64->32，TROWEXPANDMUL 广播源 [TileM,1] fp32 256B->128B(1 CELL)，
-//       规避 gfsim #605 单-CELL 契约;纯 tiling、功能/精度不变(新工具链 tile 上限已 256KB)。
+// 最大 TileM —— 仅由 blockSize 决定，与 SubM 无关：
+//   physical 行高须 >= 128（floorRows）：reduce 输出下游有 e8m0 列向量 tile [TileM,1]，
+//     TileM*1B < 128B 最小 TSize 时被 padding 撑高 → DerivedTileRows 翻倍，违反 pto-spec
+//     PTO-TILE-TCVT「源/目的 physical Row 相等」(TileOP #42 static_assert)。e8m0=8-bit →
+//     TileM >= 128；此时最窄列 tile 恰达 128B、DerivedRows=TileM，与其它列 tile 全等 → 合法。
+//   上限受 fp32 数据 tile [TileM,BlockSize] <= 256KB 约束（BS=32 → [128,32]=16KB，安全）。
+//   BS=32 -> 128。旧 4KB/#605 规避被此契约取代（见 tail_ocp_fp8 同注释）。
 constexpr int tilem_max(int blockSize, int inBytes) {
-    const int budgetMax = 4096 / (blockSize * static_cast<int>(sizeof(float)));   // 32 @ BS=32
-    const int floorMin  = (512 / inBytes + blockSize - 1) / blockSize;            // 8 @ BS=32/bf16
+    const int floorRows = 128;   // e8m0 列 tile [TileM,1] 达 128B 最小 TSize 的下限
+    const int budgetMax = 262144 / (blockSize * static_cast<int>(sizeof(float)));  // [TileM,BS]fp32<=256KB
     int t = pow2_floor(budgetMax);
-    if (t > 0 && t < floorMin) t = floorMin;
+    if (t < floorRows) t = floorRows;
+    if (t > floorRows) t = floorRows;   // 钉到 128：满足契约且避免 boxed 尾块浪费容量
+    (void)inBytes;
     return t;
 }
 } // namespace tail_ocp_fp4_detail
