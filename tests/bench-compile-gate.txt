@@ -1,0 +1,42 @@
+# SuperNPUBench PTO ISA compile-gate allowlist.
+#
+# Each line is a kernel subpath under benchmark/one-level-arch/test/kernel.
+# scripts/ci_compile_gate.sh compiles every *active* (un-commented) `make`
+# line in each listed kernel's compile.all and fails the PR if any breaks.
+#
+# Keep this list green. To add a kernel:
+#   1. Run the gate locally against it:
+#        COMPILER_DIR=.../bin LINX_SYSROOT=.../sysroot/usr \
+#        scripts/ci_compile_gate.sh <kernel_subpath>
+#   2. If it compiles clean, un-comment / add it here in its own PR.
+# To keep an individual config out, comment out that `make` line in the
+# kernel's own compile.all (that is the per-config pass-list).
+
+# ---- stable core (gated) --------------------------------------------------
+matmul
+broadcast
+concat
+gather
+transpose
+element_wise/gelu
+control
+fa
+reduction/reducemax_col
+reduction/reducemax_row
+reduction/reducesum_col
+reduction/reducesum_row
+
+# ---- staged in: enable per-kernel once a CI run confirms it compiles green -
+# reduction/reducemax_3dcol
+# reduction/reducesum_3dcol
+# sort
+# multi_thread/matmul
+# multi_thread/fa
+# multi_thread/vec
+
+# ---- known toolchain defects: keep out until the skew is resolved ----------
+# (see kernels/quant/dynamic_mx_quant/ISSUE_rel0812_toolchain_defects.md)
+# quant/dynamic_mx_quant
+# quant/dynamic_hi_f4_quant
+# deepseek
+# flashMLA

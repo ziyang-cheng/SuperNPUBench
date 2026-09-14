@@ -1,0 +1,102 @@
+name: bench CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  # linx toolchain source. Pin the TAG and bump it in lockstep with the
+  # emulator / PTO ISA version to avoid toolchain<->model skew (fresh ELFs from
+  # a mismatched toolchain crash gfrun/gfsim). Releases:
+  #   https://github.com/LinxISA/linx-toolchain-build/releases
+  LINX_TOOLCHAIN_REPO: LinxISA/linx-toolchain-build
+  LINX_TOOLCHAIN_TAG: v3.0.0
+  LINX_TOOLCHAIN_ASSET: linx_blockisa_llvm_musl-x86_64-linux.tar.gz
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      run_build: ${{ steps.filter.outputs.run_build }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: filter
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+            HEAD="${{ github.event.pull_request.head.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+            HEAD="${{ github.sha }}"
+          fi
+          # New branch / force-push has no usable base -> run to be safe.
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            echo "run_build=true" >> "$GITHUB_OUTPUT"
+            echo "No base commit to diff; will run compile gate."
+            exit 0
+          fi
+          CHANGED=$(git diff --name-only "${BASE}...${HEAD}" 2>/dev/null || true)
+          # Doc-only changes (markdown + doc trees) skip the compile gate.
+          NON_DOC=$(echo "$CHANGED" | grep -vE '(^docs/|^architecture/|\.md$)' | grep -v '^$' || true)
+          if [ -z "$NON_DOC" ]; then
+            echo "run_build=false" >> "$GITHUB_OUTPUT"
+            echo "Doc-only changes; skipping compile gate."
+          else
+            echo "run_build=true" >> "$GITHUB_OUTPUT"
+            echo "Non-doc files changed; will run compile gate."
+            echo "$NON_DOC" | sed 's/^/  /'
+          fi
+
+  bench-compile:
+    needs: changes
+    if: always() && ((needs.changes.result != 'success') || (needs.changes.outputs.run_build == 'true'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch pinned linx toolchain
+        env:
+          # Optional PAT with read access if the toolchain repo is private.
+          # Falls back to anonymous download for public releases.
+          LINX_TOOLCHAIN_TOKEN: ${{ secrets.LINX_TOOLCHAIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          url="https://github.com/${LINX_TOOLCHAIN_REPO}/releases/download/${LINX_TOOLCHAIN_TAG}/${LINX_TOOLCHAIN_ASSET}"
+          echo "Downloading $url"
+          auth=()
+          [ -n "${LINX_TOOLCHAIN_TOKEN:-}" ] && auth=(-H "Authorization: Bearer ${LINX_TOOLCHAIN_TOKEN}")
+          curl -fL --retry 3 --retry-delay 5 "${auth[@]}" -o toolchain.tar.gz "$url"
+          gzip -t toolchain.tar.gz
+          mkdir -p "$HOME/linx-tc"
+          tar -C "$HOME/linx-tc" -xzf toolchain.tar.gz
+          # Locate the toolchain root robustly (top-level dir name may change).
+          clangxx="$(find "$HOME/linx-tc" -type f -name clang++ -path '*/bin/*' | head -1)"
+          if [ -z "$clangxx" ]; then
+            echo "ERROR: clang++ not found in extracted toolchain" >&2
+            find "$HOME/linx-tc" -maxdepth 2 -type d | sed 's/^/  /'
+            exit 1
+          fi
+          tc_bin="$(dirname "$clangxx")"
+          tc_root="$(dirname "$tc_bin")"
+          sysroot="$(find "$tc_root" -type d -path '*/sysroot/usr' | head -1)"
+          echo "COMPILER_DIR=$tc_bin" >> "$GITHUB_ENV"
+          [ -n "$sysroot" ] && echo "LINX_SYSROOT=$sysroot" >> "$GITHUB_ENV"
+          echo "Toolchain bin: $tc_bin"
+          echo "Sysroot:       ${sysroot:-<none>}"
+          "$tc_bin/clang++" --version | head -1 || true
+
+      - name: Run compile gate
+        run: |
+          bash scripts/ci_compile_gate.sh --list tests/bench-compile-gate.txt
