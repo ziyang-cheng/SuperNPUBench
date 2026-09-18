@@ -5,14 +5,18 @@
 > 缺失**的功能；规避 = 用现有 tile-op 组合出的等效手段（算子内实现技巧，非硬件补齐）。二者严格区分。
 > 权威格式定义与量化算法见 `DESIGN.md`（§1 格式、§2.1 算法权威）；本文对应 DESIGN §3.1/§3.2/§4 的缺口条目。
 >
-> **状态（2026-09-16 更新）**：kernel 已按 ISA 伪码 V1 全量落地为 **ROW_MAJOR Vec** 实现
-> （`dynamic_hi_f4_quant_tail.h`），在**最新栈**（llvm `46601e70` / TileOP `205cea8` 含 #137 / model
-> main `4bb0b2b4`）上 **FRAMEWORK 编译干净**。gfrun 的**唯一阻塞** = **SuperScalarModel issue #685**
-> （https://github.com/LinxISA/SuperScalarModel/issues/685）：行归约输出被 model 钉成 physical col=1，
-> 与 Linx-TileOP-API #137 / pto-spec 不一致，下游二元 TEPL（TMAX）在 `AccumulateBlockInfo.cpp` 的
-> `ValidateBasicBinaryTepl` 失配。**等待上游修复**；修复后再往下验证 E6M2/recip/输出/scale-word 的后续契约。
-> 复现见 `ISSUE_model_rowreduce_widecol_output_shape.md` + `test/.../src/rowreduce_widecol_repro.cpp`。
-> 早期（发布钉版 987d034 时代）的 op-review/探针记录见下方各问题条目。
+> **状态（2026-09-18 更新）：gfrun 跑通(runtime-viable)**。kernel 按 ISA 伪码 V1 全量落地为
+> **ROW_MAJOR Vec** 实现,在**最新栈**(llvm `c9d40c88` / TileOP `f223dc5` / model main `ed5b1d9e`)上
+> **FRAMEWORK 编译干净 + gfrun 端到端执行 R2=0**(到达 benchmark 末尾,无运行期断言崩)。逐个攻破的
+> 运行期契约:①SSM #685(行归约输出 col 失配)—— 全程 `[32,1]` 使 col=1 与下游 physCol=1 天然匹配(#685
+> 只咬 `[32,2]`,不再触发);②CUBE_M32 fp4 输出被新 LLVM gate → 输出走 RowMajor fp4;③#119 scale-word
+> 窄化→u32 → 走 uint16 域(lo/hi 两半存);④TSEL 需整数 dtype(`IsCompareSelectTeplDataType`)→ 因子/E1
+> 的 TSEL 改 uint16 位模式。
+> **⚠ 数值未验证**:framework 零输入;`bf16→e6m2` RNE 与 `e6m2 倒数`(现简化为仅指数项+LUT[0]、忽略 m2)
+> 均为占位,R2=0 是"到达末尾"非逐元素精度。真数值验证需 host golden + res_check + 补齐两占位。输出用
+> `e1m2x2`(hif4x2 数值等价替身;hif4x2/e1m2x2 的 CUBE_M32 B.DATR 被新 LLVM gate,RowMajor 通路可发射)。
+> 早期 op-review/探针记录 + SSM #685(https://github.com/LinxISA/SuperScalarModel/issues/685,复现见
+> `rowreduce_widecol_repro.cpp`,官方"preserve physical columns"修法已回退、正解走 CUBE #311)见下方条目。
 
 ---
 

@@ -41,6 +41,11 @@ endif
 # 最小复现:ROW reduction 物理宽列在 API(#137)与 model 间不一致。TROWMAX 出
 # [32,2]valid1(#137 后编过),下游 TMAX 消费时 gfrun 因 model 把归约输出 col 钉成 1 失配。
 #   make TESTCASE=dynamic_hi_f4_quant TYPE=ROWREDUCE_WIDECOL_REPRO diss
+ifeq ($(TYPE), REDUCE311_PROBE)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/reduce311_probe.cpp
+   TARGET = $(ELF_HEAD)/$(TESTCASE)_reduce311_probe.elf
+endif
+
 ifeq ($(TYPE), ROWREDUCE_WIDECOL_REPRO)
    SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/rowreduce_widecol_repro.cpp
    TARGET = $(ELF_HEAD)/$(TESTCASE)_rowreduce_widecol_repro.elf

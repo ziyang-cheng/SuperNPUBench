@@ -34,13 +34,13 @@ static constexpr int N  = 128;  // → numKb=2(多 block 迭代)
 
 static __bf16       xb[M * N]     __attribute__((aligned(4096))) = {};
 static __half       xh[M * N]     __attribute__((aligned(4096))) = {};
-static __fp4_hif4x2 y [M * N / 2] __attribute__((aligned(4096))) = {};
+static __fp4_e1m2x2 y [M * N / 2] __attribute__((aligned(4096))) = {};
 static uint32_t     s [M * (N / 64)] __attribute__((aligned(4096))) = {};
 
 int main() {
     // bf16 输入路径(直载)
-    dynamic_hi_f4_quant_tail<M, N, 64, __fp4_hif4x2, __bf16>(xb, y, s);
+    dynamic_hi_f4_quant_tail<M, N, 64, __fp4_e1m2x2, __bf16>(xb, y, s);
     // fp16 输入路径(half → bf16 TCVT 分支,DESIGN §0)
-    dynamic_hi_f4_quant_tail<M, N, 64, __fp4_hif4x2, __half>(xh, y, s);
+    dynamic_hi_f4_quant_tail<M, N, 64, __fp4_e1m2x2, __half>(xh, y, s);
     return 0;
 }
