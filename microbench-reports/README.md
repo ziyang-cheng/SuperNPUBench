@@ -5,6 +5,7 @@
 
 | 时间 | 基线 tag | 精度正确 | 精度失败(witness) | run-only | 编译失败 | run-fail | 报告 | 归档 |
 |---|---|---|---|---|---|---|---|---|
+| 2026-09-29 08:08:09 | `main` | 100 | 6 | 8 | 1 | 3 | [报告](main/2026-09-29T0803+0800__microbench-guard.md) | [json](main/2026-09-29T0803+0800__microbench-guard.json) |
 | 2026-09-28 08:06:31 | `main` | 100 | 6 | 8 | 1 | 3 | [报告](main/2026-09-28T0803+0800__microbench-guard.md) | [json](main/2026-09-28T0803+0800__microbench-guard.json) |
 | 2026-09-27 08:07:28 | `main` | 100 | 6 | 8 | 1 | 3 | [报告](main/2026-09-27T0804+0800__microbench-guard.md) | [json](main/2026-09-27T0804+0800__microbench-guard.json) |
 | 2026-09-26 08:07:45 | `main` | 100 | 6 | 8 | 1 | 3 | [报告](main/2026-09-26T0804+0800__microbench-guard.md) | [json](main/2026-09-26T0804+0800__microbench-guard.json) |
