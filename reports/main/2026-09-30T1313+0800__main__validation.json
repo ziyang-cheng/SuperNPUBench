@@ -1,0 +1,1513 @@
+{
+  "tracked_release_branch": "main",
+  "mode": "latest",
+  "generated_at": "2026-09-30T13:13+0800",
+  "versions": [
+    {
+      "component": "SuperNPUBench",
+      "repo": "https://github.com/PTO-ISA/SuperNPUBench",
+      "branch": "main",
+      "resolved_commit": "a283194688c4cfd5ebb8a10bfc5b8df6b796166a",
+      "drift": "FAST_FORWARD(+1)",
+      "source": "tracked",
+      "note": ""
+    },
+    {
+      "component": "SuperScalarModel",
+      "repo": "https://github.com/LinxISA/SuperScalarModel",
+      "branch": "main",
+      "resolved_commit": "57378d2c74066041256c7a35a4038c6b66dccabf",
+      "drift": "FAST_FORWARD(+129)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "llvm-project",
+      "repo": "https://github.com/LinxISA/llvm-project",
+      "branch": "dev-llvm15_56",
+      "resolved_commit": "a7e24594feefa20a3adf02797534fee3cbef6b26",
+      "drift": "FAST_FORWARD(+2)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "musl",
+      "repo": "https://github.com/LinxISA/linx-musl",
+      "branch": "linx",
+      "resolved_commit": "af0dfc2066272563fa5607cb6ae8cf974baaa415",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "jemalloc",
+      "repo": "https://github.com/LinxISA/jemalloc",
+      "branch": "linx",
+      "resolved_commit": "4495309cd11cae1a0a2d008c65acd9c410076f06",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "linux-linxisa",
+      "repo": "https://github.com/LinxISA/linux",
+      "branch": "main",
+      "resolved_commit": "1055a743f16eaebfc371e0aabec8c861ab44858f",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "Linx-TileOP-API",
+      "repo": "https://github.com/LinxISA/Linx-TileOP-API",
+      "branch": "linx",
+      "resolved_commit": "12bd04888fd87d19ac4032b6348f942bb9cfadc2",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    }
+  ],
+  "warnings": [],
+  "n_elf": 73,
+  "n_units": 73,
+  "coverage": {
+    "compile_units": 17,
+    "compiled_ok": 17,
+    "compile_failed": [],
+    "partial_compile": [],
+    "makefile_only_uncovered": []
+  },
+  "stats": {
+    "gfrun": {
+      "pass": 69,
+      "fail": 0,
+      "timeout": 4,
+      "compile_fail": 0,
+      "skip_1pe": 0
+    },
+    "gfsim": {
+      "pass": 14,
+      "fail": 24,
+      "timeout": 19,
+      "compile_fail": 0,
+      "skip_1pe": 16
+    }
+  },
+  "results": [
+    {
+      "idx": 1,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/conv2d/elf/solution_conv2d_conv2d_img2col_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:2673"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"BSTART.TIMG2COL schema or parameter carrier is illegal\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:2673 ｜ 条件: dataTypeLegal && dimensionsLegal && dataAttributesLegal && iorLegal"
+      }
+    },
+    {
+      "idx": 2,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col_dyn_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/conv2d/elf/solution_conv2d_conv2d_img2col_dyn_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "Block.cpp:2673"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"BSTART.TIMG2COL schema or parameter carrier is illegal\" @ func ValidateOperandContract, file SuperScalarModel/isa/Block.cpp:2673 ｜ 条件: dataTypeLegal && dimensionsLegal && dataAttributesLegal && iorLegal"
+      }
+    },
+    {
+      "idx": 3,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DType__half_ITypeuint32_t_RANK2_DIM0_IN11_17_OUT8_17_TILE64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DType__half_ITypeuint32_t_RANK2_DIM0_IN11_17_OUT8_17_TILE64.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 4,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 5,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DTypeint32_t_ITypeint32_t_RANK2_DIM1_IN5_11_OUT5_7_TILE32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DTypeint32_t_ITypeint32_t_RANK2_DIM1_IN5_11_OUT5_7_TILE32.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 6,
+      "category": "solution/group_token_old",
+      "config": "group_token_old",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 7,
+      "category": "solution/group_token_old",
+      "config": "group_token_old_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 8,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/elf/solution_group_token_vec_group_token_vec.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 9,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/elf/solution_group_token_vec_group_token_vec_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 10,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/elf/solution_group_token_vec_group_token_vec_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 11,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M100_N100_K100_tM16_tN16_tK16",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M100_N100_K100_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 12,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M101_N99_K110_tM16_tN16_tK16",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M101_N99_K110_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 13,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M105_N99_K103_tM32_tN32_tK32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M105_N99_K103_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 14,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M200_N96_K128_tM16_tN16_tK16",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M200_N96_K128_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 15,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M203_N99_K101_tM16_tN16_tK16",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M203_N99_K101_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 16,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M256_N256_K256_tM16_tN16_tK16",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M256_N256_K256_tM16_tN16_tK16.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 17,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M512_N256_K512_tM32_tN32_tK32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_B1_M512_N256_K512_tM32_tN32_tK32.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 18,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_mt_B1_M120_N256_K1536_tM128_tN256_tK128",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_mt_B1_M120_N256_K1536_tM128_tN256_tK128.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 19,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_mt_B1_M160_N320_K1536_tM64_tN512_tK128",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/elf/solution_matmul_test_matmul_test_mt_B1_M160_N320_K1536_tM64_tN512_tK128.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 20,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_BS16_H32_HD64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/elf/solution_mega_moe_mega_moe_sim_BS16_H32_HD64.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 21,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_BS16_H32_HD64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/elf/solution_mega_moe_mega_moe_sim_mt_BS16_H32_HD64.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 22,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/elf/solution_mega_moe_mega_moe_sim_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 23,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 57335,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 24,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 88643,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 25,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_v2",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 26,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 18098,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 27,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "bfu.cpp:4169"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "Assertion `0 && \"Can't find occupied local pipe by globlal fbid\"' failed. FATAL: gfsim received signal 6 /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x14e41c)[0xaaaadca0e41c] linux-vdso.so.1(__kernel_rt_sigreturn+0x0)[0xffff89eec8dc] /lib/aarch64-linux-gnu/libc.so.6(+0x87608)[0xffff89937608] /lib/aarch64-linux-gnu/libc.so.6(gsignal+0x1c)[0xffff898ecb3c] /lib/aarch64-linux-gnu/libc.so.6(abort+0xf4)[0xffff898d7e00] /lib/aarch64-linux-gnu/libc.so.6(+0x35cc0)[0xffff898e5cc0] /lib/aarch64-linux-gnu/libc.so.6(__assert_perror_fail+0x0)[0xffff898e5d30] /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x3cac48)[0xaaaadcc8ac48] /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperScalarModel/bin/gfsim(+0x3cac90)[0xaaaadcc8ac90] /mnt/workspace/c"
+      }
+    },
+    {
+      "idx": 28,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_v2",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 29,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_1d_group_norm_grad_1d_dynamic_DType__half_N256_C4096_G8_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/elf/solution_normalization_group_norm_grad_1d_group_norm_grad_1d_dynamic_DType__half_N256_C4096_G8_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 30,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_1d_group_norm_grad_1d_static_DType__half_N256_C4096_G8_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/elf/solution_normalization_group_norm_grad_1d_group_norm_grad_1d_static_DType__half_N256_C4096_G8_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 31,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_group_norm_grad_dynamic_DType__half_N2_C32_G8_HxW2048_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_dynamic_DType__half_N2_C32_G8_HxW2048_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 32,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_group_norm_grad_static_DType__half_N2_C32_G8_HxW2048_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_static_DType__half_N2_C32_G8_HxW2048_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 33,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 34,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_simt_32k_DType__half_gA128_gR16384_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_simt_32k_DType__half_gA128_gR16384_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 128153,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 35,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_simt_32k_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_simt_32k_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 83289,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 36,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_simt_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_simt_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 107466,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 37,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_tree_32k_DType__half_gA128_gR16384_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_tree_32k_DType__half_gA128_gR16384_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 38,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_tree_32k_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_tree_32k_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 104214,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 39,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_m_R_tree_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_m_R_tree_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 40,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_static_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_static_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 41,
+      "category": "solution/normalization",
+      "config": "rms_norm_split_r_rms_norm_split_r_dynamic_DType__half_gA16_gR16384_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_split_r/elf/solution_normalization_rms_norm_split_r_rms_norm_split_r_dynamic_DType__half_gA16_gR16384_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 42,
+      "category": "solution/normalization",
+      "config": "rms_norm_split_r_rms_norm_split_r_static_DType__half_gA16_gR16384_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_split_r/elf/solution_normalization_rms_norm_split_r_rms_norm_split_r_static_DType__half_gA16_gR16384_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "BIssue.cpp:4217"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"Tile register is not enough for the simulator!\" @ func RenameSingleTileDst, file SuperScalarModel/TimingSim/frontend/bctrl/BIssue.cpp:4217 ｜ 条件: 0"
+      }
+    },
+    {
+      "idx": 43,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq4_Skv2048_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq4_Skv2048_g64_Tm16_Tk32.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 44,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq4_Skv2080_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq4_Skv2080_g64_Tm16_Tk32.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 45,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq4_Skv8192_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq4_Skv8192_g64_Tm16_Tk32.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 46,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq64_Skv128_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq64_Skv128_g64_Tm16_Tk32.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 47,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_cublas_fp8",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 9703,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 48,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_cublas_fp8_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 10160,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 49,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_cublas_fp8_splitN_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_splitN_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 50,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_ocp_fp4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 3093,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 51,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_ocp_fp4_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 3883,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 52,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_nontail_ocp_fp4_splitN_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_splitN_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 53,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_cublas_fp8",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 54,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_cublas_fp8_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 55,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 56,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp4_bench_small",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp4_bench_small.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 57,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp4_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp4_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 58,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 59,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 60,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_static",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_static.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 61,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 138144,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 62,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_static",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_static.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 138361,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 63,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "VecTop.cpp:4550"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"TROWEXPAND broadcast source must fit one 128B CELL\" @ func ValidateRowExpandContract, file SuperScalarModel/TimingSim/pe/vec/VecTop.cpp:4550 ｜ 条件: broadcastBytes > 0U && broadcastBytes <= VEC_CELL_GRANULARITY"
+      }
+    },
+    {
+      "idx": 64,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_hif4_B1_M256_N256_K256_tM64_tN32_tK64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_batch_matmul_test/elf/solution_quant_batch_matmul_test_quant_batch_matmul_test_hif4_B1_M256_N256_K256_tM64_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 65,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_mxfp4_mt_B1_M256_N256_K256_tM64_tN32_tK64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_batch_matmul_test/elf/solution_quant_batch_matmul_test_quant_batch_matmul_test_mxfp4_mt_B1_M256_N256_K256_tM64_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 66,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLcsa_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLcsa_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 67,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLhca_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLhca_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 68,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 69,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "超时：>180s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 70,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLswa_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLswa_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 79505,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 71,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 72,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    },
+    {
+      "idx": 73,
+      "category": "solution/view_copy",
+      "config": "view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": "SyscallBarrier.cpp:1889"
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "\"syscall_lockstep_and_timeout: a lockstep group's AND  never completed (a participant did not reach its  syscall block)\" @ func LockstepWatchdog, file SuperScalarModel/TimingSim/frontend/bctrl/SyscallBarrier.cpp:1889 ｜ 条件: false"
+      }
+    }
+  ],
+  "precision": {
+    "stage": "precision",
+    "drivers": [
+      "sol:res_check_all"
+    ],
+    "coverage_note": "新机制：接入两棵树 res_check_all.py（算子由各入口 CASES 维护，加算子零改脚本）",
+    "compile_fail": [],
+    "stats": {
+      "pass": 3,
+      "fail": 0,
+      "skip": 9,
+      "timeout": 0,
+      "total": 12
+    },
+    "results": [
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8",
+        "elf": "",
+        "status": "PASS",
+        "detail": "dynamic_mx_quant_tail_ocp_fp8: output=pass (MSE=0.000000, MaxAE=0.011719), scale=pass (MSE=0.000000, MaxAE=0.000000)"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8_dyn",
+        "elf": "",
+        "status": "PASS",
+        "detail": "dynamic_mx_quant_tail_ocp_fp8_dyn: output=pass (MSE=0.000000, MaxAE=0.011719), scale=pass (MSE=0.000000, MaxAE=0.000000)"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp4",
+        "elf": "",
+        "status": "PASS",
+        "detail": "dynamic_mx_quant_tail_ocp_fp4: output=pass (MSE=0.000000, MaxAE=0.000000), scale=pass (MSE=0.000000, MaxAE=0.000000)"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm",
+        "elf": "<ELF>.elf",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_DType__half_gA512_gR8192_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_split_r",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm_split_r/elf/solution_normalization_rms_norm_split_r_rms_norm_split_r_DType__half_gA16_gR16384_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_DType__half_N32_C16_G8_HxW8192_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad_1d",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad_1d/elf/solution_normalization_group_norm_grad_1d_group_norm_grad_1d_DType__half_N512_C64_G8_PE4.elf"
+      }
+    ]
+  }
+}
