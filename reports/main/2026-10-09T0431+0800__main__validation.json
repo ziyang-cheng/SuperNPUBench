@@ -86,9 +86,9 @@
       "skip_1pe": 0
     },
     "gfsim": {
-      "pass": 20,
+      "pass": 22,
       "fail": 17,
-      "timeout": 14,
+      "timeout": 12,
       "compile_fail": 0,
       "skip_1pe": 16
     }
@@ -244,8 +244,8 @@
       "config": "group_token_vec_mt",
       "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/elf/solution_group_token_vec_group_token_vec_mt.elf",
       "gfrun": "PASS",
-      "gfsim": "TIMEOUT",
-      "total_cycles": null,
+      "gfsim": "PASS",
+      "total_cycles": 681732,
       "perf": "—",
       "assert": {
         "gfrun": "",
@@ -1198,8 +1198,8 @@
       "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded",
       "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
       "gfrun": "PASS",
-      "gfsim": "TIMEOUT",
-      "total_cycles": null,
+      "gfsim": "PASS",
+      "total_cycles": 512926,
       "perf": "—",
       "assert": {
         "gfrun": "",
