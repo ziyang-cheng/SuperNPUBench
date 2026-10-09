@@ -4,6 +4,7 @@
 
 | 时间 | 发布 | 复核 | 报告 | 归档 |
 |---|---|---|---|---|
+| 2026-10-10 04:24:49 | `main` | ⚠️ WARN | [报告](main/2026-10-10T0423+0800__main__validation.md) | [json](main/2026-10-10T0423+0800__main__validation.json) |
 | 2026-10-09 04:34:54 | `main` | ✅ OK | [报告](main/2026-10-09T0431+0800__main__validation.md) | [json](main/2026-10-09T0431+0800__main__validation.json) |
 | 2026-10-08 04:32:39 | `main` | ⚠️ WARN | [报告](main/2026-10-08T0431+0800__main__validation.md) | [json](main/2026-10-08T0431+0800__main__validation.json) |
 | 2026-10-07 04:32:58 | `main` | ⚠️ WARN | [报告](main/2026-10-07T0429+0800__main__validation.md) | [json](main/2026-10-07T0429+0800__main__validation.json) |
