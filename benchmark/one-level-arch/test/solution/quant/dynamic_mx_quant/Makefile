@@ -130,6 +130,12 @@ ifeq ($(TYPE), NONTAIL_OCP_FP4_SPLITN_DYN)
    TARGET = $(ELF_DIR)/$(TESTCASE)_nontail_ocp_fp4_splitN_dyn.elf
 endif
 
+# V4（TSELS 守卫 + bf16 直乘）driver：include canonical 头（优化落点），与 V1/V2/V3 并列。
+ifeq ($(TYPE), TAIL_OCP_FP8_BENCH_SMALL_V4_STATIC)
+   SRC_FILE = $(TEST_ROOT)/$(CASE_SRC_DIR)/tail_ocp_fp8_bench_small_V4_static.cpp
+   TARGET = $(ELF_DIR)/$(TESTCASE)_tail_ocp_fp8_bench_small_V4_static.elf
+endif
+
 # 命令行可覆盖的 driver 参数：**全部**转发为 -D 宏，driver 内 #ifndef 默认值兜底。
 # 关键：凡 driver 里出现的 #ifndef 宏都必须在此转发，否则 `make VAR=x` 会被静默忽略
 #       （历史教训：PTILEN 未转发导致覆盖失效）。任一新增 driver 宏须同步登记到这里。
