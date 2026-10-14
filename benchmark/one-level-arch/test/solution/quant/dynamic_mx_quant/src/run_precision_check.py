@@ -71,6 +71,8 @@ CONFIGS = [
     # ---- V3（优化版）：include canonical 头（优化落点），与 V1/V2 同规格同 golden 并列对比 ----
     ("TAIL_OCP_FP8_BENCH_SMALL_V3_STATIC","tail_ocp_fp8_bench_small_V3_static",64,16384,32,"bf16","OCP","tail","FP8",4),
     ("TAIL_OCP_FP8_BENCH_SMALL_V3_DYN","tail_ocp_fp8_bench_small_V3_dyn",64,16384,32,"bf16","OCP","tail","FP8",4),
+    # ---- V4.1：TileN=256 + TASSEMBLY 拼接宽链（canonical 头演进）----
+    ("TAIL_OCP_FP8_BENCH_SMALL_V4_STATIC","tail_ocp_fp8_bench_small_V4_static",64,16384,32,"bf16","OCP","tail","FP8",4),
 ]
 
 
