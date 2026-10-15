@@ -7,9 +7,8 @@ using namespace supernpu::tile_isa::mxquant;
 
 // TAIL_OCP_FP8 bench_small 的 **V3（优化版）动态 shape** driver：[M=64, N=16384], BS=32,
 //   bf16 in -> e4m3 out。与 V1（RowMajor dyn）/V2（Cube_M32 dyn，钉 _V2-10101002 存档头）
-//   **同规格/同数据/同 golden**，三 driver 并列对比。V3 include canonical 头
-//   dynamic_mx_quant_tail_ocp_fp8_dyn.hpp —— 优化改动一律落在 canonical 头上。
-//   当前 canonical == V2 内容（优化尚未开始），本用例先行打通验证链。
+//   **同规格/同数据/同 golden**，四 driver 并列对比。V3 钉 _V3-10101714 存档头
+//   （时间戳冻结，canonical 头留给后续版本演进）。
 //   固定 SPMD 4-PE：M 按 tid 切 4 份，每 PE 16 行。numKb = 16384/32 = 512。必须 4 线程跑：
 //   gfrun -s softcore.multiThreadNum=4。
 //   RES_CHECK：读 gen（--M 64 --K 16384 --block-size 32 --algo OCP --kernel tail --dtype FP8

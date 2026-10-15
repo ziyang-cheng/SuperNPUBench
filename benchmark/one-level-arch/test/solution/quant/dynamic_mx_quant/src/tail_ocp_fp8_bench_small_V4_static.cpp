@@ -6,13 +6,13 @@
 using namespace supernpu::tile_isa::mxquant;
 
 // TAIL_OCP_FP8 bench_small 的 **V4 静态形状** driver：[M=64, N=16384], BS=32,
-//   bf16 in -> e4m3 out。与 V1（RowMajor）/V2（Cube_M32，钉 _V2-10101002 存档头）**同规格/
-//   同数据/同 golden**，三 driver 并列对比，唯一差异是 kernel 实现。V3 include canonical 头
-//   dynamic_mx_quant_tail_ocp_fp8.hpp —— 优化改动一律落在 canonical 头上，本 driver 的
-//   output/scale 结果与 cycle 数即优化版的验证锚点（V1/V2 为冻结参照）。
-//   四 driver 并列对比。V4 = V3（2D 切分）+ ① 守卫 TEXPANDS+TSEL → TCMPS<NE>+TSELS
-//   （每守卫 2op→1op）② data pass bf16 域直乘（省 xf 宽 TCVT + recip_f 窄 TCVT，
-//   recip 恒为 2 的幂故逐位等价）。include canonical 头（优化落点）。
+//   bf16 in -> e4m3 out。与 V1（RowMajor）/V2（Cube_M32，钉 _V2-10101002 存档头）/
+//   V3（钉 _V3-10101714 存档头）**同规格/同数据/同 golden**，四 driver 并列对比，
+//   唯一差异是 kernel 实现。V4 include canonical 头（优化落点，随版本演进）。
+//   V4 = V3（2D 切分）+ ① 守卫 TEXPANDS+TSEL → TCMPS<NE>+TSELS（每守卫 2op→1op）
+//   ② data pass bf16 域直乘（recip 恒为 2 的幂，逐位等价）③ V4.2 结构：TileN=256
+//   宽 tile + TASSEMBLY 拼装宽链 + pair 物化 + scale pass fp32 域 floor（= golden
+//   截断语义，half/fp32 修复）。
 //   固定 SPMD 4-PE：M 按 tid 切 4 份，每 PE 16 行。numKb = 16384/32 = 512。必须 4 线程跑：
 //   gfrun -s softcore.multiThreadNum=4。
 //   RES_CHECK：读 gen（--M 64 --K 16384 --block-size 32 --algo OCP --kernel tail --dtype FP8
