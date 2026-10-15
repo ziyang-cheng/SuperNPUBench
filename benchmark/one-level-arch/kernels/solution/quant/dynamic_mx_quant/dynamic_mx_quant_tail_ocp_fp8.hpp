@@ -142,23 +142,22 @@ void process_tile(InT *x, __fp8_e4m3 *y, uint8_t *scale,
     // ===== data pass：recip 切 pair（1 CELL）→ 打包 CELL 广播 + 字节偏移 =====
     auto rppairs = TPARTVIEW<typename TT::t_rp2, 1, BLKS / 2>(rp);
     for (int p = 0; p < BLKS / 2; ++p) {
-        auto pairv  = rppairs[0][p];
-        typename TT::t_rp2 pair;      // 物化（mixed 重载要求 src1 为普通 tile）
-        TCVT(pair, pairv);
+        auto pairv = rppairs[0][p];
         auto infrag0 = infrags[0][2 * p];
         auto infrag1 = infrags[0][2 * p + 1];
         typename TT::t_cut norm0, norm1;
         if constexpr (std::is_same_v<InT, __bf16>) {
-            // RMode 字节偏移选 pair 内列（规范 normative；gfrun 需本地补丁——缺口②）
             TROWEXPANDMUL<typename TT::t_cut, typename TT::t_blk,
-                          typename TT::t_cut, typename TT::t_rp2, 0>(
-                norm0, infrag0, pair);                // 打包 CELL 广播，列 0
+                          typename TT::t_cut, typename TT::t_b8,
+                          typename TT::t_rp2, 0>(
+                norm0, infrag0, pairv);               // 双 subview + RMode 偏移 0
             TROWEXPANDMUL<typename TT::t_cut, typename TT::t_blk,
-                          typename TT::t_cut, typename TT::t_rp2, 2>(
-                norm1, infrag1, pair);                // 列 1（bf16 字节偏移 2）
+                          typename TT::t_cut, typename TT::t_b8,
+                          typename TT::t_rp2, 2>(
+                norm1, infrag1, pairv);               // 偏移 2（bf16 第 1 列）
         } else {
             typename TT::t_fr2 rf;
-            TCVT(rf, pair);
+            TCVT(rf, pairv);
             TCVT(norm0, infrag0);
             TCVT(norm1, infrag1);
             TROWEXPANDMUL<typename TT::t_cut, typename TT::t_cut,
