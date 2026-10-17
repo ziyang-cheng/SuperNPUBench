@@ -1,0 +1,1551 @@
+{
+  "tracked_release_branch": "main",
+  "mode": "latest",
+  "generated_at": "2026-10-18T06:05+0800",
+  "versions": [
+    {
+      "component": "SuperNPUBench",
+      "repo": "https://github.com/PTO-ISA/SuperNPUBench",
+      "branch": "main",
+      "resolved_commit": "1f23cc8cdfa5cc4e2b132a7bfd9af7af0e7940b5",
+      "drift": "UNCHANGED",
+      "source": "tracked",
+      "note": ""
+    },
+    {
+      "component": "SuperScalarModel",
+      "repo": "https://github.com/LinxISA/SuperScalarModel",
+      "branch": "main",
+      "resolved_commit": "91d73841fbc416777b44fa169638ab4ab8e8c34c",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "llvm-project",
+      "repo": "https://github.com/LinxISA/llvm-project",
+      "branch": "dev-llvm15_56",
+      "resolved_commit": "910e5c8a07a6fa503c98755407e15bb68995bd3c",
+      "drift": "FAST_FORWARD(+9)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "musl",
+      "repo": "https://github.com/LinxISA/linx-musl",
+      "branch": "linx",
+      "resolved_commit": "af0dfc2066272563fa5607cb6ae8cf974baaa415",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "jemalloc",
+      "repo": "https://github.com/LinxISA/jemalloc",
+      "branch": "linx",
+      "resolved_commit": "4495309cd11cae1a0a2d008c65acd9c410076f06",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "linux-linxisa",
+      "repo": "https://github.com/LinxISA/linux",
+      "branch": "main",
+      "resolved_commit": "7c37630555f8a9f25258ff9f9dc4f37c50271a60",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "Linx-TileOP-API",
+      "repo": "https://github.com/LinxISA/Linx-TileOP-API",
+      "branch": "linx",
+      "resolved_commit": "d6787687ce0aa8d5a91b2ab0b51aa4f267f148d2",
+      "drift": "FAST_FORWARD(+2)",
+      "source": "state-tracked",
+      "note": ""
+    }
+  ],
+  "warnings": [],
+  "n_elf": 2,
+  "n_units": 60,
+  "coverage": {
+    "compile_units": 15,
+    "compiled_ok": 1,
+    "compile_failed": [
+      {
+        "unit": "solution/conv2d",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "B.IOT t#1.reuse, mask=1111, last ^ 9 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/conv2d/src/conv2d_img2col.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "conv2d_img2col",
+          "conv2d_img2col_dyn"
+        ]
+      },
+      {
+        "unit": "solution/gather_v2",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/src/gather_v2.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "gather_v2_DTypefloat_ITypeuint32_t_RANK1_GATHER_DIM0_INPUT_ELEMENTS19_OUTPUT_ELEMENTS37_IN",
+          "gather_v2_DTypeint32_t_ITypeint32_t_RANK2_GATHER_DIM1_INPUT_ELEMENTS55_OUTPUT_ELEMENTS35_I",
+          "gather_v2_DType__half_ITypeuint32_t_RANK2_GATHER_DIM0_INPUT_ELEMENTS187_OUTPUT_ELEMENTS136"
+        ]
+      },
+      {
+        "unit": "solution/group_token_vec",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/src/group_token_vec_mt_dyn.o] Error 1",
+        "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode",
+        "variants": [
+          "group_token_vec",
+          "group_token_vec_mt",
+          "group_token_vec_mt_dyn"
+        ]
+      },
+      {
+        "unit": "solution/matmul_test",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "B.IOT u#1.reuse, mask=1111, last ^ 13 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/src/matmul_test.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128",
+          "matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128",
+          "matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128"
+        ]
+      },
+      {
+        "unit": "solution/mega_moe",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/src/mega_moe_sim_mt_dyn.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "mega_moe_sim_BS16_H32_HIDDEN64",
+          "mega_moe_sim_mt_BS16_H32_HIDDEN64",
+          "mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64"
+        ]
+      },
+      {
+        "unit": "solution/moe_combine",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/src/moe_combine_mt_dyn.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "moe_combine_v2",
+          "moe_combine_mt",
+          "moe_combine_mt_dyn"
+        ]
+      },
+      {
+        "unit": "solution/moe_dispatch",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/src/moe_dispatch_mt_dyn.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "moe_dispatch_v2",
+          "moe_dispatch_mt",
+          "moe_dispatch_mt_dyn"
+        ]
+      },
+      {
+        "unit": "solution/normalization/group_norm_grad",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/src/group_norm_grad_dynamic.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "group_norm_grad_dynamic_DType__half_N_BATCH2_C_CH16_G_GRP8_HxW_SZ2048_PE_NUM4",
+          "group_norm_grad_1d_dynamic_DType__half_N_BATCH256_C_CH512_G_GRP8_PE_NUM4"
+        ]
+      },
+      {
+        "unit": "solution/normalization/rms_norm",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/src/rms_norm_dynamic_tree_32k.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "rms_norm_dynamic_tree_32k_DType__half_G_A128_G_R8192_PE_NUM4",
+          "rms_norm_dynamic_tree_32k_DType__half_G_A32_G_R16384_PE_NUM4"
+        ]
+      },
+      {
+        "unit": "solution/qli",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/src/qli_check_opt.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "qli_check_opt_QLI_DTYPEFP8_Sq64_Skv128_topk128",
+          "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2048_topk512",
+          "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv8192_topk512",
+          "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2080_topk512"
+        ]
+      },
+      {
+        "unit": "solution/quant/dynamic_mx_quant",
+        "rc": 1,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 1 warning and 20 errors generated. make: *** [../../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/src/tail_ocp_fp8_bench_small_V3_dyn.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP4",
+          "dynamic_mx_quant_TYPETAIL_CUBLAS_FP8",
+          "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8",
+          "dynamic_mx_quant_TYPENONTAIL_OCP_FP4",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_DYN",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP4_DYN",
+          "dynamic_mx_quant_TYPETAIL_CUBLAS_FP8_DYN",
+          "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_DYN",
+          "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_SPLITN_DYN",
+          "dynamic_mx_quant_TYPENONTAIL_OCP_FP4_DYN",
+          "dynamic_mx_quant_TYPENONTAIL_OCP_FP4_SPLITN_DYN",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP4_BENCH_SMALL",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_STATIC",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_STATIC",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_DYN",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_DYN",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_STATIC",
+          "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_DYN"
+        ]
+      },
+      {
+        "unit": "solution/quant_batch_matmul_test",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_batch_matmul_test/src/quant_batch_matmul_test_hif4.o] Error 1",
+        "compile_error": "static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::",
+        "variants": [
+          "quant_batch_matmul_test_mxfp4_M8192_N4096_K1600_tM32_tN32_tK64_B1_NBLOCKS32_PLATlinx",
+          "quant_batch_matmul_test_mxfp4_mt_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx",
+          "quant_batch_matmul_test_hif4_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx"
+        ]
+      },
+      {
+        "unit": "solution/quant_sparse_flash_mla",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "^ fatal error: too many errors emitted, stopping now [-ferror-limit=] 20 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/src/quant_sparse_flash_mla.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig",
+          "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#1",
+          "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#2",
+          "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#3",
+          "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#4"
+        ]
+      },
+      {
+        "unit": "solution/view_copy",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "B.IOT u#1.reuse, t#1.reuse, mask=1111, last ^ 13 errors generated. make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/src/view_copy.o] Error 1",
+        "compile_error": "Match Instruction Error!",
+        "variants": [
+          "view_copy_DTypeint32_t_RANK3_ELEMENTS64_TILE_ELEMENTS32_SHAPE2,4,8_SHAPE_NAME2_4_8_INPUT_G",
+          "view_copy_DType__half_RANK3_ELEMENTS128_TILE_ELEMENTS64_SHAPE4,4,8_SHAPE_NAME4_4_8_INPUT_G",
+          "view_copy_DType__half_RANK3_ELEMENTS96_TILE_ELEMENTS64_SHAPE4,4,6_SHAPE_NAME4_4_6_INPUT_GL"
+        ]
+      }
+    ],
+    "partial_compile": [],
+    "makefile_only_uncovered": []
+  },
+  "stats": {
+    "gfrun": {
+      "pass": 1,
+      "fail": 0,
+      "timeout": 1,
+      "compile_fail": 58,
+      "skip_1pe": 0
+    },
+    "gfsim": {
+      "pass": 0,
+      "fail": 0,
+      "timeout": 1,
+      "compile_fail": 58,
+      "skip_1pe": 1
+    }
+  },
+  "results": [
+    {
+      "idx": 1,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 conv2d_img2col）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 conv2d_img2col）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 2,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 conv2d_img2col_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 conv2d_img2col_dyn）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 3,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DType__half_ITypeuint32_t_RANK2_GATHER_DIM0_INPUT_ELEMENTS187_OUTPUT_ELEMENTS136",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DType__half_ITypeuint32_t_RANK2_GATHER_DIM0_INPUT_ELEMENTS187_OUTPUT_ELEMENTS136）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DType__half_ITypeuint32_t_RANK2_GATHER_DIM0_INPUT_ELEMENTS187_OUTPUT_ELEMENTS136）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 4,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DTypefloat_ITypeuint32_t_RANK1_GATHER_DIM0_INPUT_ELEMENTS19_OUTPUT_ELEMENTS37_IN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DTypefloat_ITypeuint32_t_RANK1_GATHER_DIM0_INPUT_ELEMENTS19_OUTPUT_ELEMENTS37_IN）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DTypefloat_ITypeuint32_t_RANK1_GATHER_DIM0_INPUT_ELEMENTS19_OUTPUT_ELEMENTS37_IN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 5,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DTypeint32_t_ITypeint32_t_RANK2_GATHER_DIM1_INPUT_ELEMENTS55_OUTPUT_ELEMENTS35_I",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DTypeint32_t_ITypeint32_t_RANK2_GATHER_DIM1_INPUT_ELEMENTS55_OUTPUT_ELEMENTS35_I）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 gather_v2_DTypeint32_t_ITypeint32_t_RANK2_GATHER_DIM1_INPUT_ELEMENTS55_OUTPUT_ELEMENTS35_I）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 6,
+      "category": "solution/group_token_old",
+      "config": "group_token_old",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 7,
+      "category": "solution/group_token_old",
+      "config": "group_token_old_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old_mt.elf",
+      "gfrun": "TIMEOUT",
+      "gfsim": "TIMEOUT",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "超时：>3600s 仍未结束（可能死循环/等待，或该用例本就耗时长）",
+        "gfsim": "超时：>3600s 仍未结束（可能死循环/等待，或该用例本就耗时长）"
+      }
+    },
+    {
+      "idx": 8,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 9,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 10,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt_dyn）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 11,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 12,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 13,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 14,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 15,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_mt_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_mt_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 16,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 17,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_mt）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_mt）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 18,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_mt_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_mt_dyn）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 19,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_v2",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_v2）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_combine_v2）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 20,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_mt）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_mt）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 21,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_mt_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_mt_dyn）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 22,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_v2",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_v2）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 moe_dispatch_v2）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 23,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_1d_dynamic_DType__half_N_BATCH256_C_CH512_G_GRP8_PE_NUM4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 group_norm_grad_1d_dynamic_DType__half_N_BATCH256_C_CH512_G_GRP8_PE_NUM4）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 group_norm_grad_1d_dynamic_DType__half_N_BATCH256_C_CH512_G_GRP8_PE_NUM4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 24,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_dynamic_DType__half_N_BATCH2_C_CH16_G_GRP8_HxW_SZ2048_PE_NUM4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 group_norm_grad_dynamic_DType__half_N_BATCH2_C_CH16_G_GRP8_HxW_SZ2048_PE_NUM4）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 group_norm_grad_dynamic_DType__half_N_BATCH2_C_CH16_G_GRP8_HxW_SZ2048_PE_NUM4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 25,
+      "category": "solution/normalization",
+      "config": "rms_norm_dynamic_tree_32k_DType__half_G_A128_G_R8192_PE_NUM4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 rms_norm_dynamic_tree_32k_DType__half_G_A128_G_R8192_PE_NUM4）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 rms_norm_dynamic_tree_32k_DType__half_G_A128_G_R8192_PE_NUM4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 26,
+      "category": "solution/normalization",
+      "config": "rms_norm_dynamic_tree_32k_DType__half_G_A32_G_R16384_PE_NUM4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 rms_norm_dynamic_tree_32k_DType__half_G_A32_G_R16384_PE_NUM4）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 rms_norm_dynamic_tree_32k_DType__half_G_A32_G_R16384_PE_NUM4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 27,
+      "category": "solution/qli",
+      "config": "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2048_topk512",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2048_topk512）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2048_topk512）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 28,
+      "category": "solution/qli",
+      "config": "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2080_topk512",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2080_topk512）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv2080_topk512）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 29,
+      "category": "solution/qli",
+      "config": "qli_check_opt_QLI_DTYPEFP8_Sq4_Skv8192_topk512",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv8192_topk512）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq4_Skv8192_topk512）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 30,
+      "category": "solution/qli",
+      "config": "qli_check_opt_QLI_DTYPEFP8_Sq64_Skv128_topk128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq64_Skv128_topk128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 qli_check_opt_QLI_DTYPEFP8_Sq64_Skv128_topk128）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 31,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 32,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 33,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_SPLITN_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_SPLITN_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_CUBLAS_FP8_SPLITN_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 34,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_OCP_FP4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 35,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_OCP_FP4_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 36,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPENONTAIL_OCP_FP4_SPLITN_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4_SPLITN_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPENONTAIL_OCP_FP4_SPLITN_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 37,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_CUBLAS_FP8",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_CUBLAS_FP8）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_CUBLAS_FP8）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 38,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_CUBLAS_FP8_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_CUBLAS_FP8_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_CUBLAS_FP8_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 39,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 40,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP4_BENCH_SMALL",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4_BENCH_SMALL）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4_BENCH_SMALL）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 41,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP4_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP4_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 42,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 43,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 44,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_STATIC",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_STATIC）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V1_STATIC）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 45,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 46,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_STATIC",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_STATIC）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V2_STATIC）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 47,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 48,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_STATIC",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_STATIC）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_BENCH_SMALL_V3_STATIC）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 49,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_TYPETAIL_OCP_FP8_DYN",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_DYN）",
+        "gfsim": "compile.all rc=1, 未产出 ELF；编译报错：Match Instruction Error!（变体 dynamic_mx_quant_TYPETAIL_OCP_FP8_DYN）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 50,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_hif4_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_hif4_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_hif4_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx）"
+      },
+      "compile_error": "static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::"
+    },
+    {
+      "idx": 51,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_mxfp4_M8192_N4096_K1600_tM32_tN32_tK64_B1_NBLOCKS32_PLATlinx",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_mxfp4_M8192_N4096_K1600_tM32_tN32_tK64_B1_NBLOCKS32_PLATlinx）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_mxfp4_M8192_N4096_K1600_tM32_tN32_tK64_B1_NBLOCKS32_PLATlinx）"
+      },
+      "compile_error": "static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::"
+    },
+    {
+      "idx": 52,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_mxfp4_mt_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_mxfp4_mt_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::（变体 quant_batch_matmul_test_mxfp4_mt_M256_N256_K256_tM64_tN32_tK64_B1_NBLOCKS32_PLATlinx）"
+      },
+      "compile_error": "static_assert: :Location::Scaling, __fp8_e8m0, 32, 32, pto::BLayout::RowMajor, 32, 1, pto::SLayout::NoneBox, 512, pto::PadValue::Null, pto::"
+    },
+    {
+      "idx": 53,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 54,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#1",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#1）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#1）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 55,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#2",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#2）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#2）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 56,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#3",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#3）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#3）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 57,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#4",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#4）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 quant_sparse_flash_mla_QSMLA_SPARSE_EMBED_INPUTon_B1_s11_s2128_N164_N21_D512_wleft127_wrig#4）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 58,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_RANK3_ELEMENTS128_TILE_ELEMENTS64_SHAPE4,4,8_SHAPE_NAME4_4_8_INPUT_G",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DType__half_RANK3_ELEMENTS128_TILE_ELEMENTS64_SHAPE4,4,8_SHAPE_NAME4_4_8_INPUT_G）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DType__half_RANK3_ELEMENTS128_TILE_ELEMENTS64_SHAPE4,4,8_SHAPE_NAME4_4_8_INPUT_G）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 59,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_RANK3_ELEMENTS96_TILE_ELEMENTS64_SHAPE4,4,6_SHAPE_NAME4_4_6_INPUT_GL",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DType__half_RANK3_ELEMENTS96_TILE_ELEMENTS64_SHAPE4,4,6_SHAPE_NAME4_4_6_INPUT_GL）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DType__half_RANK3_ELEMENTS96_TILE_ELEMENTS64_SHAPE4,4,6_SHAPE_NAME4_4_6_INPUT_GL）"
+      },
+      "compile_error": "Match Instruction Error!"
+    },
+    {
+      "idx": 60,
+      "category": "solution/view_copy",
+      "config": "view_copy_DTypeint32_t_RANK3_ELEMENTS64_TILE_ELEMENTS32_SHAPE2,4,8_SHAPE_NAME2_4_8_INPUT_G",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DTypeint32_t_RANK3_ELEMENTS64_TILE_ELEMENTS32_SHAPE2,4,8_SHAPE_NAME2_4_8_INPUT_G）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：Match Instruction Error!（变体 view_copy_DTypeint32_t_RANK3_ELEMENTS64_TILE_ELEMENTS32_SHAPE2,4,8_SHAPE_NAME2_4_8_INPUT_G）"
+      },
+      "compile_error": "Match Instruction Error!"
+    }
+  ],
+  "precision": {
+    "stage": "precision",
+    "drivers": [
+      "sol:res_check_all"
+    ],
+    "coverage_note": "新机制：接入两棵树 res_check_all.py（算子由各入口 CASES 维护，加算子零改脚本）",
+    "compile_fail": [
+      "sol:group_token_vec",
+      "sol:quant_sparse_flash_mla",
+      "sol:mega_moe",
+      "sol:qli",
+      "sol:matmul_test",
+      "sol:normalization/group_norm_grad",
+      "sol:normalization/rms_norm",
+      "sol:view_copy",
+      "sol:quant/dynamic_mx_quant",
+      "sol:gather_v2",
+      "sol:moe_combine",
+      "sol:conv2d",
+      "sol:moe_dispatch",
+      "sol:quant_batch_matmul_test"
+    ],
+    "stats": {
+      "pass": 0,
+      "fail": 0,
+      "skip": 14,
+      "timeout": 0,
+      "total": 14
+    },
+    "results": [
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8_dyn",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_dyn.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp4",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_simt_32k_r8k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_simt_32k_DType__half_gA128_gR8192_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_simt_32k_r16k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_simt_32k_DType__half_gA32_gR16384_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_tree_32k_r8k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA128_gR8192_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_tree_32k_r16k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA32_gR16384_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad_dynamic",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_dynamic_DType__half_N2_C16_G8_HxW2048_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad_1d_dynamic",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_1d_dynamic_DType__half_N256_C512_G8_PE4.elf"
+      }
+    ]
+  }
+}
