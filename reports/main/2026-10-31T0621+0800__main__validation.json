@@ -1,0 +1,1120 @@
+{
+  "tracked_release_branch": "main",
+  "mode": "latest",
+  "generated_at": "2026-10-31T06:21+0800",
+  "versions": [
+    {
+      "component": "SuperNPUBench",
+      "repo": "https://github.com/PTO-ISA/SuperNPUBench",
+      "branch": "main",
+      "resolved_commit": "92ecf231270dcfdbca975580d9644c7e68eb0ed6",
+      "drift": "FAST_FORWARD(+2)",
+      "source": "tracked",
+      "note": ""
+    },
+    {
+      "component": "SuperScalarModel",
+      "repo": "https://github.com/LinxISA/SuperScalarModel",
+      "branch": "main",
+      "resolved_commit": "a49d4fa5f977a48e497d8631e144e7a902d79e10",
+      "drift": "FAST_FORWARD(+4)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "llvm-project",
+      "repo": "https://github.com/LinxISA/llvm-project",
+      "branch": "dev-llvm15_56",
+      "resolved_commit": "46ed2f1cbfc28422bd7aa4c2ad5e3b155d6d0b37",
+      "drift": "FAST_FORWARD(+2)",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "musl",
+      "repo": "https://github.com/LinxISA/linx-musl",
+      "branch": "linx",
+      "resolved_commit": "881a176076535fe24057820e53b33a8597881e6c",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "jemalloc",
+      "repo": "https://github.com/LinxISA/jemalloc",
+      "branch": "linx",
+      "resolved_commit": "4495309cd11cae1a0a2d008c65acd9c410076f06",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "linux-linxisa",
+      "repo": "https://github.com/LinxISA/linux",
+      "branch": "main",
+      "resolved_commit": "3e9c6d44d76cd3efb9b2cbc1b6e955b73677e4cb",
+      "drift": "UNCHANGED",
+      "source": "state-tracked",
+      "note": ""
+    },
+    {
+      "component": "Linx-TileOP-API",
+      "repo": "https://github.com/LinxISA/Linx-TileOP-API",
+      "branch": "linx",
+      "resolved_commit": "4bba05bc7b744f21f6abbbd785ef3cbf432aef75",
+      "drift": "FAST_FORWARD(+1)",
+      "source": "state-tracked",
+      "note": ""
+    }
+  ],
+  "warnings": [],
+  "n_elf": 35,
+  "n_units": 46,
+  "coverage": {
+    "compile_units": 15,
+    "compiled_ok": 9,
+    "compile_failed": [
+      {
+        "unit": "solution/conv2d",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/conv2d/src/conv2d_img2col.o] Error 1",
+        "compile_error": "error in backend: unknown Local tile descriptor at COPY/PHI control-flow join",
+        "variants": [
+          "conv2d_img2col",
+          "conv2d_img2col_dyn"
+        ]
+      },
+      {
+        "unit": "solution/group_token_vec",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_vec/src/group_token_vec_mt_dyn.o] Error 1",
+        "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode",
+        "variants": [
+          "group_token_vec",
+          "group_token_vec_mt",
+          "group_token_vec_mt_dyn"
+        ]
+      },
+      {
+        "unit": "solution/matmul_test",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/matmul_test/src/matmul_test.o] Error 1",
+        "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI",
+        "variants": [
+          "matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128",
+          "matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128",
+          "matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128"
+        ]
+      },
+      {
+        "unit": "solution/mega_moe",
+        "rc": 2,
+        "n_new_elf": 0,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/mega_moe/src/mega_moe_sim_mt_dyn.o] Error 1",
+        "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI",
+        "variants": [
+          "mega_moe_sim_BS16_H32_HIDDEN64",
+          "mega_moe_sim_mt_BS16_H32_HIDDEN64",
+          "mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64"
+        ]
+      }
+    ],
+    "partial_compile": [
+      {
+        "unit": "solution/gather_v2",
+        "rc": 2,
+        "n_new_elf": 1,
+        "log_tail": "clang-15: note: diagnostic msg:  ******************** make: *** [../../common/Makefile.common:142: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/src/gather_v2.o] Error 1"
+      },
+      {
+        "unit": "solution/quant/dynamic_mx_quant",
+        "rc": 1,
+        "n_new_elf": 10,
+        "log_tail": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/test/solution/quant/dynamic_mx_quant/src/tail_ocp_fp8_bench_small_V3_dyn.cpp:25:66: warning: array designators are a C99 extension [-Wc99-designator] static uint16_t xbits[PM * PN] __attribute__((aligned(4096))) = {[0 ... PM * PN - 1] = 0x4080}; ^~~~~~~~~~~~~~~~~~~ 1 warning generated."
+      }
+    ],
+    "makefile_only_uncovered": []
+  },
+  "stats": {
+    "gfrun": {
+      "pass": 35,
+      "fail": 0,
+      "timeout": 0,
+      "compile_fail": 11,
+      "skip_1pe": 0
+    },
+    "gfsim": {
+      "pass": 32,
+      "fail": 0,
+      "timeout": 0,
+      "compile_fail": 11,
+      "skip_1pe": 3
+    }
+  },
+  "results": [
+    {
+      "idx": 1,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: unknown Local tile descriptor at COPY/PHI control-flow join（变体 conv2d_img2col）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: unknown Local tile descriptor at COPY/PHI control-flow join（变体 conv2d_img2col）"
+      },
+      "compile_error": "error in backend: unknown Local tile descriptor at COPY/PHI control-flow join"
+    },
+    {
+      "idx": 2,
+      "category": "solution/conv2d",
+      "config": "conv2d_img2col_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: unknown Local tile descriptor at COPY/PHI control-flow join（变体 conv2d_img2col_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: unknown Local tile descriptor at COPY/PHI control-flow join（变体 conv2d_img2col_dyn）"
+      },
+      "compile_error": "error in backend: unknown Local tile descriptor at COPY/PHI control-flow join"
+    },
+    {
+      "idx": 3,
+      "category": "solution/gather_v2",
+      "config": "gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/gather_v2/elf/solution_gather_v2_gather_v2_DTypefloat_ITypeuint32_t_RANK1_DIM0_IN19_OUT37_TILE32.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 230813,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 4,
+      "category": "solution/group_token_old",
+      "config": "group_token_old",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 5,
+      "category": "solution/group_token_old",
+      "config": "group_token_old_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/group_token_old/elf/solution_group_token_old_group_token_old_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 727710,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 6,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 7,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 8,
+      "category": "solution/group_token_vec",
+      "config": "group_token_vec_mt_dyn",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt_dyn）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: Local tile descriptor geometry does not fit its SizeCode（变体 group_token_vec_mt_dyn）"
+      },
+      "compile_error": "error in backend: Local tile descriptor geometry does not fit its SizeCode"
+    },
+    {
+      "idx": 9,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M120_N192_K1536_tM128_tN128_tK128）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 10,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M120_N256_K1536_tM128_tN128_tK128）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 11,
+      "category": "solution/matmul_test",
+      "config": "matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 matmul_test_B1_M160_N320_K1536_tM64_tN256_tK128）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 12,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 13,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_mt_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_mt_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 14,
+      "category": "solution/mega_moe",
+      "config": "mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64",
+      "elf": "",
+      "gfrun": "COMPILE_FAIL",
+      "gfsim": "COMPILE_FAIL",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64）",
+        "gfsim": "compile.all rc=2, 未产出 ELF；编译报错：error in backend: cannot prove a complete Local tile descriptor for COPY/PHI（变体 mega_moe_sim_mt_dyn_BS16_H32_HIDDEN64）"
+      },
+      "compile_error": "error in backend: cannot prove a complete Local tile descriptor for COPY/PHI"
+    },
+    {
+      "idx": 15,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 16613,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 16,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 29237,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 17,
+      "category": "solution/moe_combine",
+      "config": "moe_combine_v2",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_combine/elf/solution_moe_combine_moe_combine_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 18,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_mt.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 8422,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 19,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_mt_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_mt_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 18770,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 20,
+      "category": "solution/moe_dispatch",
+      "config": "moe_dispatch_v2",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/moe_dispatch/elf/solution_moe_dispatch_moe_dispatch_v2.elf",
+      "gfrun": "PASS",
+      "gfsim": "SKIP_1PE",
+      "total_cycles": null,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": "单PE用例（solution 树名单），跳过 gfsim"
+      }
+    },
+    {
+      "idx": 21,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_group_norm_grad_1d_dynamic_DType__half_N256_C512_G8_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_1d_dynamic_DType__half_N256_C512_G8_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 19489,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 22,
+      "category": "solution/normalization",
+      "config": "group_norm_grad_group_norm_grad_dynamic_DType__half_N2_C16_G8_HxW2048_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/group_norm_grad/elf/solution_normalization_group_norm_grad_group_norm_grad_dynamic_DType__half_N2_C16_G8_HxW2048_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 10822,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 23,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA128_gR8192_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA128_gR8192_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 42177,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 24,
+      "category": "solution/normalization",
+      "config": "rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA32_gR16384_PE4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_tree_32k_DType__half_gA32_gR16384_PE4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 25869,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 25,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq32_Skv8192_topk1024_npe4_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq32_Skv8192_topk1024_npe4_g64_Tm16_Tk32.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 8792724,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 26,
+      "category": "solution/qli",
+      "config": "qli_check_opt_fp8_B1_Sq32_Skv8192_topk512_npe4_g64_Tm16_Tk32",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/qli/elf/solution_qli/qli_check_opt_fp8_B1_Sq32_Skv8192_topk512_npe4_g64_Tm16_Tk32.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 8792724,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 27,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_cublas_fp8",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 21380,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 28,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_cublas_fp8_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 18499,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 29,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 17425,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 30,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 262889,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 31,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_static",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V1_static.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 262619,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 32,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 124243,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 33,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_static",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V2_static.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 124814,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 34,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V3_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V3_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 95098,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 35,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_bench_small_V3_static",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_bench_small_V3_static.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 96317,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 36,
+      "category": "solution/quant",
+      "config": "dynamic_mx_quant_tail_ocp_fp8_dyn",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp8_dyn.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 18090,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 37,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_hif4_B1_M256_N256_K256_tM64_tN32_tK64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_batch_matmul_test/elf/solution_quant_batch_matmul_test_quant_batch_matmul_test_hif4_B1_M256_N256_K256_tM64_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 2080811,
+      "perf": "mfu:<1%",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 38,
+      "category": "solution/quant_batch_matmul_test",
+      "config": "quant_batch_matmul_test_mxfp4_mt_B1_M256_N256_K256_tM64_tN32_tK64",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_batch_matmul_test/elf/solution_quant_batch_matmul_test_quant_batch_matmul_test_mxfp4_mt_B1_M256_N256_K256_tM64_tN32_tK64.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 1967793,
+      "perf": "mfu:<1%",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 39,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLcsa_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLcsa_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 468112,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 40,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLhca_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLhca_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 535603,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 41,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_cmp_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 754289,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 42,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLori_sparse_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 355908,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 43,
+      "category": "solution/quant_sparse_flash_mla",
+      "config": "quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLswa_tadd_4pe_DTYPEHIF8_INPUTembedded",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant_sparse_flash_mla/elf/solution_quant_sparse_flash_mla/quant_sparse_flash_mla_B1_s11_oriS2128_cmpS264_N164_N21_D512_oriK40_cmpK40_ratio4_Tm64_Tk32_Td64_IMPLswa_tadd_4pe_DTYPEHIF8_INPUTembedded.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 75699,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 44,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_6_TILE64_IN_STRIDE24_1_4_OUT_STRIDE24_6_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 240660,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 45,
+      "category": "solution/view_copy",
+      "config": "view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DType__half_SHAPE4_4_8_TILE64_IN_STRIDE32_8_1_OUT_STRIDE32_1_4.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 246708,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    },
+    {
+      "idx": 46,
+      "category": "solution/view_copy",
+      "config": "view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1",
+      "elf": "/mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/view_copy/elf/solution_view_copy_view_copy_DTypeint32_t_SHAPE2_4_8_TILE32_IN_STRIDE32_1_4_OUT_STRIDE32_8_1.elf",
+      "gfrun": "PASS",
+      "gfsim": "PASS",
+      "total_cycles": 219768,
+      "perf": "—",
+      "assert": {
+        "gfrun": "",
+        "gfsim": ""
+      },
+      "error": {
+        "gfrun": "",
+        "gfsim": ""
+      }
+    }
+  ],
+  "precision": {
+    "stage": "precision",
+    "drivers": [
+      "sol:res_check_all"
+    ],
+    "coverage_note": "新机制：接入两棵树 res_check_all.py（算子由各入口 CASES 维护，加算子零改脚本）",
+    "compile_fail": [
+      "sol:group_token_vec",
+      "sol:mega_moe",
+      "sol:matmul_test",
+      "sol:quant/dynamic_mx_quant",
+      "sol:gather_v2",
+      "sol:conv2d"
+    ],
+    "stats": {
+      "pass": 6,
+      "fail": 0,
+      "skip": 8,
+      "timeout": 0,
+      "total": 14
+    },
+    "results": [
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8",
+        "elf": "",
+        "status": "PASS",
+        "detail": "dynamic_mx_quant_tail_ocp_fp8: output=pass (MSE=0.000000, MaxAE=0.011719), scale=pass (MSE=0.000000, MaxAE=0.000000)"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp8_dyn",
+        "elf": "",
+        "status": "PASS",
+        "detail": "dynamic_mx_quant_tail_ocp_fp8_dyn: output=pass (MSE=0.000000, MaxAE=0.011719), scale=pass (MSE=0.000000, MaxAE=0.000000)"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_ocp_fp4",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_ocp_fp4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_tail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_tail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_cublas_fp8_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_cublas_fp8_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_4pe",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_4pe.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_dmxq_nontail_ocp_fp4_bigbs",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/quant/dynamic_mx_quant/elf/dynamic_mx_quant_nontail_ocp_fp4_bigbs.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_simt_32k_r8k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_simt_32k_DType__half_gA128_gR8192_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_simt_32k_r16k",
+        "elf": "",
+        "status": "SKIP",
+        "detail": "missing ELF: /mnt/workspace/cheng-ziyang2/SuperNPU/env_test/SuperNPUBench/benchmark/one-level-arch/output/solution/normalization/rms_norm/elf/solution_normalization_rms_norm_rms_norm_dynamic_simt_32k_DType__half_gA32_gR16384_PE4.elf"
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_tree_32k_r8k",
+        "elf": "",
+        "status": "PASS",
+        "detail": "=== rms_norm precision: PASS (max_abs=0.001953125, mse=3.254996619461714e-11) ==="
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_rms_norm_tree_32k_r16k",
+        "elf": "",
+        "status": "PASS",
+        "detail": "=== rms_norm precision: PASS (max_abs=0.001953125, mse=5.501910038674396e-11) ==="
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad_dynamic",
+        "elf": "",
+        "status": "PASS",
+        "detail": "=== group_norm_grad precision: PASS (dx=pass(max_abs=0.0009766), dgamma=pass(max_abs=0), dbeta=pass(max_abs=0)) ==="
+      },
+      {
+        "driver": "sol:res_check_all",
+        "op": "sol_group_norm_grad_1d_dynamic",
+        "elf": "",
+        "status": "PASS",
+        "detail": "=== group_norm_grad_1d precision: PASS (dx=pass(max_abs=0.0004883), dgamma=pass(max_abs=0), dbeta=pass(max_abs=0)) ==="
+      }
+    ]
+  }
+}
